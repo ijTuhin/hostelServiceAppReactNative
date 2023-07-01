@@ -1,26 +1,22 @@
 import { StyleSheet, Text, View } from "react-native";
+import Constants from "expo-constants";
+import HomePage from "./Components/Home/HomePage";
+import MainNavBar from "./Components/NavMenu/MainNavBar";
 
 export default function App() {
   return (
-    <View>
-      <Text
-        style={{
-          backgroundColor: "#fff",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        Changed many texts
-      </Text>
+    <View style={styles.body}>
+      <HomePage />
+      <MainNavBar/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  body: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#ffffff",
+    display: "flex",
+    position: "relative"
   },
 });
