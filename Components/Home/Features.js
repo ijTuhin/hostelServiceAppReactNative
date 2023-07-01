@@ -39,8 +39,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#64748B",
     fontSize: "1.25rem",
-    border: "1px solid",
+    borderWidth: 0,
     borderRadius: "0.4rem",
+    boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)"
   },
 });
 

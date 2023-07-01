@@ -5,6 +5,9 @@ import React from "react";
 const Header = () => {
   return (
     <>
+    {/* ++++++++++++++++++++++++++++++
+              Not in Use
+    ++++++++++++++++++++++++++++++ */}
       <View style={styles.top}>
         <Text style={styles.topText}>Hostel Service</Text>
         <View style={styles.navBar}>

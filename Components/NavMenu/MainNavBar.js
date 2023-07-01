@@ -5,6 +5,9 @@ import React from "react";
 const MainNavBar = () => {
   return (
     <View style={styles.navBar}>
+    {/* ++++++++++++++++++++++++++++++
+              Not in Use
+    ++++++++++++++++++++++++++++++ */}
       <TouchableHighlight>
         <Text style={styles.texts}>
           <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
