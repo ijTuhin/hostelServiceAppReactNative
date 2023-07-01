@@ -2,11 +2,13 @@ import { StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
 import HomePage from "./Components/Home/HomePage";
 import MainNavBar from "./Components/NavMenu/MainNavBar";
+import HistoryPage from "./Components/History/HistoryPage";
 
 export default function App() {
   return (
     <View style={styles.body}>
-      <HomePage />
+      {/* <HomePage /> */}
+      <HistoryPage/>
       <MainNavBar/>
     </View>
   );
