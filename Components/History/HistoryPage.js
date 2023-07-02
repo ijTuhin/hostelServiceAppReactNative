@@ -2,10 +2,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 import { TouchableRipple } from "react-native-paper";
 import React, { useState } from "react";
-import Header from "./Header";
 import Orders from "./Orders/Orders";
 import Payments from "./Payments/Payments";
-import Attendances from "./Attendances";
+import Attendances from "./Attendances/Attendances";
 import Issues from "./Issues";
 
 const HistoryPage = () => {
@@ -82,19 +81,7 @@ const HistoryPage = () => {
   );
 };
 const styles = StyleSheet.create({
-  top: {
-    /* borderBottomWidth: "1px",
-    borderBottomColor: "#134e4a", */
-  },
   navBar: {
-    /* display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-    paddingHorizontal: "1.25rem",
-    paddingVertical: "0.75rem",
-    borderTopWidth: "1px",
-    borderTopColor: "#134e4a", */
     display: "grid",
     gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
   },
