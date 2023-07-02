@@ -1,8 +1,9 @@
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
+import { TouchableRipple } from "react-native-paper";
 import React, { useState } from "react";
 import Header from "./Header";
-import Orders from "./Orders";
+import Orders from "./Orders/Orders";
 import Payments from "./Payments";
 import Attendances from "./Attendances";
 import Issues from "./Issues";
@@ -25,48 +26,52 @@ const HistoryPage = () => {
   };
   return (
     <View>
-    {/* =====================================
+      {/* =====================================
             History DashBoard NavBar
     ====================================== */}
       <View style={styles.top}>
         <Text style={styles.topText}>Hostel Service</Text>
         <View style={styles.navBar}>
-          <TouchableHighlight>
-            <Text
-              onPress={() => {
-                setSelectedTab(0);
-              }}
-            >
+          <TouchableRipple
+            rippleColor="rgba(0, 0, 0, .32)"
+            onPress={() => {
+              setSelectedTab(0);
+            }}
+          >
+            <Text style={selectedTab !== 0 ? styles.menu : styles.activeMenu}>
               <MaterialCommunityIcons name="food" size={32} color="#0f766e" />
             </Text>
-          </TouchableHighlight>
-          <TouchableHighlight>
-            <Text
-              onPress={() => {
-                setSelectedTab(1);
-              }}
-            >
+          </TouchableRipple>
+          <TouchableRipple
+            rippleColor="rgba(0, 0, 0, .32)"
+            onPress={() => {
+              setSelectedTab(1);
+            }}
+          >
+            <Text style={selectedTab !== 1 ? styles.menu : styles.activeMenu}>
               <FontAwesome5 name="money-check-alt" size={28} color="#0f766e" />
             </Text>
-          </TouchableHighlight>
-          <TouchableHighlight>
-            <Text
-              onPress={() => {
-                setSelectedTab(2);
-              }}
-            >
+          </TouchableRipple>
+          <TouchableRipple
+            rippleColor="rgba(0, 0, 0, .32)"
+            onPress={() => {
+              setSelectedTab(2);
+            }}
+          >
+            <Text style={selectedTab !== 2 ? styles.menu : styles.activeMenu}>
               <FontAwesome5 name="clipboard-list" size={28} color="#0f766e" />
             </Text>
-          </TouchableHighlight>
-          <TouchableHighlight>
-            <Text
-              onPress={() => {
-                setSelectedTab(3);
-              }}
-            >
+          </TouchableRipple>
+          <TouchableRipple
+            rippleColor="rgba(0, 0, 0, .32)"
+            onPress={() => {
+              setSelectedTab(3);
+            }}
+          >
+            <Text style={selectedTab !== 3 ? styles.menu : styles.activeMenu}>
               <MaterialCommunityIcons name="email" size={34} color="#0f766e" />
             </Text>
-          </TouchableHighlight>
+          </TouchableRipple>
         </View>
       </View>
       {/* =====================================
@@ -78,19 +83,20 @@ const HistoryPage = () => {
 };
 const styles = StyleSheet.create({
   top: {
-    borderBottomWidth: "1px",
-    borderBottomColor: "#134e4a",
-    marginBottom: 10,
+    /* borderBottomWidth: "1px",
+    borderBottomColor: "#134e4a", */
   },
   navBar: {
-    display: "flex",
+    /* display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
     paddingHorizontal: "1.25rem",
     paddingVertical: "0.75rem",
     borderTopWidth: "1px",
-    borderTopColor: "#134e4a",
+    borderTopColor: "#134e4a", */
+    display: "grid",
+    gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
   },
   topText: {
     color: "#0f766e",
@@ -101,6 +107,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: "0.75rem",
     paddingVertical: "0.75rem",
   },
-  menu: {},
+  menu: {
+    height: "2.5rem",
+    borderBottomWidth: "1px",
+    borderBottomColor: "#dddddd",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    paddingVertical: "0.5rem",
+  },
+  activeMenu: {
+    height: "2.5rem",
+    borderBottomWidth: "3px",
+    borderBottomColor: "#134e4a",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    paddingVertical: "0.5rem",
+  },
 });
 export default HistoryPage;

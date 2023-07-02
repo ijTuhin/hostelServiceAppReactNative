@@ -5,6 +5,7 @@ import MainNavBar from "./Components/NavMenu/MainNavBar";
 import HistoryPage from "./Components/History/HistoryPage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
+import { TouchableRipple } from "react-native-paper";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -28,26 +29,26 @@ export default function App() {
               DashBoard Common NavBar
       ====================================== */}
       <View style={styles.navBar}>
-        <TouchableHighlight>
-          <Text
-            onPress={() => {
-              setSelectedTab(0);
-            }}
-            style={styles.texts}
-          >
+        <TouchableRipple
+          onPress={() => {
+            setSelectedTab(0);
+          }}
+          rippleColor="rgba(0, 0, 0, .32)"
+        >
+          <Text  style={selectedTab ? styles.activeMenu : styles.menu}>
             <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
           </Text>
-        </TouchableHighlight>
-        <TouchableHighlight>
-          <Text
-            onPress={() => {
-              setSelectedTab(1);
-            }}
-            style={styles.texts}
-          >
+        </TouchableRipple>
+        <TouchableRipple
+          onPress={() => {
+            setSelectedTab(1);
+          }}
+          rippleColor="rgba(0, 0, 0, .32)"
+        >
+          <Text  style={selectedTab ? styles.menu : styles.activeMenu}>
             <MaterialCommunityIcons name="history" size={28} color="#D1D5DB" />
           </Text>
-        </TouchableHighlight>
+        </TouchableRipple>
       </View>
     </View>
   );
@@ -68,10 +69,16 @@ const styles = StyleSheet.create({
     gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
     gap: "0.5px",
   },
-  texts: {
+  menu: {
     display: "flex",
     justifyContent: "center",
     backgroundColor: "#134e4a",
+    padding: "0.6rem",
+  },
+  activeMenu: {
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "#275754",
     padding: "0.6rem",
   },
 });
