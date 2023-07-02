@@ -5,7 +5,8 @@ import React, { useState } from "react";
 import Orders from "./Orders/Orders";
 import Payments from "./Payments/Payments";
 import Attendances from "./Attendances/Attendances";
-import Issues from "./Issues";
+import Issues from "./Message/Issues";
+import AllMessages from "./Message/AllMessages";
 
 const HistoryPage = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -18,7 +19,7 @@ const HistoryPage = () => {
       case 2:
         return <Attendances />;
       case 3:
-        return <Issues />;
+        return <AllMessages />;
       default:
         return <Orders />;
     }
