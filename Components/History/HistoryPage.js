@@ -4,7 +4,7 @@ import { TouchableRipple } from "react-native-paper";
 import React, { useState } from "react";
 import Header from "./Header";
 import Orders from "./Orders/Orders";
-import Payments from "./Payments";
+import Payments from "./Payments/Payments";
 import Attendances from "./Attendances";
 import Issues from "./Issues";
 

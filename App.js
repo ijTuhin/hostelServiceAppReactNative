@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   navBar: {
     width: "100vw",
-    position: "absolute",
+    position: "fixed",
     bottom: 0,
     display: "grid",
     gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
