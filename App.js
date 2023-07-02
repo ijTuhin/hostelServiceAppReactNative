@@ -1,7 +1,5 @@
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
-import Constants from "expo-constants";
+import { StyleSheet, Text, View } from "react-native";
 import HomePage from "./Components/Home/HomePage";
-import MainNavBar from "./Components/NavMenu/MainNavBar";
 import HistoryPage from "./Components/History/HistoryPage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
@@ -72,13 +70,13 @@ const styles = StyleSheet.create({
   menu: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#134e4a",
+    backgroundColor: "#275754",
     padding: "0.6rem",
   },
   activeMenu: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#275754",
+    backgroundColor: "#134e4a",
     padding: "0.6rem",
   },
 });
