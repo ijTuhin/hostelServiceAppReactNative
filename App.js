@@ -4,6 +4,7 @@ import HistoryPage from "./Components/History/HistoryPage";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
+import PlaceOrder from "./Components/Features/Order/PlaceOrder";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -18,37 +19,39 @@ export default function App() {
     }
   };
   return (
-    <View style={styles.body}>
-      {/* =====================================
-              DashBoard Outlet
-      ====================================== */}
-      <View>{PrimaryOutletItems()}</View>
-      {/* =====================================
-              DashBoard Common NavBar
-      ====================================== */}
-      <View style={styles.navBar}>
-        <TouchableRipple
-          onPress={() => {
-            setSelectedTab(0);
-          }}
-          rippleColor="rgba(0, 0, 0, .32)"
-        >
-          <Text  style={selectedTab ? styles.activeMenu : styles.menu}>
-            <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
-          </Text>
-        </TouchableRipple>
-        <TouchableRipple
-          onPress={() => {
-            setSelectedTab(1);
-          }}
-          rippleColor="rgba(0, 0, 0, .32)"
-        >
-          <Text  style={selectedTab ? styles.menu : styles.activeMenu}>
-            <MaterialCommunityIcons name="history" size={28} color="#D1D5DB" />
-          </Text>
-        </TouchableRipple>
-      </View>
-    </View>
+    <PlaceOrder />
+
+    // <View style={styles.body}>
+    //   {/* =====================================
+    //           DashBoard Outlet
+    //   ====================================== */}
+    //   <View>{PrimaryOutletItems()}</View>
+    //   {/* =====================================
+    //           DashBoard Common NavBar
+    //   ====================================== */}
+    //   <View style={styles.navBar}>
+    //     <TouchableRipple
+    //       onPress={() => {
+    //         setSelectedTab(0);
+    //       }}
+    //       rippleColor="rgba(0, 0, 0, .32)"
+    //     >
+    //       <Text  style={selectedTab ? styles.activeMenu : styles.menu}>
+    //         <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
+    //       </Text>
+    //     </TouchableRipple>
+    //     <TouchableRipple
+    //       onPress={() => {
+    //         setSelectedTab(1);
+    //       }}
+    //       rippleColor="rgba(0, 0, 0, .32)"
+    //     >
+    //       <Text  style={selectedTab ? styles.menu : styles.activeMenu}>
+    //         <MaterialCommunityIcons name="history" size={28} color="#D1D5DB" />
+    //       </Text>
+    //     </TouchableRipple>
+    //   </View>
+    // </View>
   );
 }
 
