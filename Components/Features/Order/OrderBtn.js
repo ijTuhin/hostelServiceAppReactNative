@@ -1,31 +1,37 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
-import { coupon } from "../../Hooks/Conditions";
+import { coupon, meal } from "../../Hooks/Conditions";
 
 const OrderBtn = () => {
   const [tap, setTap] = useState(false);
   return (
     <View style={[styles.bottom]}>
       {coupon ? (
-        <TouchableRipple
-          style={[styles.tap, tap && styles.tapRing]}
-          onLongPress={() => {
-            setTap(true);
-          }}
-          rippleColor="rgba(13 ,148, 136, .32)"
-        >
-          <Text
-            style={[
-              { fontSize: "1.25rem", color: "#ddd" },
-              tap && {
-                fontWeight: "600",
-              },
-            ]}
+        meal ? (
+          <TouchableRipple
+            style={[styles.tap, tap && styles.tapRing]}
+            onLongPress={() => {
+              setTap(true);
+            }}
+            rippleColor="rgba(13 ,148, 136, .32)"
           >
-            {tap ? "Order Placed" : "Tap to continue"}
+            <Text
+              style={[
+                { fontSize: "1.25rem", color: "#ddd" },
+                tap && {
+                  fontWeight: "600",
+                },
+              ]}
+            >
+              {tap ? "Order Placed" : "Tap to continue"}
+            </Text>
+          </TouchableRipple>
+        ) : (
+          <Text style={{ color: "#ddd", fontSize: "0.85rem" }}>
+            It's not meal order time. Thank You!
           </Text>
-        </TouchableRipple>
+        )
       ) : (
         <Text style={{ color: "#ddd", fontSize: "0.85rem" }}>
           Please clear you payment. Thank you!
