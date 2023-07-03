@@ -24,5 +24,9 @@ if (
   meal = "Breakfast";
 }
 /* ====================================================== */
+/* ===============[ Set Payment Condition ]================= */
+let twoDays = 1;
 
-export { meal, coupon };
+/* ====================================================== */
+
+export { meal, coupon, twoDays };

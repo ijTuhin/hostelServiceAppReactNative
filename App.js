@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
 import PlaceOrder from "./Components/Features/Order/PlaceOrder";
+import Payment from "./Components/Features/Payment/Payment";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -19,7 +20,8 @@ export default function App() {
     }
   };
   return (
-    <PlaceOrder />
+    // <PlaceOrder />
+    <Payment />
 
     // <View style={styles.body}>
     //   {/* =====================================
