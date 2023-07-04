@@ -1,9 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 import { Octicons, FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
-import { coupon } from "../../../Hooks/Conditions";
 
-const CouponBox = () => {
+const CouponBox = ({coupon}) => {
   return (
     <View style={styles.couponBox}>
         <Text style={styles.coupon}>

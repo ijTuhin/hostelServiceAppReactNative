@@ -1,15 +1,17 @@
 import { View, Text, StyleSheet } from "react-native";
 import { Octicons, MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { coupon, twoDays } from "../../../Hooks/Conditions";
+import { coupon, currentDayPay, twoDays } from "../../../Hooks/Conditions";
 import CouponBox from "./CouponBox";
 import { TouchableRipple } from "react-native-paper";
 import PaymentBox from "./PaymentBox";
+import PaymentDone from "../PaymentDone";
 
 const MealBill = () => {
   let newCoupon;
   let total;
   const [selectedTab, setSelectedTab] = useState(null);
+  const [paymentTab, setPaymentTab] = useState(currentDayPay);
   const getCoupons = () => {
     switch (selectedTab) {
       case 0:
@@ -25,8 +27,12 @@ const MealBill = () => {
   return (
     <View style={{ backgroundColor: "#F1F5F9" }}>
       <View style={styles.packageBox}>
-        <CouponBox />
-      {/* =============================================== 
+        {!paymentTab ? (
+          <CouponBox coupon={coupon} />
+        ) : (
+          <CouponBox coupon={getCoupons()[1]} />
+        )}
+        {/* =============================================== 
                 Packages
 =============================================== */}
         <View style={styles.navBar}>
@@ -149,15 +155,22 @@ const MealBill = () => {
       {/* =============================================== 
                 Payment Section
 =============================================== */}
-      {selectedTab !== null && (
-        <View style={styles.paymentBox}>
-          <PaymentBox
-            coupon={coupon}
-            total={getCoupons()[1]}
-            added={getCoupons()[0]}
-          />
-          <Text onPress={()=> setSelectedTab(null)}>Cancel</Text>
-        </View>
+      {paymentTab ? (
+        <PaymentDone />
+      ) : (
+        <>
+          {selectedTab !== null && (
+            <View style={styles.paymentBox}>
+              <PaymentBox
+                coupon={coupon}
+                change={setPaymentTab}
+                total={getCoupons()[1]}
+                added={getCoupons()[0]}
+              />
+              <Text onPress={() => setSelectedTab(null)}>Cancel</Text>
+            </View>
+          )}
+        </>
       )}
     </View>
   );
@@ -200,7 +213,7 @@ const styles = StyleSheet.create({
     paddingBottom: "1.5rem",
     alignItems: "center",
     marginTop: "0.5rem",
-    backgroundColor:"#fff", 
+    backgroundColor: "#fff",
   },
 });
 

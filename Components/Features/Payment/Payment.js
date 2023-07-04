@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import MealBill from "./Meal/MealBill";
-import SeatRent from "./SeatRent";
+import SeatRent from "./Seat/SeatRent";
 import { TouchableRipple } from "react-native-paper";
 
 const Payment = () => {
@@ -64,7 +64,7 @@ const Payment = () => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: "#F1F5F9"/* #F1F5F9  #275754 */,
+    backgroundColor: "#F1F5F9" /* #F1F5F9  #275754 */,
     display: "flex",
     position: "relative",
   },

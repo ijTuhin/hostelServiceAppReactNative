@@ -2,7 +2,7 @@ import { Text, StyleSheet } from "react-native";
 import React from "react";
 import { TouchableRipple } from "react-native-paper";
 
-const PaymentBtn = () => {
+const PaymentBtn = ({change}) => {
   return (
     <TouchableRipple
       style={{
@@ -11,6 +11,7 @@ const PaymentBtn = () => {
       }}
       onPress={() => {
         // setSelectedTab(0);
+        change(1);
       }}
       rippleColor="rgba(0, 0, 0, .32)"
     >
