@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-import { Octicons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
+import { Octicons, MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { coupon, twoDays } from "../../../Hooks/Conditions";
 import CouponBox from "./CouponBox";
@@ -22,11 +22,13 @@ const MealBill = () => {
         return [(newCoupon = 0), (total = coupon + newCoupon)];
     }
   };
-  //   let total = coupon + newCoupon;
   return (
-    <>
+    <View style={{ backgroundColor: "#F1F5F9" }}>
       <View style={styles.packageBox}>
         <CouponBox />
+      {/* =============================================== 
+                Packages
+=============================================== */}
         <View style={styles.navBar}>
           {twoDays ? (
             <View style={styles.menuBox}>
@@ -145,15 +147,23 @@ const MealBill = () => {
         </View>
       </View>
       {/* =============================================== 
-                Second Section
+                Payment Section
 =============================================== */}
-      <PaymentBox coupon={coupon} total={getCoupons()[1]} added={getCoupons()[0]}/>
-    </>
+      {selectedTab !== null && (
+        <View style={styles.paymentBox}>
+          <PaymentBox
+            coupon={coupon}
+            total={getCoupons()[1]}
+            added={getCoupons()[0]}
+          />
+          <Text onPress={()=> setSelectedTab(null)}>Cancel</Text>
+        </View>
+      )}
+    </View>
   );
 };
 const styles = StyleSheet.create({
   packageBox: {
-    marginBottom: "1rem",
     borderBottomWidth: "1px",
     borderBottomColor: "#ddd",
     padding: "2rem",
@@ -183,17 +193,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  active: { color: "green", fontWeight: "600" },
+  active: { color: "#0E7490", fontWeight: "600" },
   paymentBox: {
-    backgroundColor: "#fff",
-    paddingVertical: "2rem",
-    paddingHorizontal: "1.5rem",
-  },
-  packageText: {
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginBottom: "0.5rem",
+    flexDirection: "column",
+    paddingBottom: "1.5rem",
+    alignItems: "center",
+    marginTop: "0.5rem",
+    backgroundColor:"#fff", 
   },
 });
 

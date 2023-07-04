@@ -1,40 +1,35 @@
-import { View, Text, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import React from "react";
 import { TouchableRipple } from "react-native-paper";
 
-const PaymentBtn = ({added}) => {
+const PaymentBtn = () => {
   return (
     <TouchableRipple
+      style={{
+        marginHorizontal: "1.5rem",
+        marginTop: "3.5rem",
+      }}
       onPress={() => {
         // setSelectedTab(0);
       }}
       rippleColor="rgba(0, 0, 0, .32)"
     >
-      <Text
-        style={[styles.menu, added ? styles.notActive : styles.active]}
-      >
+      <Text style={[styles.menu]}>
         Confirm Payment
       </Text>
     </TouchableRipple>
   );
 };
 const styles = StyleSheet.create({
-  menu:{
-    borderRadius:"0.4rem",
-    marginHorizontal:"1.5rem",
-    marginTop:"5.5rem",
-    padding:"1.5rem",
-    textAlign:"center",
-    fontSize:"1.35rem"
-  },
-  notActive:{
-    border:"1px solid #ddd",
-    color:"darkgray"
-  },
-  active:{
-    backgroundColor:"#0E7490",
-    opacity:"0.85",
-    color:"white"
+  menu: {
+    borderRadius: "0.4rem",
+    padding: "1.25rem",
+    textAlign: "center",
+    fontSize: "1.35rem",
+    backgroundColor: "#0E7490",
+    opacity: "0.85",
+    color: "white",
+    boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
   }
 });
 

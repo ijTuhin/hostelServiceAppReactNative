@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
-import { Octicons, MaterialIcons, FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import PaymentBtn from "./PaymentBtn";
 
-const PaymentBox = ({added, total, coupon}) => {
+const PaymentBox = ({ added, total, coupon }) => {
   return (
     <View style={styles.paymentBox}>
       <View style={[styles.packageText]}>
@@ -57,15 +57,17 @@ const PaymentBox = ({added, total, coupon}) => {
           />
         </Text>
       </View>
-      <PaymentBtn added={added}/>
+      <PaymentBtn />
     </View>
   );
 };
 const styles = StyleSheet.create({
   paymentBox: {
+    width: "100vw",
     backgroundColor: "#fff",
-    paddingVertical: "2rem",
+    paddingVertical: "1rem",
     paddingHorizontal: "1.5rem",
+    marginTop: "1rem",
   },
   packageText: {
     display: "flex",

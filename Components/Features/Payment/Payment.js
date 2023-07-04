@@ -64,7 +64,7 @@ const Payment = () => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: "#F1F5F9"/* #275754 */,
+    backgroundColor: "#F1F5F9"/* #F1F5F9  #275754 */,
     display: "flex",
     position: "relative",
   },
