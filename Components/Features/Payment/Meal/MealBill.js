@@ -5,7 +5,7 @@ import { coupon, currentDayPay, twoDays } from "../../../Hooks/Conditions";
 import CouponBox from "./CouponBox";
 import { TouchableRipple } from "react-native-paper";
 import PaymentBox from "./PaymentBox";
-import PaymentDone from "../PaymentDone";
+import TaskDone from "../../TaskDone";
 
 const MealBill = () => {
   let newCoupon;
@@ -156,7 +156,7 @@ const MealBill = () => {
                 Payment Section
 =============================================== */}
       {paymentTab ? (
-        <PaymentDone />
+        <TaskDone text={"Payment Done"} />
       ) : (
         <>
           {selectedTab !== null && (

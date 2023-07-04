@@ -1,8 +1,8 @@
 import { View, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import PaymentDone from "../PaymentDone";
 import { currentMonthPay } from "../../../Hooks/Conditions";
 import PayRent from "./PayRent";
+import TaskDone from "../../TaskDone";
 
 const SeatRent = () => {
   const [payment, setPayment] = useState(currentMonthPay);
@@ -13,7 +13,7 @@ const SeatRent = () => {
         backgroundColor: "#fff",
       }}
     >
-      {payment ? <PaymentDone /> : <PayRent paid={setPayment} />}
+      {payment ? <TaskDone text={"Payment Done"} /> : <PayRent paid={setPayment} />}
     </View>
   );
 };

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
 import PlaceOrder from "./Components/Features/Order/PlaceOrder";
 import Payment from "./Components/Features/Payment/Payment";
+import Issues from "./Components/Features/Issue/Issues";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -21,7 +22,8 @@ export default function App() {
   };
   return (
     // <PlaceOrder />
-    <Payment />
+    // <Payment />
+    <Issues />
 
     // <View style={styles.body}>
     //   {/* =====================================
