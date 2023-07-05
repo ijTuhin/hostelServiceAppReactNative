@@ -2,12 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { issues } from "../../Hooks/PassData";
-import {
-  Modal,
-  PaperProvider,
-  Portal,
-  TouchableRipple,
-} from "react-native-paper";
+import { TouchableRipple } from "react-native-paper";
 import PostBoxModal from "./PostBoxModal";
 
 const IssueBox = () => {
@@ -21,7 +16,6 @@ const IssueBox = () => {
           style={styles.topIcon}
           name="box-open"
           size={30}
-          //   color="#F59E0B"
           color="#fff"
         />
         <View style={styles.issues}>

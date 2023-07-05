@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import Orders from "./Orders/Orders";
 import Payments from "./Payments/Payments";
 import Attendances from "./Attendances/Attendances";
-import Issues from "./Message/Issues";
 import AllMessages from "./Message/AllMessages";
 
 const HistoryPage = () => {
@@ -90,7 +89,6 @@ const styles = StyleSheet.create({
     color: "#0f766e",
     fontSize: "1.75rem",
     fontWeight: 700,
-    // fontFamily:'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
     fontStyle: "italic",
     paddingHorizontal: "0.75rem",
     paddingVertical: "0.75rem",

@@ -10,7 +10,6 @@ const PaymentBtn = ({change}) => {
         marginTop: "3.5rem",
       }}
       onPress={() => {
-        // setSelectedTab(0);
         change(1);
       }}
       rippleColor="rgba(0, 0, 0, .32)"

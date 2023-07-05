@@ -43,8 +43,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       gap: "0.5rem",
       fontSize: "1.85rem",
-      color: "#fff",
-      // justifyContent:"center",
+      color: "#fff"
     },
   });
 

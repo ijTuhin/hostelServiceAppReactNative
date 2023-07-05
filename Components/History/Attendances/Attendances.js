@@ -46,9 +46,6 @@ const styles = StyleSheet.create({
     border: "1px solid #D1D5DB",
     borderLeftWidth: 0,
     borderRightWidth: 0,
-    // borderRadius: "0.15rem",
-    // boxShadow:
-    //   "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
   info: {
     display: "flex",

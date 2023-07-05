@@ -31,39 +31,39 @@ export default function App() {
     // <ProfileScreen/>
     // <EditProfile/>
     // <RoomInfo/>
-    <Information/>
+    // <Information/>
 
-    // <View style={styles.body}>
-    //   {/* =====================================
-    //           DashBoard Outlet
-    //   ====================================== */}
-    //   <View>{PrimaryOutletItems()}</View>
-    //   {/* =====================================
-    //           DashBoard Common NavBar
-    //   ====================================== */}
-    //   <View style={styles.navBar}>
-    //     <TouchableRipple
-    //       onPress={() => {
-    //         setSelectedTab(0);
-    //       }}
-    //       rippleColor="rgba(0, 0, 0, .32)"
-    //     >
-    //       <Text  style={selectedTab ? styles.activeMenu : styles.menu}>
-    //         <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
-    //       </Text>
-    //     </TouchableRipple>
-    //     <TouchableRipple
-    //       onPress={() => {
-    //         setSelectedTab(1);
-    //       }}
-    //       rippleColor="rgba(0, 0, 0, .32)"
-    //     >
-    //       <Text  style={selectedTab ? styles.menu : styles.activeMenu}>
-    //         <MaterialCommunityIcons name="history" size={28} color="#D1D5DB" />
-    //       </Text>
-    //     </TouchableRipple>
-    //   </View>
-    // </View>
+    <View style={styles.body}>
+      {/* =====================================
+              DashBoard Outlet
+      ====================================== */}
+      <View>{PrimaryOutletItems()}</View>
+      {/* =====================================
+              DashBoard Common NavBar
+      ====================================== */}
+      <View style={styles.navBar}>
+        <TouchableRipple
+          onPress={() => {
+            setSelectedTab(0);
+          }}
+          rippleColor="rgba(0, 0, 0, .32)"
+        >
+          <Text  style={selectedTab ? styles.activeMenu : styles.menu}>
+            <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
+          </Text>
+        </TouchableRipple>
+        <TouchableRipple
+          onPress={() => {
+            setSelectedTab(1);
+          }}
+          rippleColor="rgba(0, 0, 0, .32)"
+        >
+          <Text  style={selectedTab ? styles.menu : styles.activeMenu}>
+            <MaterialCommunityIcons name="history" size={28} color="#D1D5DB" />
+          </Text>
+        </TouchableRipple>
+      </View>
+    </View>
   );
 }
 

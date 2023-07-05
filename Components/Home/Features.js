@@ -14,7 +14,7 @@ const Features = () => {
         <Text style={styles.btn}>Payment</Text>
       </TouchableHighlight>
       <TouchableHighlight>
-        <Text style={styles.btn}>Confirm Order</Text>
+        <Text style={styles.btn}>Confirm Meal</Text>
       </TouchableHighlight>
       <TouchableHighlight>
         <Text style={styles.btn}>Issues/ Complaints</Text>

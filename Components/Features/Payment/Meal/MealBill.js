@@ -193,7 +193,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ddd",
     display: "flex",
     flexDirection: "row",
-    // gap: "3.75rem",
     gap: "0.75rem",
     alignItems: "center",
     justifyContent: "space-between",

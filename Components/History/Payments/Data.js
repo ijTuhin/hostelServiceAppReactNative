@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     gap: "0.25rem",
-    // alignItems: "",
   },
   rightTop: {
     display: "flex",

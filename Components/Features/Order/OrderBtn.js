@@ -29,7 +29,7 @@ const OrderBtn = () => {
           </TouchableRipple>
         ) : (
           <Text style={{ color: "#ddd", fontSize: "0.85rem" }}>
-            It's not meal order time. Thank You!
+            It is not meal order time. Thank You!
           </Text>
         )
       ) : (
