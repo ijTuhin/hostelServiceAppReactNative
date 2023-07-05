@@ -51,5 +51,42 @@ const issues = [
     icon: <FontAwesome5 name="house-user" size={50} color="#0F766E" />,
   },
 ];
-
-export { issues };
+const roomMate = [
+  {
+    matric: "c183201",
+    name: "James Cameron",
+    sem: 3,
+    dept: "CSE"
+  },
+  {
+    matric: "c183202",
+    name: "James Cameron",
+    sem: 3,
+    dept: "CSE"
+  },
+  {
+    matric: "c183203",
+    name: "James Cameron",
+    sem: 3,
+    dept: "CSE"
+  },
+  {
+    matric: "c183204",
+    name: "James Cameron",
+    sem: 3,
+    dept: "CSE"
+  },
+  {
+    matric: "c183205",
+    name: "James Cameron",
+    sem: 3,
+    dept: "CSE"
+  },
+  {
+    matric: "c183206",
+    name: "James Cameron",
+    sem: 3,
+    dept: "CSE"
+  }
+];
+export { issues, roomMate };
