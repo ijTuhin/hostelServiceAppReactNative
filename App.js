@@ -7,6 +7,7 @@ import { TouchableRipple } from "react-native-paper";
 import PlaceOrder from "./Components/Features/Order/PlaceOrder";
 import Payment from "./Components/Features/Payment/Payment";
 import Issues from "./Components/Features/Issue/Issues";
+import ProfileScreen from "./Components/Profile/ProfileScreen";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -23,7 +24,8 @@ export default function App() {
   return (
     // <PlaceOrder />
     // <Payment />
-    <Issues />
+    // <Issues />
+    <ProfileScreen/>
 
     // <View style={styles.body}>
     //   {/* =====================================
