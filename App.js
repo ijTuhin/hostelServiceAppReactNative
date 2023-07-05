@@ -8,6 +8,7 @@ import PlaceOrder from "./Components/Features/Order/PlaceOrder";
 import Payment from "./Components/Features/Payment/Payment";
 import Issues from "./Components/Features/Issue/Issues";
 import ProfileScreen from "./Components/Profile/ProfileScreen";
+import EditProfile from "./Components/Profile/EditProfile/EditProfile";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -25,7 +26,8 @@ export default function App() {
     // <PlaceOrder />
     // <Payment />
     // <Issues />
-    <ProfileScreen/>
+    // <ProfileScreen/>
+    <EditProfile/>
 
     // <View style={styles.body}>
     //   {/* =====================================
