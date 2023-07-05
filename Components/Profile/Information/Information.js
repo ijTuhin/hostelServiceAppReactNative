@@ -8,7 +8,7 @@ const Information = () => {
       <View style={styles.user}>
         <FontAwesome name="user-circle-o" size={40} color="#fff" />
         <View>
-          <Text style={{ fontSize: "1.35rem", color: "#fff" }}>
+          <Text style={{ fontSize: 21.6, color: "#fff" }}>
             User Name
           </Text>
           <Text style={{ color: "#ddd" }}>matricId@ugrad.iiuc.ac.bd</Text>
@@ -39,29 +39,29 @@ const styles = StyleSheet.create({
   user: {
     width: "100vw",
     backgroundColor: "#0F766E",
-    padding: "1.5rem",
+    padding: 24,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: "0.75rem",
+    gap: 12,
   },
   data: {
-    marginTop: "0.75rem",
+    marginTop: 12,
     backgroundColor: "#fff",
-    padding: "1rem",
+    padding: 16,
   },
   infoHead: {
-    borderBottomWidth: "1px",
+    borderBottomWidth: 1,
     borderBottomColor: "rgb(226, 232, 240)",
-    paddingBottom: "0.5rem",
-    paddingHorizontal: "0.3rem",
-    fontSize: "1.15rem",
-    fontWeight: "700",
+    paddingBottom: 8,
+    paddingHorizontal: 4.8,
+    fontSize: 18.4,
+    fontWeight: 700,
     color: "rgb(71, 85, 105)",
   },
   info: {
-    paddingHorizontal: "0.3rem",
-    paddingTop: "0.3rem",
+    paddingHorizontal: 4.8,
+    paddingTop: 4.8,
   },
 });
 export default Information;

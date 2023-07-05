@@ -15,14 +15,14 @@ const EditForm = () => {
       <Text
         style={{
           color: "rgb(148, 163, 184)",
-          marginBottom: "1rem",
+          marginBottom: 16,
           width: "100%",
         }}
       >
         [To change Academic data, please contact Warden.]
       </Text>
       <View>
-        <Text style={{ fontSize: "1.05rem", marginBottom: "0.25rem" }}>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
           Phone
         </Text>
         <TextInput
@@ -44,7 +44,7 @@ const EditForm = () => {
         />
       </View>
       <View>
-        <Text style={{ fontSize: "1.05rem", marginBottom: "0.25rem" }}>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
           Address
         </Text>
         <TextInput
@@ -66,7 +66,7 @@ const EditForm = () => {
         />
       </View>
       <View>
-        <Text style={{ fontSize: "1.05rem", marginBottom: "0.25rem" }}>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
           District
         </Text>
         <TextInput
@@ -88,7 +88,7 @@ const EditForm = () => {
         />
       </View>
       <View>
-        <Text style={{ fontSize: "1.05rem", marginBottom: "0.25rem" }}>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
           Thana
         </Text>
         <TextInput
@@ -113,10 +113,10 @@ const EditForm = () => {
       <Text
         style={{
           textAlign: "center",
-          fontWeight: "700",
+          fontWeight: 700,
           color: "#0F766E",
-          fontSize: "1rem",
-          marginVertical: "1rem",
+          fontSize: 16,
+          marginVertical: 16,
         }}
         onPress={() => {
           if (JSON.stringify(stored) === JSON.stringify(data)) {
@@ -140,20 +140,20 @@ const EditForm = () => {
 };
 const styles = StyleSheet.create({
   body: {
-    marginTop: "3.5rem",
-    padding: "1.5rem",
+    marginTop: 56,
+    padding: 24,
   },
   input: {
     border: "1px solid rgb(203, 213, 225)",
-    marginBottom: "0.5rem",
-    padding: "1rem",
+    marginBottom: 8,
+    padding: 16,
     color: "rgb(100, 116, 139)",
   },
   error: {
     color: "red",
-    marginTop: "1rem",
-    paddingVertical: "1rem",
-    fontSize: "1.15rem",
+    marginTop: 16,
+    paddingVertical: 16,
+    fontSize: 18.4,
     textAlign: "center",
     width: "100%",
     backgroundColor: "rgb(254, 226, 226)",

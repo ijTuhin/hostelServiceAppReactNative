@@ -14,7 +14,7 @@ const RoomInfo = () => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    padding:"1rem"
+    padding:16
   },
 });
 export default RoomInfo;

@@ -46,14 +46,14 @@ const MealBill = () => {
                 ]}
               >
                 <Octicons
-                  style={{ marginTop: "0.25rem" }}
+                  style={{ marginTop: 4 }}
                   name="dot-fill"
                   size={10}
                   color="lightgray"
                 />
                 2 days
               </Text>
-              <Text style={{ marginTop: "0.2rem", color: "#EF4444" }}>
+              <Text style={{ marginTop: 3.2, color: "#EF4444" }}>
                 (limit exceeds)
               </Text>
               <MaterialIcons
@@ -77,7 +77,7 @@ const MealBill = () => {
                   ]}
                 >
                   <Octicons
-                    style={{ marginTop: "0.25rem" }}
+                    style={{ marginTop: 4 }}
                     name="dot-fill"
                     size={10}
                     color="lightgray"
@@ -107,7 +107,7 @@ const MealBill = () => {
               >
                 {" "}
                 <Octicons
-                  style={{ marginTop: "0.25rem" }}
+                  style={{ marginTop: 4 }}
                   name="dot-fill"
                   size={10}
                   color="lightgray"
@@ -136,7 +136,7 @@ const MealBill = () => {
               >
                 {" "}
                 <Octicons
-                  style={{ marginTop: "0.25rem" }}
+                  style={{ marginTop: 4 }}
                   name="dot-fill"
                   size={10}
                   color="lightgray"
@@ -177,41 +177,41 @@ const MealBill = () => {
 };
 const styles = StyleSheet.create({
   packageBox: {
-    borderBottomWidth: "1px",
+    borderBottomWidth: 1,
     borderBottomColor: "#ddd",
-    padding: "2rem",
+    padding: 32,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    gap: "1.5rem",
+    gap: 24,
     alignItems: "center",
     backgroundColor: "#fff",
   },
   menuBox: {
-    paddingVertical: "0.5rem",
-    borderBottomWidth: "0.1px",
+    paddingVertical: 8,
+    borderBottomWidth: 0.1,
     borderBottomColor: "#ddd",
     display: "flex",
     flexDirection: "row",
-    gap: "0.75rem",
+    gap: 12,
     alignItems: "center",
     justifyContent: "space-between",
   },
   menu: {
-    fontSize: "1.25rem",
+    fontSize: 20,
     color: "gray",
     display: "flex",
-    gap: "0.25rem",
+    gap: 4,
     flexDirection: "row",
     alignItems: "center",
   },
-  active: { color: "#0E7490", fontWeight: "600" },
+  active: { color: "#0E7490", fontWeight: 600 },
   paymentBox: {
     display: "flex",
     flexDirection: "column",
-    paddingBottom: "1.5rem",
+    paddingBottom: 24,
     alignItems: "center",
-    marginTop: "0.5rem",
+    marginTop: 8,
     backgroundColor: "#fff",
   },
 });

@@ -19,11 +19,11 @@ const Payments = () => {
   return (
     <SafeAreaView
       style={{
-        marginBottom: "5rem",
+        marginBottom: 80,
       }}
     >
       <View style={styles.nav}>
-        <TouchableRipple style={{borderRadius: "9999px"}}
+        <TouchableRipple style={{borderRadius: 9999}}
           onPress={() => {
             setUrl(`http://localhost:3001/payment/`)
             setSelectedTab(0);
@@ -39,7 +39,7 @@ const Payments = () => {
             All
           </Text>
         </TouchableRipple>
-        <TouchableRipple style={{borderRadius: "9999px"}}
+        <TouchableRipple style={{borderRadius: 9999}}
           onPress={() => {
             setUrl(`http://localhost:3001/payment/meal`)
             setSelectedTab(1);
@@ -55,7 +55,7 @@ const Payments = () => {
             Meals Only
           </Text>
         </TouchableRipple>
-        <TouchableRipple style={{borderRadius: "9999px"}}
+        <TouchableRipple style={{borderRadius: 9999}}
           onPress={() => {
             setUrl(`http://localhost:3001/payment/rent`)
             setSelectedTab(2);
@@ -81,12 +81,12 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginTop: "1rem",
+    marginTop: 16,
   },
   menu: {
-    borderRadius: "9999px",
-    paddingHorizontal: "1.15rem",
-    paddingVertical: "0.5rem",
+    borderRadius: 9999,
+    paddingHorizontal: 18.4,
+    paddingVertical: 8,
   },
   active: {
     border: "1px solid #334155",

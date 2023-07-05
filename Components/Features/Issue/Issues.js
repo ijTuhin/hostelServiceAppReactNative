@@ -11,7 +11,7 @@ const Issues = () => {
       <View style={styles.body}>
         <View
           style={{
-            paddingVertical: "3rem",
+            paddingVertical: 48,
             backgroundColor: "skyblue",
             width: "100vw",
           }}

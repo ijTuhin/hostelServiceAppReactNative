@@ -9,7 +9,7 @@ const SeatRent = () => {
   return (
     <View
       style={{
-        padding: "2rem",
+        padding: 32,
         backgroundColor: "#fff",
       }}
     >
@@ -19,7 +19,7 @@ const SeatRent = () => {
 };
 const styles = StyleSheet.create({
   box: {
-    padding: "2rem",
+    padding: 32,
     backgroundColor: "#fff",
   },
 });

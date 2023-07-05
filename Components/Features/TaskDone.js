@@ -6,7 +6,7 @@ const TaskDone = ({text}) => {
   return (
     <View style={styles.box}>
       <Text
-        style={{ fontSize: "1.75rem", fontWeight: "600", color: "#475569" }}
+        style={{ fontSize: 28, fontWeight: 600, color: "#475569" }}
       >
         {text}
       </Text>
@@ -16,12 +16,12 @@ const TaskDone = ({text}) => {
 };
 const styles = StyleSheet.create({
   box: {
-    padding: "2rem",
+    padding: 32,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: "1.5rem",
+    gap: 24,
     alignItems: "center",
   },
 });

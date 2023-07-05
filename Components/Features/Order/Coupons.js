@@ -11,22 +11,22 @@ const Coupons = () => {
           styles.coupon,
           coupon
             ? {
-                marginBottom: "15rem",
+                marginBottom: 240,
               }
             : {
-                marginBottom: "5rem",
+                marginBottom: 80,
               },
         ]}
       >
         {coupon}
         <Octicons
-          style={{ marginTop: "0.25rem" }}
+          style={{ marginTop: 4 }}
           name="dot-fill"
           size={6}
           color="#ddd"
         />
         <FontAwesome5
-          style={{ marginTop: "0.15rem" }}
+          style={{ marginTop: 2.4 }}
           name="coins"
           size={18}
           color="#F59E0B"
@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: "0.5rem",
-    fontSize: "1.15rem",
+    gap: 8,
+    fontSize: 18.4,
     color: "#ddd",
     fontWeight: 500,
   },

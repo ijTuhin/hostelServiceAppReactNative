@@ -13,8 +13,8 @@ const Members = () => {
           <View style={styles.infoBar}>
             <Text
               style={{
-                fontSize: "1.15rem",
-                fontWeight: "700",
+                fontSize: 18.4,
+                fontWeight: 700,
                 color: "rgb(13, 148, 136)",
                 textTransform: "capitalize",
               }}
@@ -26,7 +26,7 @@ const Members = () => {
               <TouchableRipple
                 style={{
                   borderRadius: "100%",
-                  padding: "0.5rem",
+                  padding: 8,
                 }}
                 rippleColor="rgba(45, 212, 191, .32)"
                 onPress={() => {
@@ -43,7 +43,7 @@ const Members = () => {
               <TouchableRipple
                 style={{
                   borderRadius: "100%",
-                  padding: "0.5rem",
+                  padding: 8,
                 }}
                 rippleColor="rgba(45, 212, 191, .32)"
                 onPress={() => {
@@ -75,7 +75,7 @@ const Members = () => {
 };
 const styles = StyleSheet.create({
   body: {
-    padding: "0.5rem",
+    padding: 8,
     boxShadow:
       "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   info: {
-    paddingVertical: "0.5rem",
+    paddingVertical: 8,
     borderTopWidth: 1,
     borderTopColor: "rgb(226, 232, 240)",
     flexDirection: "column",

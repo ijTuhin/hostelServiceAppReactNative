@@ -80,18 +80,18 @@ const styles = StyleSheet.create({
     bottom: 0,
     display: "grid",
     gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: "0.5px",
+    gap: 0.5,
   },
   menu: {
     display: "flex",
     justifyContent: "center",
     backgroundColor: "#275754",
-    padding: "0.6rem",
+    padding: 9.6,
   },
   activeMenu: {
     display: "flex",
     justifyContent: "center",
     backgroundColor: "#134e4a",
-    padding: "0.6rem",
+    padding: 9.6,
   },
 });

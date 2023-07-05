@@ -18,9 +18,9 @@ const OrderBtn = () => {
           >
             <Text
               style={[
-                { fontSize: "1.25rem", color: "#ddd" },
+                { fontSize: 20, color: "#ddd" },
                 tap && {
-                  fontWeight: "600",
+                  fontWeight: 600,
                 },
               ]}
             >
@@ -28,12 +28,12 @@ const OrderBtn = () => {
             </Text>
           </TouchableRipple>
         ) : (
-          <Text style={{ color: "#ddd", fontSize: "0.85rem" }}>
+          <Text style={{ color: "#ddd", fontSize: 13.6 }}>
             It is not meal order time. Thank You!
           </Text>
         )
       ) : (
-        <Text style={{ color: "#ddd", fontSize: "0.85rem" }}>
+        <Text style={{ color: "#ddd", fontSize: 13.6 }}>
           Please clear you payment. Thank you!
         </Text>
       )}
@@ -43,7 +43,7 @@ const OrderBtn = () => {
 const styles = StyleSheet.create({
   bottom: {
     position: "absolute",
-    bottom: "1.75rem",
+    bottom: 28,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
   tap: {
     border: "1px solid #ddd",
     borderRadius: "100%",
-    width: "12rem",
-    height: "12rem",
+    width: 192,
+    height: 192,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

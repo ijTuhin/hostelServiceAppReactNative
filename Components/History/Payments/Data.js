@@ -38,15 +38,15 @@ const Data = ({data}) => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: "1rem",
-    marginTop: "0.5rem",
-    padding: "1rem",
+    marginHorizontal: 16,
+    marginTop: 8,
+    padding: 16,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
     borderWidth: 0,
-    borderRadius: "0.15rem",
+    borderRadius: 2.4,
     boxShadow:
       "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
@@ -54,28 +54,28 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    gap: "0.5rem",
+    gap: 8,
     alignItems: "flex-end",
   },
   left: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    gap: "0.25rem",
+    gap: 4,
   },
   rightTop: {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
-    gap: "0.5rem",
+    gap: 8,
   },
   title: {
-    fontSize: "1.25rem",
+    fontSize: 20,
     fontWeight: 500,
     textTransform: "capitalize",
   },
   bill: {
-    fontSize: "1.25rem",
+    fontSize: 20,
     color: "red",
     fontWeight: 500,
   },
@@ -83,16 +83,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: "0.25rem",
-    fontSize: "1.15rem",
+    gap: 4,
+    fontSize: 18.4,
     color: "#F59E0B",
     fontWeight: 500,
   },
   date: {
-    fontSize: "0.9rem",
+    fontSize: 14.4,
   },
   trans: {
-    fontSize: "0.95rem",
+    fontSize: 15.2,
   },
 });
 

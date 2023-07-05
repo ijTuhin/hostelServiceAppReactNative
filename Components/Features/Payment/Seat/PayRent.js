@@ -6,17 +6,17 @@ import { payMonth } from "../../../Hooks/Conditions";
 const PayRent = ({ paid }) => {
   return (
     <View style={styles.box}>
-      <Text style={{ fontSize: "1.15rem" }}>Bill Month</Text>
+      <Text style={{ fontSize: 18.4 }}>Bill Month</Text>
       <Text
-        style={{ fontSize: "1.65rem", fontWeight: "700", color: "#374151" }}
+        style={{ fontSize: 26.4, fontWeight: 700, color: "#374151" }}
       >
         {payMonth}
       </Text>
-      <Text style={{ color: "#EF4444", fontWeight: "600" }}>not paid</Text>
+      <Text style={{ color: "#EF4444", fontWeight: 600 }}>not paid</Text>
       <TouchableRipple
         style={{
-          marginHorizontal: "1.5rem",
-          marginVertical: "1.5rem",
+          marginHorizontal: 24,
+          marginVertical: 24,
         }}
         onPress={() => {
           paid(1);
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   menu: {
-    borderRadius: "0.4rem",
-    paddingVertical: "1rem",
-    paddingHorizontal: "2.5rem",
+    borderRadius: 6.4,
+    paddingVertical: 16,
+    paddingHorizontal: 40,
     textAlign: "center",
-    fontSize: "1.35rem",
+    fontSize: 21.6,
     backgroundColor: "#0E7490",
-    opacity: "0.85",
+    opacity: 0.85,
     color: "white",
     boxShadow:
       "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",

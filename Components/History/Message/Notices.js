@@ -19,9 +19,9 @@ const Notices = () => {
         data.map((i) => (
           <View key={i._id} style={styles.container}>
             <View style={styles.top}>
-              <FontAwesome style={{ marginTop: "0.35rem" }} name="user-circle" size={24} color="black" />
+              <FontAwesome style={{ marginTop: 5.6 }} name="user-circle" size={24} color="black" />
               <View style={styles.head}>
-                <Text style={{ fontSize: "1.15rem", fontWeight: 600 }}>
+                <Text style={{ fontSize: 18.4, fontWeight: 600 }}>
                   {i.title}
                 </Text>
                 <View
@@ -29,20 +29,20 @@ const Notices = () => {
                     display: "flex",
                     flexDirection: "row",
                     alignItems: "flex-end",
-                    columnGap: "0.25rem",
+                    columnGap: 4,
                   }}
                 >
-                  <Text style={{ fontSize: "0.85rem" }}>From</Text>
+                  <Text style={{ fontSize: 13.6 }}>From</Text>
                   <Octicons name="dot-fill" size={8} color="#94A3B8" />
                   {i.to === "All Users" ? (
-                    <FontAwesome5 style={{ marginBottom: "0.1rem" }} name="users" size={14} color="#64748B" />
+                    <FontAwesome5 style={{ marginBottom: 1.6 }} name="users" size={14} color="#64748B" />
                   ) : (
-                    <FontAwesome5 style={{ marginBottom: "0.15rem" }} name="user-alt" size={12} color="#64748B" />
+                    <FontAwesome5 style={{ marginBottom: 2.4 }} name="user-alt" size={12} color="#64748B" />
                   )}
                 </View>
               </View>
             </View>
-            <Text style={{paddingRight:"0.75rem", textAlign:"justify"}}>{i.notice}</Text>
+            <Text style={{paddingRight:12, textAlign:"justify"}}>{i.notice}</Text>
           </View>
         ))}
     </View>
@@ -50,17 +50,17 @@ const Notices = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: "1px",
+    borderBottomWidth: 1,
     borderBottomColor: "#D1D5DB",
-    paddingVertical: "0.75rem",
-    paddingHorizontal: "1.15rem",
+    paddingVertical: 12,
+    paddingHorizontal: 18.4,
   },
   top: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "flex-start",
-    gap: "0.5rem",
+    gap: 8,
   },
   head: {
     display: "flex",

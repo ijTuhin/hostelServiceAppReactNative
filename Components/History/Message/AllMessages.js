@@ -53,30 +53,30 @@ const AllMessages = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: "5rem",
+    marginBottom: 80,
   },
   box: {
-    marginHorizontal: "1rem",
-    marginTop: "0.5rem",
-    padding: "1rem",
+    marginHorizontal: 16,
+    marginTop: 8,
+    padding: 16,
   },
   navBar: {
     position: "sticky",
-    top:"0px",
+    top:0,
     display: "grid",
     gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: "0.5px",
-    zIndex: "1000",
+    gap: 0.5,
+    zIndex: 1000,
     backgroundColor: "white"
   },
   menu: {
     display: "flex",
     justifyContent: "center",
-    padding: "1rem",
-    fontSize:"1.25rem",
+    padding: 16,
+    fontSize:24,
   },
   active: {
-    borderBottomWidth: "3px",
+    borderBottomWidth: 3,
     borderBottomColor: "#275754",
     color: "#275754",
     fontWeight: 600

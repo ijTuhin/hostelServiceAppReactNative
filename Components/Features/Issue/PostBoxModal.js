@@ -10,14 +10,12 @@ const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
         onDismiss={hideModal}
         contentContainerStyle={{
           backgroundColor: "#fff",
-          paddingVertical: "1.5rem",
-          paddingHorizontal: "1rem",
-          marginHorizontal: "1.5rem",
+          paddingVertical: 24,
+          paddingHorizontal: 16,
+          marginHorizontal: 24,
         }}
       >
-        <Text style={{ fontSize: "1.5rem", fontWeight: "600" }}>
-          {data?.topic}
-        </Text>
+        <Text style={{ fontSize: 24, fontWeight: 600 }}>{data?.topic}</Text>
         <TextInput
           style={styles.input}
           onChange={(e) => {
@@ -33,7 +31,8 @@ const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
           placeholder="Add Note (max. 200 character)"
           keyboardType="numeric"
         />
-        <Text style={styles.postBtn}
+        <Text
+          style={styles.postBtn}
           onPress={() => {
             console.log(data);
             setVisible(false);
@@ -48,19 +47,19 @@ const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
 const styles = StyleSheet.create({
   input: {
     height: 140,
-    border:"1px solid #0F766E",
-    marginVertical:"1rem",
-    padding: "1rem",
+    border: "1px solid #0F766E",
+    marginVertical: 16,
+    padding: 16,
   },
-  postBtn:{
-    border:"1px solid #0F766E",
-    backgroundColor:"#0F766E",
-    width:"100%",
-    paddingVertical:"0.5rem",
-    color:"#fff",
-    textAlign:"center",
-    fontSize:"1.35rem"
-  }
+  postBtn: {
+    border: "1px solid #0F766E",
+    backgroundColor: "#0F766E",
+    width: "100%",
+    paddingVertical: 8,
+    color: "#fff",
+    textAlign: "center",
+    fontSize: 21.6,
+  },
 });
 
 export default PostBoxModal;

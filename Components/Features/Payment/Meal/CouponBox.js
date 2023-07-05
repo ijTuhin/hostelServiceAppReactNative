@@ -8,13 +8,13 @@ const CouponBox = ({coupon}) => {
         <Text style={styles.coupon}>
           {coupon}
           <Octicons
-            style={{ marginTop: "0.25rem" }}
+            style={{ marginTop: 4 }}
             name="dot-fill"
             size={10}
             color="lightgray"
           />
           <FontAwesome5
-            style={{ marginTop: "0.25rem" }}
+            style={{ marginTop: 4 }}
             name="coins"
             size={24}
             color="#F59E0B"
@@ -31,18 +31,18 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       fontWeight: 500,
-      width: "8rem",
-      height: "8rem",
+      width: 128,
+      height: 128,
       borderRadius: "100%",
       backgroundColor: "#275754",
-      opacity: "0.85",
+      opacity: 0.85,
     },
     coupon: {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
-      gap: "0.5rem",
-      fontSize: "1.85rem",
+      gap: 8,
+      fontSize: 29.6,
       color: "#fff"
     },
   });

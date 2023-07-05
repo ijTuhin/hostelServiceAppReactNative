@@ -7,13 +7,13 @@ const LinkSection = () => {
   return (
     <View
       style={{
-        margin: "1rem",
+        margin: 16,
       }}
     >
       <TouchableRipple
         style={{
-          marginBottom: "0.5rem",
-          borderRadius: "0.3rem",
+          marginBottom: 8,
+          borderRadius: 4.8,
         }}
         onPress={() => {
           // setSelectedTab(1);
@@ -31,8 +31,8 @@ const LinkSection = () => {
       </TouchableRipple>
       <TouchableRipple
         style={{
-          marginBottom: "0.5rem",
-          borderRadius: "0.3rem",
+          marginBottom: 8,
+          borderRadius: 4.8,
         }}
         onPress={() => {
           // setSelectedTab(1);
@@ -50,8 +50,8 @@ const LinkSection = () => {
       </TouchableRipple>
       <TouchableRipple
         style={{
-          marginBottom: "0.5rem",
-          borderRadius: "0.3rem",
+          marginBottom: 8,
+          borderRadius: 4.8,
         }}
         onPress={() => {
           // setSelectedTab(1);
@@ -69,8 +69,8 @@ const LinkSection = () => {
       </TouchableRipple>
       <TouchableRipple
         style={{
-          marginBottom: "0.5rem",
-          borderRadius: "0.3rem",
+          marginBottom: 8,
+          borderRadius: 4.8,
         }}
         onPress={() => {
           // setSelectedTab(1);
@@ -88,8 +88,8 @@ const LinkSection = () => {
       </TouchableRipple>
       <TouchableRipple
         style={{
-          marginBottom: "0.5rem",
-          borderRadius: "0.3rem",
+          marginBottom: 8,
+          borderRadius: 4.8,
         }}
         onPress={() => {
           // setSelectedTab(1);
@@ -111,12 +111,12 @@ const LinkSection = () => {
 const styles = StyleSheet.create({
   link: {
     border: "1px solid rgb(226, 232, 240)",
-    padding: "0.75rem",
+    padding: 12,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    borderRadius: "0.3rem",
+    borderRadius: 4.8,
     color: "rgb(100, 116, 139)",
   },
 });

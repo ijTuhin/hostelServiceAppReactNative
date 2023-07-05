@@ -35,10 +35,10 @@ const Attendances = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: "1rem",
-    marginTop: "0.5rem",
-    paddingHorizontal: "1rem",
-    paddingVertical: "0.75rem",
+    marginHorizontal: 16,
+    marginTop: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -52,13 +52,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
-    gap: "0.5rem",
+    gap: 8,
   },
   time: {
-    fontSize: "0.75rem",
+    fontSize: 12,
   },
   date: {
-    fontSize: "1.15rem",
+    fontSize: 18.4,
     fontWeight: 700,
     color: "#6B7280",
   },

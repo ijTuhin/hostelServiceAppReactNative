@@ -36,30 +36,30 @@ const Meals = () => {
 };
 const styles = StyleSheet.create({
   btnBox: {
-    padding: "2.5rem",
-    paddingTop: "6rem",
+    padding: 40,
+    paddingTop: 96,
   },
   btn: {
-    borderRadius: "0.75rem",
-    paddingHorizontal: "2.5rem",
-    marginVertical: "0.35rem",
+    borderRadius: 12,
+    paddingHorizontal: 40,
+    marginVertical: 5.6,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
   activeBtn: {
-    paddingVertical: "2rem",
+    paddingVertical: 32,
     backgroundColor: "white",
-    fontSize: "1.5rem",
-    marginVertical: "0.75rem",
+    fontSize: 24,
+    marginVertical: 12,
     boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
   },
   notActiveBtn: {
     border: "1px solid #6B7280",
-    marginHorizontal: "1rem",
-    paddingVertical: "1rem",
+    marginHorizontal: 16,
+    paddingVertical: 16,
     color: "#6B7280",
-    fontSize: "1.25rem",
+    fontSize: 20,
   },
 });
 

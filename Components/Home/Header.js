@@ -10,7 +10,7 @@ const Header = () => {
           <FontAwesome name="user-circle-o" size={32} color="#D1D5DB" />
         </Text>
       </TouchableHighlight>
-      <Text style={[styles.texts, styles.appTag]}>Hostel Service App</Text>
+      <Text style={styles.appTag}>Hostel Service App</Text>
       <Text style={styles.texts}>
         <AntDesign name="logout" size={24} color="#D1D5DB" />
       </Text>
@@ -20,8 +20,8 @@ const Header = () => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#134e4a",
-    paddingVertical: "1.25rem",
-    paddingHorizontal: "1.25rem",
+    paddingVertical: 20,
+    paddingHorizontal: 20,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -30,14 +30,15 @@ const styles = StyleSheet.create({
   },
   texts: {
     color: "#ffffff",
-    fontSize: "1rem",
+    fontSize: 16,
   },
   btn: {
     backgroundColor: "#ffffff",
     borderRadius: "100%",
   },
   appTag: {
-    fontSize: "1.45rem",
+    color: "#ffffff",
+    fontSize: 23.2,
     fontStyle: "italic",
   },
 });

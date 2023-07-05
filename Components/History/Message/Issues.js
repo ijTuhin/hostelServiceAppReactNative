@@ -19,11 +19,11 @@ const Issues = () => {
             <View style={styles.top}>
               <View>
                 <View style={styles.head}>
-                  <Text style={{ fontSize: "1.5rem", fontWeight: 600 }}>
+                  <Text style={{ fontSize: 24, fontWeight: 600 }}>
                     Topic Name
                   </Text>
                   <MaterialCommunityIcons
-                    style={{ marginTop: "0.2rem" }}
+                    style={{ marginTop: 3.2 }}
                     name="check-all"
                     size={28}
                     color="lightgreen"
@@ -36,10 +36,10 @@ const Issues = () => {
                 </View>
               </View>
               <View style={styles.info}>
-                <Text style={{ fontSize: "1.1rem" }}>To: warden</Text>
+                <Text style={{ fontSize: 17.6 }}>To: warden</Text>
               </View>
             </View>
-            <Text style={{ fontSize: "1.05rem" }}>
+            <Text style={{ fontSize: 16.8 }}>
               Issues jhldoy;s jhlwioeyt djlh;idsogpa djg;aoiey
             </Text>
           </View>
@@ -49,23 +49,23 @@ const Issues = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    borderBottomWidth: "1px",
+    borderBottomWidth: 1,
     borderBottomColor: "#D1D5DB",
-    paddingVertical: "0.75rem",
-    paddingHorizontal: "1.15rem",
+    paddingVertical: 12,
+    paddingHorizontal: 18.4,
   },
   top: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
-    marginBottom: "0.35rem",
+    marginBottom: 5.6,
   },
   head: {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-start",
-    gap: "0.5rem",
+    gap: 8,
   },
   info: {
     display: "flex",
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
-    gap: "0.5rem",
+    gap: 8,
   },
 });
 
