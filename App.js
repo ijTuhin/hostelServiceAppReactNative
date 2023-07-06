@@ -28,43 +28,55 @@ export default function App() {
   return (
     // <PlaceOrder />
     // <MakePayment />
-    <Issues />
+    // <Issues />
     // <ProfileScreen/>
     // <EditProfile/>
     // <RoomInfo/>
     // <Information/>
 
-    // <View style={styles.body}>
-    //   {/* =====================================
-    //           DashBoard Outlet
-    //   ====================================== */}
-    //   <View>{PrimaryOutletItems()}</View>
-    //   {/* =====================================
-    //           DashBoard Common NavBar
-    //   ====================================== */}
-    //   <View style={styles.navBar}>
-    //     <TouchableRipple
-    //       onPress={() => {
-    //         setSelectedTab(0);
-    //       }}
-    //       rippleColor="rgba(0, 0, 0, .32)"
-    //     >
-    //       <Text  style={selectedTab ? styles.activeMenu : styles.menu}>
-    //         <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
-    //       </Text>
-    //     </TouchableRipple>
-    //     <TouchableRipple
-    //       onPress={() => {
-    //         setSelectedTab(1);
-    //       }}
-    //       rippleColor="rgba(0, 0, 0, .32)"
-    //     >
-    //       <Text  style={selectedTab ? styles.menu : styles.activeMenu}>
-    //         <MaterialCommunityIcons name="history" size={28} color="#D1D5DB" />
-    //       </Text>
-    //     </TouchableRipple>
-    //   </View>
-    // </View>
+    <View style={styles.body}>
+      {/* =====================================
+              DashBoard Outlet
+      ====================================== */}
+      <View>{PrimaryOutletItems()}</View>
+      {/* =====================================
+              DashBoard Common NavBar
+      ====================================== */}
+      <View style={styles.navBar}>
+        <TouchableRipple
+          style={[
+            styles.menu,
+            selectedTab
+              ? { backgroundColor: "#134e4a" }
+              : { backgroundColor: "#275754" },
+          ]}
+          onPress={() => {
+            setSelectedTab(0);
+          }}
+          rippleColor="rgba(0, 0, 0, .32)"
+        >
+          <Text>
+            <MaterialCommunityIcons name="home" size={28} color="#D1D5DB" />
+          </Text>
+        </TouchableRipple>
+        <TouchableRipple
+          style={[
+            styles.menu,
+            selectedTab
+              ? { backgroundColor: "#275754" }
+              : { backgroundColor: "#134e4a" },
+          ]}
+          onPress={() => {
+            setSelectedTab(1);
+          }}
+          rippleColor="rgba(0, 0, 0, .32)"
+        >
+          <Text>
+            <MaterialCommunityIcons name="history" size={28} color="#D1D5DB" />
+          </Text>
+        </TouchableRipple>
+      </View>
+    </View>
   );
 }
 
@@ -74,29 +86,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     display: "flex",
     position: "relative",
+    width: "100%",
   },
   navBar: {
-    // width: "100%",
+    width: "100%",
     position: "fixed",
     bottom: 0,
-    // display: "grid",
-    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    // gap: 0.5,
-    display:"flex",
-    flexDirection:"row"
+    display: "flex",
+    flexDirection: "row",
   },
   menu: {
     display: "flex",
+    flexDirection: "row",
     justifyContent: "center",
-    backgroundColor: "#275754",
     padding: 9.6,
-    width:"50vw"
-  },
-  activeMenu: {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "#134e4a",
-    padding: 9.6,
-    width:"50vw"
+    width: "50%",
   },
 });

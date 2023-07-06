@@ -110,7 +110,8 @@ const LinkSection = () => {
 };
 const styles = StyleSheet.create({
   link: {
-    border: "1px solid rgb(226, 232, 240)",
+    borderWidth:1,
+    borderColor:"rgb(226, 232, 240)",
     padding: 12,
     display: "flex",
     flexDirection: "row",

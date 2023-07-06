@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(241, 245, 249)",
   },
   user: {
-    width: "100vw",
+    width: "100%",
     backgroundColor: "#0F766E",
     padding: 24,
     display: "flex",

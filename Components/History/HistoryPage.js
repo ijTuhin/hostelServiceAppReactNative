@@ -32,42 +32,66 @@ const HistoryPage = () => {
         <Text style={styles.topText}>Hostel Service</Text>
         <View style={styles.navBar}>
           <TouchableRipple
+            style={[
+              styles.menu,
+              selectedTab !== 0
+                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
+            ]}
             rippleColor="rgba(0, 0, 0, .32)"
             onPress={() => {
               setSelectedTab(0);
             }}
           >
-            <Text style={selectedTab !== 0 ? styles.menu : styles.activeMenu}>
+            <Text>
               <MaterialCommunityIcons name="food" size={32} color="#0f766e" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
+            style={[
+              styles.menu,
+              selectedTab !== 1
+                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
+            ]}
             rippleColor="rgba(0, 0, 0, .32)"
             onPress={() => {
               setSelectedTab(1);
             }}
           >
-            <Text style={selectedTab !== 1 ? styles.menu : styles.activeMenu}>
+            <Text>
               <FontAwesome5 name="money-check-alt" size={28} color="#0f766e" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
+            style={[
+              styles.menu,
+              selectedTab !== 2
+                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
+            ]}
             rippleColor="rgba(0, 0, 0, .32)"
             onPress={() => {
               setSelectedTab(2);
             }}
           >
-            <Text style={selectedTab !== 2 ? styles.menu : styles.activeMenu}>
+            <Text>
               <FontAwesome5 name="clipboard-list" size={28} color="#0f766e" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
+            style={[
+              styles.menu,
+              selectedTab !== 3
+                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
+            ]}
             rippleColor="rgba(0, 0, 0, .32)"
             onPress={() => {
               setSelectedTab(3);
             }}
           >
-            <Text style={selectedTab !== 3 ? styles.menu : styles.activeMenu}>
+            <Text>
               <MaterialCommunityIcons name="email" size={34} color="#0f766e" />
             </Text>
           </TouchableRipple>
@@ -82,10 +106,8 @@ const HistoryPage = () => {
 };
 const styles = StyleSheet.create({
   navBar: {
-    // display: "grid",
-    // gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-    display:"flex",
-    flexDirection:"row",
+    display: "flex",
+    flexDirection: "row",
   },
   topText: {
     color: "#0f766e",
@@ -98,22 +120,12 @@ const styles = StyleSheet.create({
   menu: {
     height: 40,
     borderBottomWidth: 1,
-    borderBottomColor: "#dddddd",
     display: "flex",
+    flexDirection:"row",
     justifyContent: "center",
     alignItems: "flex-end",
     paddingVertical: 8,
-    width:"25vw"
-  },
-  activeMenu: {
-    height: 40,
-    borderBottomWidth: 3,
-    borderBottomColor: "#134e4a",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "flex-end",
-    paddingVertical: 8,
-    width:"25vw"
+    width: "25%",
   },
 });
 export default HistoryPage;

@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
     boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)",
   },
   notActiveBtn: {
-    border: "1px solid #6B7280",
+    borderWidth: 1,
+    borderColor: "#6B7280",
     marginHorizontal: 16,
     paddingVertical: 16,
     color: "#6B7280",

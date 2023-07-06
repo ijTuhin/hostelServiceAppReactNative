@@ -39,7 +39,7 @@ const TopSection = () => {
 };
 const styles = StyleSheet.create({
   body: {
-    width: "100vw",
+    width: "100%",
     backgroundColor: "#0F766E",
     padding: 16,
   },
@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
   },
   edit: {
     marginTop: 16,
-    border: "1px solid #ddd",
+    borderWidth:1,
+    borderColor:"#ddd",
     padding: 8,
     textAlign: "center",
     borderRadius: 4.8,

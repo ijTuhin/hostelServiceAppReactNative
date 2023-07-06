@@ -23,22 +23,31 @@ const AllMessages = () => {
     ====================================== */}
       <View style={styles.navBar}>
         <TouchableRipple
+          style={[styles.menu, selectedTab ? styles.notActive : styles.active]}
           onPress={() => {
             setSelectedTab(0);
           }}
           rippleColor="rgba(0, 0, 0, .32)"
         >
-          <Text style={[styles.menu, selectedTab ? styles.notActive : styles.active]}>
+          <Text
+            style={[
+              {
+                fontSize: 24,
+              },
+              !selectedTab && { color: "#275754" },
+            ]}
+          >
             Notices
           </Text>
         </TouchableRipple>
         <TouchableRipple
+          style={[styles.menu, selectedTab ? styles.active : styles.notActive]}
           onPress={() => {
             setSelectedTab(1);
           }}
           rippleColor="rgba(0, 0, 0, .32)"
         >
-          <Text style={[styles.menu, selectedTab ? styles.active : styles.notActive]}>
+          <Text style={[{ fontSize: 24 }, selectedTab && { color: "#275754" }]}>
             Complaints
           </Text>
         </TouchableRipple>
@@ -62,32 +71,28 @@ const styles = StyleSheet.create({
   },
   navBar: {
     position: "sticky",
-    top:0,
+    top: 0,
     zIndex: 1000,
     backgroundColor: "white",
-    // display: "grid",
-    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    // gap: 0.5,
-    display:"flex",
-    flexDirection:"row",
-    flexWrap:"wrap"
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   menu: {
     display: "flex",
+    flexDirection: "row",
     justifyContent: "center",
     padding: 16,
-    fontSize:24,
-    width:"50vw"
+    width: "50%",
   },
   active: {
     borderBottomWidth: 3,
     borderBottomColor: "#275754",
-    color: "#275754",
-    fontWeight: 600
+    fontWeight: 600,
   },
-  notActive:{
-    border: "0px solid #CBD5E1"
-  }
+  notActive: {
+    border: 0,
+  },
 });
 
 export default AllMessages;

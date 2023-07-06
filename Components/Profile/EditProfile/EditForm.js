@@ -22,9 +22,7 @@ const EditForm = () => {
         [To change Academic data, please contact Warden.]
       </Text>
       <View>
-        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
-          Phone
-        </Text>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>Phone</Text>
         <TextInput
           style={styles.input}
           onChange={(e) => {
@@ -44,9 +42,7 @@ const EditForm = () => {
         />
       </View>
       <View>
-        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
-          Address
-        </Text>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>Address</Text>
         <TextInput
           style={styles.input}
           onChange={(e) => {
@@ -66,9 +62,7 @@ const EditForm = () => {
         />
       </View>
       <View>
-        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
-          District
-        </Text>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>District</Text>
         <TextInput
           style={styles.input}
           onChange={(e) => {
@@ -88,9 +82,7 @@ const EditForm = () => {
         />
       </View>
       <View>
-        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>
-          Thana
-        </Text>
+        <Text style={{ fontSize: 16.8, marginBottom: 4 }}>Thana</Text>
         <TextInput
           style={styles.input}
           onChange={(e) => {
@@ -144,7 +136,8 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   input: {
-    border: "1px solid rgb(203, 213, 225)",
+    borderWidth: 1,
+    borderColor: "rgb(203, 213, 225)",
     marginBottom: 8,
     padding: 16,
     color: "rgb(100, 116, 139)",

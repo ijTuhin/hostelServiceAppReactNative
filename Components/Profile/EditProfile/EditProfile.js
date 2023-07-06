@@ -7,7 +7,12 @@ const EditProfile = () => {
   return (
     <View style={styles.body}>
       <View style={styles.top}>
-        <FontAwesome5 style={styles.icon} name="user-edit" size={36} color="#0F766E" />
+        <FontAwesome5
+          style={styles.icon}
+          name="user-edit"
+          size={36}
+          color="#0F766E"
+        />
       </View>
       <EditForm />
     </View>
@@ -20,23 +25,24 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   top: {
-    display:"flex",
-    flexDirection:"row",
-    justifyContent:"center",
-    width:"100vw",
-    height:96,
-    backgroundColor:"#0F766E",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    width: "100%",
+    height: 96,
+    backgroundColor: "#0F766E",
   },
   icon: {
-    width:104,
-    height:104,
-    border:"12px solid #0F766E",
-    borderRadius:"100%",
-    display:"flex",
-    alignItems:"center",
-    justifyContent:"center",
-    position:"absolute",
-    top:"40%",
+    width: 104,
+    height: 104,
+    borderWidth: 12,
+    borderColor: "#0F766E",
+    borderRadius: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    top: "40%",
     backgroundColor: "#ffffff",
   },
 });

@@ -47,12 +47,14 @@ const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
 const styles = StyleSheet.create({
   input: {
     height: 140,
-    border: "1px solid #0F766E",
+    borderWidth: 1,
+    borderColor: "#0F766E",
     marginVertical: 16,
     padding: 16,
   },
   postBtn: {
-    border: "1px solid #0F766E",
+    borderWidth: 1,
+    borderColor: "#0F766E",
     backgroundColor: "#0F766E",
     width: "100%",
     paddingVertical: 8,

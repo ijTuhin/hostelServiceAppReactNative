@@ -33,16 +33,13 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     padding: 24,
-    // display: "grid",
-    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    // gap: 10,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
   },
   btn: {
     padding: 10,
-    height: 136,
+    height: 160,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -54,7 +51,7 @@ const styles = StyleSheet.create({
     boxShadow:
       "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
-  btnBox: { height: 136, padding: 6, width: "50%" },
+  btnBox: { padding: 6, width: "50%" },
 });
 
 export default Features;

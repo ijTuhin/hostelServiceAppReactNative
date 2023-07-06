@@ -89,11 +89,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   active: {
-    border: "1px solid #334155",
+    borderWidth:1,
+    borderColor: "#334155",
     color: "#334155"
   },
   notActive: {
-    border: "1px solid #CBD5E1",
+    borderWidth:1,
+    borderColor: "#CBD5E1",
     color: "#CBD5E1"
   },
 });

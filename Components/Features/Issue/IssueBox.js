@@ -54,7 +54,7 @@ const IssueBox = () => {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    width: "100vw",
+    width: "100%",
     top: -16,
   },
   box: {
@@ -80,9 +80,6 @@ const styles = StyleSheet.create({
     display:"flex",
     flexDirection:"row",
     flexWrap:"wrap",
-    // display: "grid",
-    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    // gap: 16,
     marginVertical: 48,
     width: "100%",
     paddingHorizontal: 24,
@@ -99,7 +96,7 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
     paddingHorizontal: 8,
     borderRadius: 4,
-    width:"35vw",
+    width:"45%",
     margin:8
   },
   issueBox:{},

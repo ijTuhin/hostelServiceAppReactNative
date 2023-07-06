@@ -13,7 +13,7 @@ const Issues = () => {
           style={{
             paddingVertical: 48,
             backgroundColor: "skyblue",
-            width: "100vw",
+            width: "100%",
           }}
         >
           <Text></Text>

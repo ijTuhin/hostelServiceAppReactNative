@@ -63,7 +63,7 @@ const PaymentBox = ({ added, total, coupon, change }) => {
 };
 const styles = StyleSheet.create({
   paymentBox: {
-    width: "100vw",
+    width: "100%",
     backgroundColor: "#fff",
     paddingVertical: 16,
     paddingHorizontal: 24,

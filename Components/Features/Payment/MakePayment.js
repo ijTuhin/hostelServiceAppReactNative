@@ -24,6 +24,7 @@ const MakePayment = () => {
   ====================================== */}
       <View style={styles.navBar}>
         <TouchableRipple
+          style={[styles.menu, selectedTab ? styles.notActive : styles.active]}
           onPress={() => {
             setSelectedTab(0);
           }}
@@ -31,14 +32,20 @@ const MakePayment = () => {
         >
           <Text
             style={[
-              styles.menu,
-              selectedTab ? styles.notActive : styles.active,
+              {
+                fontSize: 20,
+              },
+              !selectedTab && {
+                color: "#275754",
+                fontWeight: 600,
+              },
             ]}
           >
             Meal Package
           </Text>
         </TouchableRipple>
         <TouchableRipple
+          style={[styles.menu, selectedTab ? styles.active : styles.notActive]}
           onPress={() => {
             setSelectedTab(1);
           }}
@@ -46,8 +53,11 @@ const MakePayment = () => {
         >
           <Text
             style={[
-              styles.menu,
-              selectedTab ? styles.active : styles.notActive,
+              { fontSize: 20 },
+              selectedTab && {
+                color: "#275754",
+                fontWeight: 600,
+              },
             ]}
           >
             Seat Rent
@@ -81,25 +91,23 @@ const styles = StyleSheet.create({
     // display: "grid",
     // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
     // gap: 0.5,
-    display:"flex",
-    flexDirection:"row",
-    flexWrap:"wrap"
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   menu: {
     display: "flex",
     justifyContent: "center",
+    flexDirection: "row",
     padding: 16,
-    fontSize: 20,
-    width:"50vw"
+    width: "50%",
   },
   active: {
     borderBottomWidth: 3.5,
     borderBottomColor: "#275754",
-    color: "#275754",
-    fontWeight: 600,
   },
   notActive: {
-    border: "0px solid #CBD5E1",
+    border: 0,
   },
 });
 

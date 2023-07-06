@@ -47,10 +47,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    width: "100vw",
+    width: "100%",
   },
   tap: {
-    border: "1px solid #ddd",
+    borderWidth: 1,
+    borderColor: "#ddd",
     borderRadius: "100%",
     width: 192,
     height: 192,
@@ -59,7 +60,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   tapRing: {
-    border: "3px solid #ddd",
+    borderWidth: 3,
+    borderColor: "#ddd",
   },
 });
 
