@@ -4,7 +4,7 @@ import { TouchableRipple } from "react-native-paper";
 import Data from "./Data";
 
 const Payments = () => {
-  const [url, setUrl] = useState(`http://localhost:3001/payment/`);
+  const [url, setUrl] = useState(`http://192.168.0.107:3001/payment/`);
   const [data, setData] = useState(null);
   const [selectedTab, setSelectedTab] = useState(0);
   useEffect(() => {
@@ -25,7 +25,7 @@ const Payments = () => {
       <View style={styles.nav}>
         <TouchableRipple style={{borderRadius: 9999}}
           onPress={() => {
-            setUrl(`http://localhost:3001/payment/`)
+            setUrl(`http://192.168.0.107:3001/payment/`)
             setSelectedTab(0);
           }}
           rippleColor="rgba(0, 0, 0, .32)"
@@ -41,7 +41,7 @@ const Payments = () => {
         </TouchableRipple>
         <TouchableRipple style={{borderRadius: 9999}}
           onPress={() => {
-            setUrl(`http://localhost:3001/payment/meal`)
+            setUrl(`http://192.168.0.107:3001/payment/meal`)
             setSelectedTab(1);
           }}
           rippleColor="rgba(0, 0, 0, .32)"
@@ -57,7 +57,7 @@ const Payments = () => {
         </TouchableRipple>
         <TouchableRipple style={{borderRadius: 9999}}
           onPress={() => {
-            setUrl(`http://localhost:3001/payment/rent`)
+            setUrl(`http://192.168.0.107:3001/payment/rent`)
             setSelectedTab(2);
           }}
           rippleColor="rgba(0, 0, 0, .32)"

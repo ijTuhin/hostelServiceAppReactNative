@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 const Attendances = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:3001/meal/data?date=6/21/2023`)
+    fetch(`http://192.168.0.107:3001/meal/data?date=6/21/2023`)
       .then((response) => response.json())
       .then((item) => {
         setData(item);

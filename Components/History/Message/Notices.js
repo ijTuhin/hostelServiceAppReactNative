@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { FontAwesome, FontAwesome5, Octicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 
 const Notices = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:3001/notice/get`)
+    fetch(`http://192.168.0.107:3001/notice/get`)
       .then((response) => response.json())
       .then((item) => {
         setData(item);
@@ -14,7 +14,7 @@ const Notices = () => {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <View>
+    <ScrollView style={{marginTop:64}}>
       {data &&
         data.map((i) => (
           <View key={i._id} style={styles.container}>
@@ -45,7 +45,7 @@ const Notices = () => {
             <Text style={{paddingRight:12, textAlign:"justify"}}>{i.notice}</Text>
           </View>
         ))}
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

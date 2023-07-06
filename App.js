@@ -90,7 +90,8 @@ const styles = StyleSheet.create({
   },
   navBar: {
     width: "100%",
-    position: "fixed",
+    // position: "fixed",
+    position: "absolute",
     bottom: 0,
     display: "flex",
     flexDirection: "row",

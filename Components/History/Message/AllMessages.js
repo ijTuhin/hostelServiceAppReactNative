@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
 import Notices from "./Notices";
@@ -17,7 +17,7 @@ const AllMessages = () => {
     }
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* =====================================
                     NavBar
     ====================================== */}
@@ -56,13 +56,13 @@ const AllMessages = () => {
                     Outlet
       ====================================== */}
       <View>{OutletItems()}</View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 80,
+    marginBottom: 32,
   },
   box: {
     marginHorizontal: 16,
@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   navBar: {
-    position: "sticky",
+    // position: "sticky",
+    position: "absolute",
     top: 0,
     zIndex: 1000,
     backgroundColor: "white",

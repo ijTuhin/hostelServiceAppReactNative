@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons, FontAwesome5 } from "@expo/vector-icons";
 import { TouchableRipple } from "react-native-paper";
 import React, { useState } from "react";
@@ -6,6 +6,8 @@ import Orders from "./Orders/Orders";
 import Payments from "./Payments/Payments";
 import Attendances from "./Attendances/Attendances";
 import AllMessages from "./Message/AllMessages";
+import Issues from "./Message/Issues";
+import Notices from "./Message/Notices";
 
 const HistoryPage = () => {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -24,7 +26,7 @@ const HistoryPage = () => {
     }
   };
   return (
-    <View>
+    <ScrollView style={{marginBottom:24}}>
       {/* =====================================
             History DashBoard NavBar
     ====================================== */}
@@ -101,7 +103,7 @@ const HistoryPage = () => {
               History DashBoard Outlet
       ====================================== */}
       <View>{HistoryOutletItems()}</View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

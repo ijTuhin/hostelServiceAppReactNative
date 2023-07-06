@@ -1,18 +1,20 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 
 const Issues = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:3001/meal/data?date=6/21/2023`)
+    fetch(`http://192.168.0.107:3001/meal/data?date=6/21/2023`)
       .then((response) => response.json())
       .then((item) => {
         setData(item);
-      });
+        // console.warn(data);
+      })
+      // .catch((e) => console.error(e));
   }, []);
   return (
-    <View>
+    <ScrollView style={{marginTop:64}}>
       {data &&
         data.map((i) => (
           <View key={i._id} style={styles.container}>
@@ -44,7 +46,7 @@ const Issues = () => {
             </Text>
           </View>
         ))}
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
