@@ -5,7 +5,7 @@ import MealBill from "./Meal/MealBill";
 import SeatRent from "./Seat/SeatRent";
 import { TouchableRipple } from "react-native-paper";
 
-const Payment = () => {
+const MakePayment = () => {
   const [selectedTab, setSelectedTab] = useState(0);
   const OutletItems = () => {
     switch (selectedTab) {
@@ -76,17 +76,21 @@ const styles = StyleSheet.create({
   navBar: {
     position: "sticky",
     top: 0,
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: 0.5,
     zIndex: 1000,
     backgroundColor: "white",
+    // display: "grid",
+    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    // gap: 0.5,
+    display:"flex",
+    flexDirection:"row",
+    flexWrap:"wrap"
   },
   menu: {
     display: "flex",
     justifyContent: "center",
     padding: 16,
     fontSize: 20,
+    width:"50vw"
   },
   active: {
     borderBottomWidth: 3.5,
@@ -99,4 +103,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Payment;
+export default MakePayment;

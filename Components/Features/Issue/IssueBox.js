@@ -77,12 +77,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#0F766E",
   },
   issues: {
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: 16,
+    display:"flex",
+    flexDirection:"row",
+    flexWrap:"wrap",
+    // display: "grid",
+    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    // gap: 16,
     marginVertical: 48,
     width: "100%",
     paddingHorizontal: 24,
+    justifyContent:"center"
   },
   issue: {
     display: "flex",
@@ -95,7 +99,10 @@ const styles = StyleSheet.create({
     paddingVertical: 32,
     paddingHorizontal: 8,
     borderRadius: 4,
+    width:"35vw",
+    margin:8
   },
+  issueBox:{},
   topic: {
     fontSize: 18.4,
     textAlign: "center",

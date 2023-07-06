@@ -63,17 +63,21 @@ const styles = StyleSheet.create({
   navBar: {
     position: "sticky",
     top:0,
-    display: "grid",
-    gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    gap: 0.5,
     zIndex: 1000,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    // display: "grid",
+    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+    // gap: 0.5,
+    display:"flex",
+    flexDirection:"row",
+    flexWrap:"wrap"
   },
   menu: {
     display: "flex",
     justifyContent: "center",
     padding: 16,
     fontSize:24,
+    width:"50vw"
   },
   active: {
     borderBottomWidth: 3,

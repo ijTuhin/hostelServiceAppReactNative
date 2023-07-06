@@ -82,8 +82,10 @@ const HistoryPage = () => {
 };
 const styles = StyleSheet.create({
   navBar: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+    // display: "grid",
+    // gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+    display:"flex",
+    flexDirection:"row",
   },
   topText: {
     color: "#0f766e",
@@ -101,6 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "flex-end",
     paddingVertical: 8,
+    width:"25vw"
   },
   activeMenu: {
     height: 40,
@@ -110,6 +113,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "flex-end",
     paddingVertical: 8,
+    width:"25vw"
   },
 });
 export default HistoryPage;
