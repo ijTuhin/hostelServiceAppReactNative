@@ -7,12 +7,9 @@ const EditProfile = () => {
   return (
     <View style={styles.body}>
       <View style={styles.top}>
-        <FontAwesome5
-          style={styles.icon}
-          name="user-edit"
-          size={36}
-          color="#0F766E"
-        />
+        <Text style={styles.icon}>
+          <FontAwesome5 name="user-edit" size={36} color="#0F766E" />
+        </Text>
       </View>
       <EditForm />
     </View>
@@ -37,10 +34,9 @@ const styles = StyleSheet.create({
     height: 104,
     borderWidth: 12,
     borderColor: "#0F766E",
-    borderRadius: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
+    borderRadius: 1000,
+    textAlign:"center",
+    textAlignVertical:"center",
     position: "absolute",
     top: "40%",
     backgroundColor: "#ffffff",

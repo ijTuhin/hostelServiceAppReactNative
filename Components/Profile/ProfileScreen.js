@@ -1,14 +1,14 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import TopSection from "./TopSection/TopSection";
 import LinkSection from "./LinkSection/LinkSection";
 
 const ProfileScreen = () => {
   return (
-    <View style={styles.body}>
+    <ScrollView style={styles.body}>
       <TopSection/>
       <LinkSection/>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     display: "flex",
     position: "relative",
+    marginTop:28,
   },
 });
 

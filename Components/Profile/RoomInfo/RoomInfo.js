@@ -1,20 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import Room from "./Room";
 import Members from "./Members";
 
 const RoomInfo = () => {
   return (
-    <View style={styles.body}>
+    <ScrollView style={styles.body}>
       <Room />
       <Members />
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    padding:16
+    paddingHorizontal:28,
+    paddingVertical:16,
+    backgroundColor:"rgb(13, 148, 136)"
   },
 });
 export default RoomInfo;

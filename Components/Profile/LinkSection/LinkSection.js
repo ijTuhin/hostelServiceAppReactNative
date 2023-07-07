@@ -20,14 +20,14 @@ const LinkSection = () => {
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
-        <Text style={styles.link}>
-          History
+        <View style={styles.link}>
+          <Text style={{ color: "rgb(100, 116, 139)" }}>History</Text>
           <EvilIcons
             name="chevron-right"
-            size={32}
+            size={28}
             color="rgb(148, 163, 184)"
           />
-        </Text>
+        </View>
       </TouchableRipple>
       <TouchableRipple
         style={{
@@ -39,14 +39,14 @@ const LinkSection = () => {
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
-        <Text style={styles.link}>
-          Information
+        <View style={styles.link}>
+          <Text style={{ color: "rgb(100, 116, 139)" }}>Information</Text>
           <EvilIcons
             name="chevron-right"
-            size={32}
+            size={28}
             color="rgb(148, 163, 184)"
           />
-        </Text>
+        </View>
       </TouchableRipple>
       <TouchableRipple
         style={{
@@ -58,14 +58,14 @@ const LinkSection = () => {
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
-        <Text style={styles.link}>
-          Room Info
+        <View style={styles.link}>
+          <Text style={{ color: "rgb(100, 116, 139)" }}>Room Info</Text>
           <EvilIcons
             name="chevron-right"
-            size={32}
+            size={28}
             color="rgb(148, 163, 184)"
           />
-        </Text>
+        </View>
       </TouchableRipple>
       <TouchableRipple
         style={{
@@ -77,14 +77,14 @@ const LinkSection = () => {
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
-        <Text style={styles.link}>
-          Coupon Details
+        <View style={styles.link}>
+          <Text style={{ color: "rgb(100, 116, 139)" }}>Coupon Details</Text>
           <EvilIcons
             name="chevron-right"
-            size={32}
+            size={28}
             color="rgb(148, 163, 184)"
           />
-        </Text>
+        </View>
       </TouchableRipple>
       <TouchableRipple
         style={{
@@ -96,29 +96,28 @@ const LinkSection = () => {
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
-        <Text style={styles.link}>
-          Check Rent
+        <View style={styles.link}>
+          <Text style={{ color: "rgb(100, 116, 139)" }}>Check Rent</Text>
           <EvilIcons
             name="chevron-right"
-            size={32}
+            size={28}
             color="rgb(148, 163, 184)"
           />
-        </Text>
+        </View>
       </TouchableRipple>
     </View>
   );
 };
 const styles = StyleSheet.create({
   link: {
-    borderWidth:1,
-    borderColor:"rgb(226, 232, 240)",
+    borderWidth: 1,
+    borderColor: "rgb(226, 232, 240)",
     padding: 12,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     borderRadius: 4.8,
-    color: "rgb(100, 116, 139)",
   },
 });
 export default LinkSection;

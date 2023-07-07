@@ -1,17 +1,17 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 
 const Information = () => {
   return (
-    <View style={styles.body}>
+    <ScrollView style={styles.body}>
       <View style={styles.user}>
-        <FontAwesome name="user-circle-o" size={40} color="#fff" />
+        <FontAwesome name="user-circle-o" size={32} color="#fff" />
         <View>
-          <Text style={{ fontSize: 21.6, color: "#fff" }}>
+          <Text style={{ fontSize: 17.6, color: "#fff" }}>
             User Name
           </Text>
-          <Text style={{ color: "#ddd" }}>matricId@ugrad.iiuc.ac.bd</Text>
+          <Text style={{ fontSize: 11, color: "#ddd" }}>matricId@ugrad.iiuc.ac.bd</Text>
         </View>
       </View>
       <View style={styles.data}>
@@ -28,13 +28,14 @@ const Information = () => {
         <Text style={styles.info}>Thana:</Text>
         <Text style={styles.info}>District:</Text>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   body: {
     flex: 1,
     backgroundColor: "rgb(241, 245, 249)",
+    marginTop:25.6
   },
   user: {
     width: "100%",

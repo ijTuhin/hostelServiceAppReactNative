@@ -7,12 +7,12 @@ const TopSection = () => {
     <View>
       <View style={styles.body}>
         <View style={styles.user}>
-          <FontAwesome name="user-circle-o" size={40} color="#fff" />
+          <FontAwesome name="user-circle-o" size={32} color="#fff" />
           <View>
-            <Text style={{ fontSize: 21.6, color: "#fff" }}>
+            <Text style={{ fontSize: 16, color: "#fff" }}>
               Israt Jahan
             </Text>
-            <Text style={{ color: "#ddd" }}>c111111@ugrad.iiuc.ac.bd</Text>
+            <Text style={{ fontSize: 10.6, color: "#ddd" }}>c111111@ugrad.iiuc.ac.bd</Text>
           </View>
         </View>
         <Text
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   edit: {
-    marginTop: 16,
+    marginTop: 12,
     borderWidth:1,
     borderColor:"#ddd",
     padding: 8,
@@ -58,8 +58,6 @@ const styles = StyleSheet.create({
     borderRadius: 4.8,
     color: "#ddd",
     fontSize: 16,
-    boxShadow:
-      "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
 });
 export default TopSection;
