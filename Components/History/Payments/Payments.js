@@ -12,14 +12,14 @@ const Payments = () => {
       .then((response) => response.json())
       .then((item) => {
         setData(item);
-        console.log(item);
+        // console.log(item);
       })
-      .catch((error) => console.error(error));
+      // .catch((error) => console.error(error));
   }, [url]);
   return (
     <SafeAreaView
       style={{
-        marginBottom: 80,
+        marginBottom: 48,
       }}
     >
       <View style={styles.nav}>
@@ -28,7 +28,7 @@ const Payments = () => {
             setUrl(`http://192.168.0.107:3001/payment/`)
             setSelectedTab(0);
           }}
-          rippleColor="rgba(0, 0, 0, .32)"
+          rippleColor="rgba(0, 0, 0, .02)"
         >
           <Text
             style={[
@@ -44,7 +44,7 @@ const Payments = () => {
             setUrl(`http://192.168.0.107:3001/payment/meal`)
             setSelectedTab(1);
           }}
-          rippleColor="rgba(0, 0, 0, .32)"
+          rippleColor="rgba(0, 0, 0, .02)"
         >
           <Text
             style={[
@@ -60,7 +60,7 @@ const Payments = () => {
             setUrl(`http://192.168.0.107:3001/payment/rent`)
             setSelectedTab(2);
           }}
-          rippleColor="rgba(0, 0, 0, .32)"
+          rippleColor="rgba(0, 0, 0, .02)"
         >
           <Text
             style={[
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   active: {
     borderWidth:1,
-    borderColor: "#334155",
+    borderColor: "rgb(156, 163, 175)",
     color: "#334155"
   },
   notActive: {

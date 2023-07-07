@@ -1,54 +1,57 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Octicons, FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
+import { Card } from "react-native-paper";
 
-const Data = ({data}) => {
-  const item = data
+const Data = ({ data }) => {
+  const item = data;
   return (
-    <ScrollView>
+    <ScrollView style={{
+      marginTop: 8,
+    }}>
       {item &&
         item.map((i) => (
-          <View key={i._id} style={styles.container}>
-            <View style={styles.left}>
-              <Text style={styles.title}>{i.item}</Text>
-              <Text style={styles.trans}>Phone: +880131693724</Text>
-              <Text style={styles.date}>{i.date}</Text>
-            </View>
-            <View style={styles.right}>
-              <View style={styles.rightTop}>
-                <Text style={styles.bill}>{i.bill}</Text>
-                {i.package && (
-                  <>
-                    <Text>
-                      <Octicons name="dot-fill" size={10} color="#ddd" />
-                    </Text>
-                    <Text style={styles.coupon}>
-                      {i.package}
-                      <FontAwesome5 name="coins" size={18} color="#FCD34D" />
-                    </Text>
-                  </>
-                )}
+          <Card style={{marginVertical:4, backgroundColor:"#fff", marginHorizontal:16, borderRadius: 4}}>
+            <View key={i._id} style={styles.container}>
+              <View style={styles.left}>
+                <Text style={styles.title}>{i.item}</Text>
+                <Text style={styles.secondary}>Phone: +880131693724</Text>
+                <Text style={styles.secondary}>{i.date}</Text>
               </View>
-              <Text style={styles.date}>Trans ID: ShCKyfoaJKhf</Text>
+              <View style={styles.right}>
+                <View style={styles.rightTop}>
+                  <Text style={styles.bill}>{i.bill}/-</Text>
+                  {i.package && (
+                    <>
+                      <Text>
+                        <Octicons name="dot-fill" size={6} color="#ddd" />
+                      </Text>
+                      <Text style={styles.coupon}>
+                        {i.package}
+                        <FontAwesome5 name="coins" size={18} color="#FCD34D" />
+                      </Text>
+                    </>
+                  )}
+                </View>
+                <Text style={styles.secondary}>Trans ID: ShCKyfoaJKhf</Text>
+              </View>
             </View>
-          </View>
+          </Card>
         ))}
     </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 16,
-    marginTop: 8,
-    padding: 16,
+    marginHorizontal: 8,
+    // marginTop: 8,
+    padding: 12,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
     borderWidth: 0,
     borderRadius: 2.4,
-    boxShadow:
-      "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
   right: {
     display: "flex",
@@ -70,12 +73,12 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18.4,
     fontWeight: 500,
     textTransform: "capitalize",
   },
   bill: {
-    fontSize: 20,
+    fontSize: 17,
     color: "red",
     fontWeight: 500,
   },
@@ -84,16 +87,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
-    fontSize: 18.4,
+    fontSize: 16,
     color: "#F59E0B",
     fontWeight: 500,
   },
-  date: {
-    fontSize: 14.4,
-  },
-  trans: {
-    fontSize: 15.2,
-  },
+  secondary:{
+    fontSize: 12,
+    color:"rgb(100, 116, 139)"
+  }
 });
 
 export default Data;

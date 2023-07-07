@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import { Card } from "react-native-paper";
-
+import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 const Features = () => {
   return (
     <View style={styles.container}>
@@ -9,75 +9,152 @@ const Features = () => {
         <Card
           style={{
             backgroundColor: "#fff",
+            height: 160,
             display: "flex",
             justifyContent: "center",
             flexDirection: "row",
             alignItems: "center",
             textAlign: "center",
-            borderRadius: 4
+            borderRadius: 4,
           }}
         >
-          <Text style={styles.btn}>Place Order</Text>
+          <View
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <MaterialIcons name="room-service" size={34} color="#134e4a" />
+            <Text style={styles.btn}>Place Order</Text>
+          </View>
         </Card>
       </TouchableHighlight>
       <TouchableHighlight style={styles.btnBox}>
         <Card
           style={{
             backgroundColor: "#fff",
+            height: 160,
             display: "flex",
             justifyContent: "center",
             flexDirection: "row",
             alignItems: "center",
             textAlign: "center",
-            borderRadius: 4
+            borderRadius: 4,
           }}
         >
-          <Text style={styles.btn}>Mark Attendance</Text>
+          <View
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <MaterialCommunityIcons
+              name="playlist-check"
+              size={34}
+              color="#134e4a"
+            />
+            <Text style={styles.btn}>Mark Attendance</Text>
+          </View>
         </Card>
       </TouchableHighlight>
       <TouchableHighlight style={styles.btnBox}>
         <Card
           style={{
             backgroundColor: "#fff",
+            height: 160,
             display: "flex",
             justifyContent: "center",
             flexDirection: "row",
             alignItems: "center",
             textAlign: "center",
-            borderRadius: 4
+            borderRadius: 4,
           }}
         >
-          <Text style={styles.btn}>Payment</Text>
+          <View
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <MaterialCommunityIcons
+              name="credit-card-check-outline"
+              size={34}
+              color="#134e4a"
+            />
+            <Text style={styles.btn}>Payment</Text>
+          </View>
         </Card>
       </TouchableHighlight>
       <TouchableHighlight style={styles.btnBox}>
         <Card
           style={{
             backgroundColor: "#fff",
+            height: 160,
             display: "flex",
             justifyContent: "center",
             flexDirection: "row",
             alignItems: "center",
             textAlign: "center",
-            borderRadius: 4
+            borderRadius: 4,
           }}
         >
-          <Text style={styles.btn}>Confirm Meal</Text>
+          <View
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+            }}
+          >
+            <MaterialCommunityIcons
+              name="hamburger-check"
+              size={34}
+              color="#134e4a"
+            />
+            <Text style={styles.btn}>Confirm Meal</Text>
+          </View>
         </Card>
       </TouchableHighlight>
       <TouchableHighlight style={styles.btnBox}>
         <Card
           style={{
             backgroundColor: "#fff",
+            height: 160,
             display: "flex",
             justifyContent: "center",
             flexDirection: "row",
             alignItems: "center",
             textAlign: "center",
-            borderRadius: 4
+            borderRadius: 4,
           }}
         >
-          <Text style={styles.btn}>Issues/ Complaints</Text>
+          <View
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <MaterialCommunityIcons
+              name="note-edit-outline"
+              size={34}
+              color="#134e4a"
+            />
+            <Text style={styles.btn}>Issues/ Complaints</Text>
+          </View>
         </Card>
       </TouchableHighlight>
     </View>
@@ -92,12 +169,12 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   btn: {
-    padding: 10,
-    height: 160,
-    textAlignVertical:"center",
+    // padding: 10,
+    // height: 160,
+    textAlignVertical: "center",
     textAlign: "center",
     color: "#64748B",
-    fontSize: 20,
+    fontSize: 16,
     borderWidth: 0,
     borderRadius: 6.4,
     // boxShadow:

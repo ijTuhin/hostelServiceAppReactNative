@@ -37,7 +37,7 @@ const HistoryPage = () => {
             style={[
               styles.menu,
               selectedTab !== 0
-                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                ? { borderBottomColor: "rgb(241, 245, 249)", borderBottomWidth: 1 }
                 : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
             ]}
             rippleColor="rgba(0, 0, 0, .32)"
@@ -46,14 +46,16 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <MaterialCommunityIcons name="food" size={32} color="#0f766e" />
+              <MaterialCommunityIcons name="food" size={32} color="#0f766e" /* style={selectedTab !== 1
+                ? { color: "#dddddd" }
+                : { color: "#134e4a" }} */ />
             </Text>
           </TouchableRipple>
           <TouchableRipple
             style={[
               styles.menu,
               selectedTab !== 1
-                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                ? { borderBottomColor: "rgb(241, 245, 249)", borderBottomWidth: 1 }
                 : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
             ]}
             rippleColor="rgba(0, 0, 0, .32)"
@@ -62,14 +64,16 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <FontAwesome5 name="money-check-alt" size={28} color="#0f766e" />
+              <FontAwesome5 name="money-check-alt" size={28} color="#0f766e" /* style={selectedTab !== 2
+                ? { color: "#dddddd" }
+                : { color: "#134e4a" }} */ />
             </Text>
           </TouchableRipple>
           <TouchableRipple
             style={[
               styles.menu,
               selectedTab !== 2
-                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                ? { borderBottomColor: "rgb(241, 245, 249)", borderBottomWidth: 1 }
                 : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
             ]}
             rippleColor="rgba(0, 0, 0, .32)"
@@ -78,14 +82,16 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <FontAwesome5 name="clipboard-list" size={28} color="#0f766e" />
+              <FontAwesome5 name="clipboard-list" size={28} color="#0f766e" /* style={selectedTab !== 3
+                ? { color: "#dddddd" }
+                : { color: "#134e4a" }} */ />
             </Text>
           </TouchableRipple>
           <TouchableRipple
             style={[
               styles.menu,
               selectedTab !== 3
-                ? { borderBottomColor: "#dddddd", borderBottomWidth: 1 }
+                ? { borderBottomColor: "rgb(241, 245, 249)", borderBottomWidth: 1 }
                 : { borderBottomColor: "#134e4a", borderBottomWidth: 3 },
             ]}
             rippleColor="rgba(0, 0, 0, .32)"
@@ -94,7 +100,9 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <MaterialCommunityIcons name="email" size={34} color="#0f766e" />
+              <MaterialCommunityIcons name="email" size={34} color="#0f766e" /* style={selectedTab !== 3
+                ? { color: "#dddddd" }
+                : { color: "#134e4a" }} */ />
             </Text>
           </TouchableRipple>
         </View>
@@ -112,21 +120,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   topText: {
-    color: "#0f766e",
+    color: "#fff",
+    backgroundColor: "#0f766e",
     fontSize: 28,
     fontWeight: 700,
     fontStyle: "italic",
-    paddingHorizontal: 12,
+    paddingHorizontal: 18.4,
     paddingVertical: 12,
   },
   menu: {
-    height: 40,
+    height: 56,
     borderBottomWidth: 1,
     display: "flex",
     flexDirection:"row",
     justifyContent: "center",
     alignItems: "flex-end",
-    paddingVertical: 8,
+    paddingVertical: 12,
     width: "25%",
   },
 });

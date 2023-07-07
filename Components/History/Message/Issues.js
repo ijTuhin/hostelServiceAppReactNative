@@ -21,27 +21,27 @@ const Issues = () => {
             <View style={styles.top}>
               <View>
                 <View style={styles.head}>
-                  <Text style={{ fontSize: 24, fontWeight: 600 }}>
+                  <Text style={{ fontSize: 17, fontWeight: 600 }}>
                     Topic Name
                   </Text>
                   <MaterialCommunityIcons
-                    style={{ marginTop: 3.2 }}
+                    style={{ marginTop: -5 }}
                     name="check-all"
-                    size={28}
+                    size={20}
                     color="lightgreen"
                   />
                 </View>
                 <View style={styles.time}>
-                  <Text>Date</Text>
+                  <Text  style={styles.secondaryText}>Date</Text>
                   <Octicons name="dot-fill" size={8} color="#94A3B8" />
-                  <Text>Time</Text>
+                  <Text  style={styles.secondaryText}>Time</Text>
                 </View>
               </View>
               <View style={styles.info}>
-                <Text style={{ fontSize: 17.6 }}>To: warden</Text>
+                <Text style={{ fontSize: 14 }}>To: warden</Text>
               </View>
             </View>
-            <Text style={{ fontSize: 16.8 }}>
+            <Text style={styles.notice}>
               Issues jhldoy;s jhlwioeyt djlh;idsogpa djg;aoiey
             </Text>
           </View>
@@ -54,14 +54,15 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#D1D5DB",
     paddingVertical: 12,
-    paddingHorizontal: 18.4,
+    paddingHorizontal: 8,
+    marginHorizontal: 20,
   },
   top: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
-    marginBottom: 5.6,
+    marginBottom: 2.5,
   },
   head: {
     display: "flex",
@@ -80,6 +81,14 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     gap: 8,
   },
+  secondaryText:{
+    fontSize: 10,
+    color:"rgb(100, 116, 139)"
+  },
+  notice:{
+    fontSize: 12,
+    color:"rgb(100, 116, 139)"
+  }
 });
 
 export default Issues;

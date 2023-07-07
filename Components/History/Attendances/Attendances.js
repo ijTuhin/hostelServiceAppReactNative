@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 
@@ -14,23 +14,23 @@ const Attendances = () => {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <View>
+    <ScrollView style={{margin:8}}>
       {data &&
         data.map((i) => (
           <View key={i._id} style={styles.container}>
             <Ionicons
               name="md-checkmark-done-sharp"
-              size={32}
+              size={20}
               color="#14B8A6"
             />
             <View style={styles.info}>
               <Text style={styles.time}>{i.time}</Text>
-              <Octicons name="dot-fill" size={10} color="#D1D5DB" />
+              <Octicons style={{marginBottom:1.6}} name="dot-fill" size={4} color="#D1D5DB" />
               <Text style={styles.date}>{i.date}</Text>
             </View>
           </View>
         ))}
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -43,22 +43,22 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
-    borderBottomColor:"#D1D5DB",
+    borderBottomColor:"rgb(226, 232, 240)",
     borderBottomWidth: 1
   },
   info: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    // justifyContent: "space-between",
     alignItems: "flex-end",
-    gap: 8,
+    gap: 4,
   },
   time: {
-    fontSize: 12,
+    fontSize: 10,
   },
   date: {
-    fontSize: 18.4,
-    fontWeight: 700,
+    fontSize: 12,
+    // fontWeight: 700,
     color: "#6B7280",
   },
 });

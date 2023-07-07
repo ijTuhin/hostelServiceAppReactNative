@@ -32,7 +32,7 @@ const AllMessages = () => {
           <Text
             style={[
               {
-                fontSize: 24,
+                fontSize: 17
               },
               !selectedTab && { color: "#275754" },
             ]}
@@ -47,7 +47,7 @@ const AllMessages = () => {
           }}
           rippleColor="rgba(0, 0, 0, .32)"
         >
-          <Text style={[{ fontSize: 24 }, selectedTab && { color: "#275754" }]}>
+          <Text style={[{ fontSize: 17 }, selectedTab && { color: "#275754" }]}>
             Complaints
           </Text>
         </TouchableRipple>
