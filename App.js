@@ -12,6 +12,7 @@ import EditProfile from "./Components/Profile/EditProfile/EditProfile";
 import RoomInfo from "./Components/Profile/RoomInfo/RoomInfo";
 import Information from "./Components/Profile/Information/Information";
 import MakePayment from "./Components/Features/Payment/MakePayment";
+import LoginScreen from "./Components/Authentication/LoginScreen";
 
 export default function App() {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -32,7 +33,8 @@ export default function App() {
     // <ProfileScreen/>
     // <EditProfile/>
     // <RoomInfo/>
-    <Information/>
+    // <Information/>
+    <LoginScreen/>
 
     // <View style={styles.body}>
     //   {/* =====================================
