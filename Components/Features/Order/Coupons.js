@@ -6,7 +6,7 @@ import { coupon } from "../../Hooks/Conditions";
 const Coupons = () => {
   return (
     <View style={{ display: "flex", alignItems: "center" }}>
-      <Text
+      <View
         style={[
           styles.coupon,
           coupon
@@ -18,20 +18,26 @@ const Coupons = () => {
               },
         ]}
       >
-        {coupon}
+        <Text
+          style={{
+            fontSize: 18.4,
+            color: "#ddd",
+            fontWeight: 500,
+          }}
+        >
+          {coupon}
+        </Text>
         <Octicons
-          style={{ marginTop: 4 }}
           name="dot-fill"
-          size={6}
+          size={4}
           color="#ddd"
         />
         <FontAwesome5
-          style={{ marginTop: 2.4 }}
           name="coins"
-          size={18}
+          size={16}
           color="#F59E0B"
         />
-      </Text>
+      </View>
     </View>
   );
 };
@@ -40,10 +46,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    gap: 8,
-    fontSize: 18.4,
-    color: "#ddd",
-    fontWeight: 500,
+    gap: 6.4,
   },
 });
 

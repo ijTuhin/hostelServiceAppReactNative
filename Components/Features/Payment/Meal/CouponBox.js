@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
       fontWeight: 500,
       width: 128,
       height: 128,
-      borderRadius: "100%",
+      borderRadius: 1000,
       backgroundColor: "#275754",
       opacity: 0.85,
     },

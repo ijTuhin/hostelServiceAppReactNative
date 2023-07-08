@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
-import TopSection from "./TopSection/TopSection";
-import LinkSection from "./LinkSection/LinkSection";
+import TopSection from "../Profile/TopSection/TopSection";
+import LinkSection from "../Profile/LinkSection/LinkSection";
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.body}>
-      <TopSection/>
-      <LinkSection/>
+      <TopSection navigation={navigation}/>
+      <LinkSection navigation={navigation}/>
     </ScrollView>
   );
 };
@@ -17,7 +17,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     display: "flex",
     position: "relative",
-    marginTop:28,
   },
 });
 

@@ -1,11 +1,11 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
-import MealBill from "./Meal/MealBill";
-import SeatRent from "./Seat/SeatRent";
+import MealBill from "../Features/Payment/Meal/MealBill";
+import SeatRent from "../Features/Payment/Seat/SeatRent";
 import { TouchableRipple } from "react-native-paper";
 
-const MakePayment = () => {
+const PaymentScreen = ({navigation}) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const OutletItems = () => {
     switch (selectedTab) {
@@ -33,7 +33,7 @@ const MakePayment = () => {
           <Text
             style={[
               {
-                fontSize: 20,
+                fontSize: 18.4,
               },
               !selectedTab && {
                 color: "#275754",
@@ -53,7 +53,7 @@ const MakePayment = () => {
         >
           <Text
             style={[
-              { fontSize: 20 },
+              { fontSize: 18.4 },
               selectedTab && {
                 color: "#275754",
                 fontWeight: 600,
@@ -84,13 +84,10 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   navBar: {
-    position: "sticky",
-    top: 0,
-    zIndex: 1000,
+    // position: "sticky",
+    // top: 0,
+    // zIndex: 1000,
     backgroundColor: "white",
-    // display: "grid",
-    // gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-    // gap: 0.5,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -111,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MakePayment;
+export default PaymentScreen;

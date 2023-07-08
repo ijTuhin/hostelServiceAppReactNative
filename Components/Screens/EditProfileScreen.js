@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
-import EditForm from "./EditForm";
+import EditForm from "../Profile/EditProfile/EditForm";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-const EditProfile = () => {
+const EditProfileScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.body}>
       <View style={styles.top}>
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EditProfile;
+export default EditProfileScreen;

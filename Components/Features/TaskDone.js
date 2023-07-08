@@ -6,11 +6,11 @@ const TaskDone = ({text}) => {
   return (
     <View style={styles.box}>
       <Text
-        style={{ fontSize: 28, fontWeight: 600, color: "#475569" }}
+        style={{ fontSize: 24, fontWeight: 600, color: "#475569" }}
       >
         {text}
       </Text>
-      <AntDesign name="checkcircleo" size={52} color="#0891B2" />
+      <AntDesign name="checkcircleo" size={44} color="#0891B2" />
     </View>
   );
 };
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    gap: 24,
+    gap: 12,
     alignItems: "center",
   },
 });

@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
-import Room from "./Room";
-import Members from "./Members";
+import Room from "../Profile/RoomInfo/Room";
+import Members from "../Profile/RoomInfo/Members";
 
-const RoomInfo = () => {
+const RoomInfoScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.body}>
       <Room />
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal:28,
     paddingVertical:16,
-    backgroundColor:"rgb(13, 148, 136)"
+    backgroundColor:"#134e4a",
   },
 });
-export default RoomInfo;
+export default RoomInfoScreen;

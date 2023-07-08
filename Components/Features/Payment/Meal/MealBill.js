@@ -35,70 +35,58 @@ const MealBill = () => {
         {/* =============================================== 
                 Packages
 =============================================== */}
-        <View style={styles.navBar}>
-          {twoDays ? (
-            <View style={styles.menuBox}>
-              <Text
-                style={[
-                  styles.menu,
-                  selectedTab ? styles.notActive : styles.active,
-                  { color: "lightgray" },
-                ]}
-              >
-                <Octicons
-                  style={{ marginTop: 4 }}
-                  name="dot-fill"
-                  size={10}
-                  color="lightgray"
-                />
+        <View style={{ width: 160, marginTop: 4 }}>
+          <TouchableRipple
+            onPress={() => {
+              setSelectedTab(0);
+            }}
+            rippleColor="rgba(0, 0, 0, .32)"
+          >
+            <View
+              style={[
+                {
+                  borderBottomWidth: 1,
+                },
+                styles.menuBox,
+              ]}
+            >
+              <Text style={[styles.menu, selectedTab === 0 && styles.active]}>
+                {" "}
                 2 days
-              </Text>
-              <Text style={{ marginTop: 3.2, color: "#EF4444" }}>
-                (limit exceeds)
+                {twoDays !== 0 && (
+                  <Text
+                    style={{
+                      marginBottom: 16,
+                      color: "#EF4444",
+                      fontSize: 12,
+                      fontWeight: 400,
+                    }}
+                  >
+                    (limit exceeds)
+                  </Text>
+                )}
               </Text>
               <MaterialIcons
                 name="keyboard-arrow-right"
-                size={24}
-                color="#E2E8F0"
+                size={20}
+                color="lightgray"
               />
             </View>
-          ) : (
-            <TouchableRipple
-              onPress={() => {
-                if (!twoDays) setSelectedTab(0);
-              }}
-              rippleColor="rgba(0, 0, 0, .32)"
-            >
-              <View style={styles.menuBox}>
-                <Text
-                  style={[
-                    styles.menu,
-                    selectedTab !== 0 ? styles.notActive : styles.active,
-                  ]}
-                >
-                  <Octicons
-                    style={{ marginTop: 4 }}
-                    name="dot-fill"
-                    size={10}
-                    color="lightgray"
-                  />
-                  2 days
-                </Text>
-                <MaterialIcons
-                  name="keyboard-arrow-right"
-                  size={24}
-                  color="lightgray"
-                />
-              </View>
-            </TouchableRipple>
-          )}
+          </TouchableRipple>
           <TouchableRipple
             onPress={() => {
               setSelectedTab(1);
             }}
             rippleColor="rgba(0, 0, 0, .32)"
           >
-            <View style={styles.menuBox}>
+            <View
+              style={[
+                {
+                  borderBottomWidth: 1,
+                },
+                styles.menuBox,
+              ]}
+            >
               <Text
                 style={[
                   styles.menu,
@@ -106,17 +94,11 @@ const MealBill = () => {
                 ]}
               >
                 {" "}
-                <Octicons
-                  style={{ marginTop: 4 }}
-                  name="dot-fill"
-                  size={10}
-                  color="lightgray"
-                />
                 7 days
               </Text>
               <MaterialIcons
                 name="keyboard-arrow-right"
-                size={24}
+                size={20}
                 color="lightgray"
               />
             </View>
@@ -127,7 +109,14 @@ const MealBill = () => {
             }}
             rippleColor="rgba(0, 0, 0, .32)"
           >
-            <View style={styles.menuBox}>
+            <View
+              style={[
+                {
+                  borderBottomWidth: 0,
+                },
+                styles.menuBox,
+              ]}
+            >
               <Text
                 style={[
                   styles.menu,
@@ -135,17 +124,11 @@ const MealBill = () => {
                 ]}
               >
                 {" "}
-                <Octicons
-                  style={{ marginTop: 4 }}
-                  name="dot-fill"
-                  size={10}
-                  color="lightgray"
-                />
                 30 days
               </Text>
               <MaterialIcons
                 name="keyboard-arrow-right"
-                size={24}
+                size={20}
                 color="lightgray"
               />
             </View>
@@ -188,22 +171,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   menuBox: {
-    paddingVertical: 8,
-    borderBottomWidth: 0.1,
-    borderBottomColor: "#ddd",
+    paddingVertical: 9.6,
+    borderBottomColor: "rgb(241, 245, 249)",
     display: "flex",
     flexDirection: "row",
-    gap: 12,
     alignItems: "center",
     justifyContent: "space-between",
   },
   menu: {
-    fontSize: 20,
+    fontSize: 16,
     color: "gray",
-    display: "flex",
-    gap: 4,
-    flexDirection: "row",
-    alignItems: "center",
   },
   active: { color: "#0E7490", fontWeight: 600 },
   paymentBox: {

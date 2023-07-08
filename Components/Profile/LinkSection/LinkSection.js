@@ -3,7 +3,7 @@ import { EvilIcons } from "@expo/vector-icons";
 import React from "react";
 import { TouchableRipple } from "react-native-paper";
 
-const LinkSection = () => {
+const LinkSection = ({navigation}) => {
   return (
     <View
       style={{
@@ -16,7 +16,7 @@ const LinkSection = () => {
           borderRadius: 4.8,
         }}
         onPress={() => {
-          // setSelectedTab(1);
+          navigation.navigate('History')
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -35,7 +35,7 @@ const LinkSection = () => {
           borderRadius: 4.8,
         }}
         onPress={() => {
-          // setSelectedTab(1);
+          navigation.navigate('Information')
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -54,7 +54,7 @@ const LinkSection = () => {
           borderRadius: 4.8,
         }}
         onPress={() => {
-          // setSelectedTab(1);
+          navigation.navigate('Room Info')
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -73,7 +73,7 @@ const LinkSection = () => {
           borderRadius: 4.8,
         }}
         onPress={() => {
-          // setSelectedTab(1);
+          navigation.navigate('Coupons')
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -92,7 +92,7 @@ const LinkSection = () => {
           borderRadius: 4.8,
         }}
         onPress={() => {
-          // setSelectedTab(1);
+          navigation.navigate('Seat Rent')
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >

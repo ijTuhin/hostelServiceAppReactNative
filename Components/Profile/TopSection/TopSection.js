@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 
-const TopSection = () => {
+const TopSection = ({navigation}) => {
   return (
     <View>
       <View style={styles.body}>
@@ -18,6 +18,7 @@ const TopSection = () => {
         <Text
           onPress={() => {
             console.log("navigate to Edit Profile");
+            navigation.navigate('Edit Profile')
           }}
           style={styles.edit}
         >
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
   body: {
     width: "100%",
     backgroundColor: "#0F766E",
-    padding: 16,
+    padding: 24,
   },
   user: {
     display: "flex",

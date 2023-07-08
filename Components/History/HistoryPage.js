@@ -31,7 +31,7 @@ const HistoryPage = () => {
             History DashBoard NavBar
     ====================================== */}
       <View style={styles.top}>
-        <Text style={styles.topText}>Hostel Service</Text>
+        {/* <Text style={styles.topText}>Hostel Service</Text> */}
         <View style={styles.navBar}>
           <TouchableRipple
             style={[
@@ -46,9 +46,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <MaterialCommunityIcons name="food" size={32} color="#0f766e" /* style={selectedTab !== 1
-                ? { color: "#dddddd" }
-                : { color: "#134e4a" }} */ />
+              <MaterialCommunityIcons name="food" size={32} color="#0f766e" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
@@ -64,9 +62,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <FontAwesome5 name="money-check-alt" size={28} color="#0f766e" /* style={selectedTab !== 2
-                ? { color: "#dddddd" }
-                : { color: "#134e4a" }} */ />
+              <FontAwesome5 name="money-check-alt" size={28} color="#0f766e" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
@@ -82,9 +78,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <FontAwesome5 name="clipboard-list" size={28} color="#0f766e" /* style={selectedTab !== 3
-                ? { color: "#dddddd" }
-                : { color: "#134e4a" }} */ />
+              <FontAwesome5 name="clipboard-list" size={28} color="#0f766e" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
@@ -100,9 +94,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <MaterialCommunityIcons name="email" size={34} color="#0f766e" /* style={selectedTab !== 3
-                ? { color: "#dddddd" }
-                : { color: "#134e4a" }} */ />
+              <MaterialCommunityIcons name="email" size={34} color="#0f766e" />
             </Text>
           </TouchableRipple>
         </View>

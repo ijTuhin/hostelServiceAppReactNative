@@ -21,7 +21,7 @@ const EditForm = () => {
       >
         [To change Academic data, please contact Warden.]
       </Text>
-      <View>
+      <View style={{marginBottom:8}}>
         <Text style={{ fontSize: 16, marginBottom: 4 }}>Phone</Text>
         <TextInput
           style={styles.input}
@@ -44,7 +44,7 @@ const EditForm = () => {
           keyboardType="numeric"
         />
       </View>
-      <View>
+      <View style={{marginBottom:8}}>
         <Text style={{ fontSize: 16, marginBottom: 4 }}>Address</Text>
         <TextInput
           style={styles.input}
@@ -64,7 +64,7 @@ const EditForm = () => {
           placeholder={stored.address}
         />
       </View>
-      <View>
+      <View style={{marginBottom:8}}>
         <Text style={{ fontSize: 16, marginBottom: 4 }}>District</Text>
         <TextInput
           style={styles.input}
@@ -135,8 +135,9 @@ const EditForm = () => {
 };
 const styles = StyleSheet.create({
   body: {
-    marginTop: 56,
-    padding: 24,
+    marginTop: 40,
+    paddingVertical: 24,
+    paddingHorizontal:40
   },
   input: {
     borderWidth: 1,

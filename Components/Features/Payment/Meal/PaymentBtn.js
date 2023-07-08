@@ -7,7 +7,7 @@ const PaymentBtn = ({change}) => {
     <TouchableRipple
       style={{
         marginHorizontal: 24,
-        marginTop: 56,
+        marginTop: 20,
       }}
       onPress={() => {
         change(1);
@@ -23,9 +23,9 @@ const PaymentBtn = ({change}) => {
 const styles = StyleSheet.create({
   menu: {
     borderRadius: 6.4,
-    padding: 20,
+    padding: 18.4,
     textAlign: "center",
-    fontSize: 21.6,
+    fontSize: 18.4,
     backgroundColor: "#0E7490",
     opacity: 0.85,
     color: "white",

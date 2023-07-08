@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import { Card } from "react-native-paper";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
-const Features = () => {
+const Features = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableHighlight style={styles.btnBox}>
+      <TouchableHighlight onPress={()=> navigation.navigate('Place Order')} style={styles.btnBox}>
         <Card
           style={{
             backgroundColor: "#fff",
@@ -63,7 +63,7 @@ const Features = () => {
           </View>
         </Card>
       </TouchableHighlight>
-      <TouchableHighlight style={styles.btnBox}>
+      <TouchableHighlight  onPress={()=> navigation.navigate('Make Payment')} style={styles.btnBox}>
         <Card
           style={{
             backgroundColor: "#fff",
@@ -125,7 +125,7 @@ const Features = () => {
           </View>
         </Card>
       </TouchableHighlight>
-      <TouchableHighlight style={styles.btnBox}>
+      <TouchableHighlight onPress={()=> navigation.navigate('Post Issues')} style={styles.btnBox}>
         <Card
           style={{
             backgroundColor: "#fff",
@@ -169,8 +169,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   btn: {
-    // padding: 10,
-    // height: 160,
     textAlignVertical: "center",
     textAlign: "center",
     color: "#64748B",

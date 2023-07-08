@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   tap: {
     borderWidth: 1,
     borderColor: "#ddd",
-    borderRadius: "100%",
+    borderRadius: 1000,
     width: 192,
     height: 192,
     display: "flex",

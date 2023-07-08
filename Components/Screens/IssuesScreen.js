@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React, { useState } from "react";
-import TaskDone from "../TaskDone";
-import IssueBox from "./IssueBox";
+import TaskDone from "../Features/TaskDone";
+import IssueBox from "../Features/Issue/IssueBox";
 import { PaperProvider } from "react-native-paper";
 
-const Issues = () => {
+const IssuesScreen = () => {
   const [task, setTask] = useState(1);
   return (
     <ScrollView contentContainerStyle={styles.body}>
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
     position: "relative",
   },
 });
-export default Issues;
+export default IssuesScreen;

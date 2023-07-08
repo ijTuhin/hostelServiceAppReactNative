@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     backgroundColor: "rgb(241, 245, 249)",
-    marginTop:25.6
   },
   user: {
     width: "100%",
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   data: {
-    marginTop: 12,
+    marginTop: 6.4,
     backgroundColor: "#fff",
     padding: 16,
   },

@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native";
 
-const LoginForm = () => {
+const LoginForm = ({navigation}) => {
   const emailValidity =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const [data, setData] = useState({});
@@ -104,6 +104,7 @@ const LoginForm = () => {
             setError(null);
           } else if (isValidEmail(data.email) || data.password >= 8) {
             console.warn("Send data to DB", data);
+            navigation.navigate('Home')
           }
           console.warn(data);
         }}
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
   },
   error: {
-    marginTop: 16,
+    marginBottom: 4,
     paddingVertical: 16,
     fontSize: 16,
     width: 306.4,

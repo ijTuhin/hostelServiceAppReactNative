@@ -1,9 +1,9 @@
 import { View, Text, Image, ScrollView } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
-import LoginForm from "./LoginForm";
+import LoginForm from "../Authentication/LoginForm";
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const logo = require("../../assets/IIUClogo.jpg");
   return (
     <ScrollView contentContainerStyle={styles.body}>
@@ -21,13 +21,12 @@ const LoginScreen = () => {
           Female Hostel Service
         </Text>
       </View>
-      <LoginForm />
+      <LoginForm navigation={navigation} />
     </ScrollView>
   );
 };
 const styles = StyleSheet.create({
   body: {
-    marginTop: 28,
     flex: 1,
     backgroundColor: "#fff",
     display: "flex",
@@ -36,13 +35,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 32,
     width: "100%",
+    marginTop:33.6
   },
   top: {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "center",
-    marginBottom: 24
+    marginBottom: 12
   },
 });
 export default LoginScreen;

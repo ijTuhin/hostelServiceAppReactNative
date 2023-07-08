@@ -1,10 +1,10 @@
 import { View, StyleSheet, ScrollView } from "react-native";
 import React from "react";
-import Coupons from "./Coupons";
-import Meals from "./Meals";
-import OrderBtn from "./OrderBtn";
+import Coupons from "../Features/Order/Coupons";
+import Meals from "../Features/Order/Meals";
+import OrderBtn from "../Features/Order/OrderBtn";
 
-const PlaceOrder = () => {
+const PlaceOrderScreen = ({navigation}) => {
   return (
     <ScrollView contentContainerStyle={styles.body}>
       <Meals />
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PlaceOrder;
+export default PlaceOrderScreen;

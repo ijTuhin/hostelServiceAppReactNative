@@ -34,10 +34,7 @@ const IssueBox = () => {
             {issues.map((i, index) => (
               <Card
                 style={{
-                  // marginVertical: 4,
                   backgroundColor: "#fff",
-                  // marginHorizontal: 16,
-
                   paddingVertical: 32,
                   paddingHorizontal: 8,
                   borderRadius: 4,
@@ -102,7 +99,6 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     marginVertical: 48,
     width: "100%",
-    // paddingHorizontal: 24,
     justifyContent: "center",
   },
   issue: {
@@ -113,7 +109,6 @@ const styles = StyleSheet.create({
     gap: 4,
     // boxShadow:
     //   "0 4px 6px -1px rgb(13 148 136 / 0.1), 0 2px 4px -2px rgb(13 148 136 / 0.1)",
-    // borderWidth: 1,
   },
   issueBox: {},
   topic: {

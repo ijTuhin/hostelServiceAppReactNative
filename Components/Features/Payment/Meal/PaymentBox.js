@@ -7,11 +7,10 @@ const PaymentBox = ({ added, total, coupon, change }) => {
   return (
     <View style={styles.paymentBox}>
       <View style={[styles.packageText]}>
-        <Text style={{ fontSize: 16.8 }}>Currently Available Coupons</Text>
-        <Text style={{ fontSize: 16.8 }}>
+        <Text style={{ fontSize: 14.4 }}>Currently Available Coupons</Text>
+        <Text style={{ fontSize: 14.4 }}>
           {coupon}
           <FontAwesome5
-            style={{ marginTop: 4 }}
             name="coins"
             size={14}
             color="#6B7280"
@@ -23,34 +22,32 @@ const PaymentBox = ({ added, total, coupon, change }) => {
           styles.packageText,
           {
             borderBottomWidth: 1,
-            borderBottomColor: "#ddd",
-            paddingBottom: 24,
+            borderBottomColor: "rgb(226, 232, 240)",
+            paddingBottom: 12,
           },
         ]}
       >
         <Text
-          style={{ fontWeight: 700, fontSize: 21.6, color: "#374151" }}
+          style={{ fontWeight: 700, fontSize: 16, color: "#374151" }}
         >
           Selected Coupons
         </Text>
         <Text
-          style={{ fontWeight: 700, fontSize: 21.6, color: "#374151" }}
+          style={{ fontWeight: 700, fontSize: 16, color: "#374151" }}
         >
           {added}
           <FontAwesome5
-            style={{ marginTop: 4 }}
             name="coins"
-            size={18}
+            size={14}
             color="#6B7280"
           />
         </Text>
       </View>
       <View style={[styles.packageText]}>
-        <Text style={{ fontSize: 16.8 }}>Total</Text>
-        <Text style={{ fontWeight: 700, fontSize: 21.6 }}>
+        <Text style={{ fontSize: 14.4 }}>Total</Text>
+        <Text style={{ fontWeight: 700, fontSize: 14.4 }}>
           {total}
           <FontAwesome5
-            style={{ marginTop: 4 }}
             name="coins"
             size={14}
             color="#6B7280"
