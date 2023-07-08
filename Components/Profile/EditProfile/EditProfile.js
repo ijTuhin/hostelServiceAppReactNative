@@ -1,18 +1,18 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import EditForm from "./EditForm";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const EditProfile = () => {
   return (
-    <View style={styles.body}>
+    <ScrollView contentContainerStyle={styles.body}>
       <View style={styles.top}>
         <Text style={styles.icon}>
           <FontAwesome5 name="user-edit" size={36} color="#0F766E" />
         </Text>
       </View>
       <EditForm />
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

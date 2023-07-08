@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import MealBill from "./Meal/MealBill";
@@ -18,7 +18,7 @@ const MakePayment = () => {
     }
   };
   return (
-    <View style={styles.body}>
+    <ScrollView contentContainerStyle={styles.body}>
       {/* =====================================
                   NavBar
   ====================================== */}
@@ -68,7 +68,7 @@ const MakePayment = () => {
                   Outlet
     ====================================== */}
       <View>{OutletItems()}</View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

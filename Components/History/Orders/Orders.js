@@ -15,7 +15,7 @@ const Orders = () => {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <ScrollView style={{ marginVertical: 4 }}>
+    <ScrollView contentContainerStyle={{ marginVertical: 4 }}>
       {data &&
         data.map((i) => (
           <Card

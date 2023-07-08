@@ -17,7 +17,7 @@ const AllMessages = () => {
     }
   };
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       {/* =====================================
                     NavBar
     ====================================== */}

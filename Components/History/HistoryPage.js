@@ -26,7 +26,7 @@ const HistoryPage = () => {
     }
   };
   return (
-    <ScrollView style={{marginBottom:24}}>
+    <ScrollView contentContainerStyle={{marginBottom:24}}>
       {/* =====================================
             History DashBoard NavBar
     ====================================== */}

@@ -5,7 +5,7 @@ import Members from "./Members";
 
 const RoomInfo = () => {
   return (
-    <ScrollView style={styles.body}>
+    <ScrollView contentContainerStyle={styles.body}>
       <Room />
       <Members />
     </ScrollView>

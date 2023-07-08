@@ -4,7 +4,7 @@ import { FontAwesome } from "@expo/vector-icons";
 
 const Information = () => {
   return (
-    <ScrollView style={styles.body}>
+    <ScrollView contentContainerStyle={styles.body}>
       <View style={styles.user}>
         <FontAwesome name="user-circle-o" size={32} color="#fff" />
         <View>

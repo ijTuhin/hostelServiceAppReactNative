@@ -6,7 +6,7 @@ import { Card } from "react-native-paper";
 const Data = ({ data }) => {
   const item = data;
   return (
-    <ScrollView style={{
+    <ScrollView contentContainerStyle={{
       marginTop: 8,
     }}>
       {item &&

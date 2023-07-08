@@ -14,7 +14,7 @@ const Attendances = () => {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <ScrollView style={{margin:8}}>
+    <ScrollView contentContainerStyle={{margin:8}}>
       {data &&
         data.map((i) => (
           <View key={i._id} style={styles.container}>

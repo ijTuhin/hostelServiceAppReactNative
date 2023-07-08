@@ -14,7 +14,7 @@ const Issues = () => {
       // .catch((e) => console.error(e));
   }, []);
   return (
-    <ScrollView style={{marginTop:64}}>
+    <ScrollView contentContainerStyle={{marginTop:64}}>
       {data &&
         data.map((i) => (
           <View key={i._id} style={styles.container}>

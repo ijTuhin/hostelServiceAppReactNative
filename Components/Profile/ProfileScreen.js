@@ -5,7 +5,7 @@ import LinkSection from "./LinkSection/LinkSection";
 
 const ProfileScreen = () => {
   return (
-    <ScrollView style={styles.body}>
+    <ScrollView contentContainerStyle={styles.body}>
       <TopSection/>
       <LinkSection/>
     </ScrollView>

@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import Coupons from "./Coupons";
 import Meals from "./Meals";
@@ -6,11 +6,11 @@ import OrderBtn from "./OrderBtn";
 
 const PlaceOrder = () => {
   return (
-    <View style={styles.body}>
+    <ScrollView contentContainerStyle={styles.body}>
       <Meals />
       <Coupons />
       <OrderBtn />
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
