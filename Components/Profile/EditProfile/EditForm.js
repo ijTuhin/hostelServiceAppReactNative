@@ -41,6 +41,7 @@ const EditForm = () => {
             console.warn(data.phone.length);
           }}
           placeholder={stored.phone}
+          keyboardType="numeric"
         />
       </View>
       <View>
