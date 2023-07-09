@@ -1,8 +1,10 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { TextInput } from "react-native";
+import { useAuth } from "./AuthContext";
 
-const LoginForm = ({navigation}) => {
+const LoginForm = ({ navigation }) => {
+  const { UserLogin } = useAuth();
   const emailValidity =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const [data, setData] = useState({});
@@ -36,7 +38,6 @@ const LoginForm = ({navigation}) => {
             ...data,
             email: e,
           });
-          console.warn(data.email, data.password);
         }}
         onBlur={() => {
           if (!isValidEmail(data.email)) {
@@ -53,7 +54,7 @@ const LoginForm = ({navigation}) => {
         }}
         placeholder="Enter Gsuit"
       />
-      {data.password?.length < 8 && data.password?.length !== 0 && (
+      {data.password?.length < 7 && data.password?.length !== 0 && (
         <>
           <Text style={[styles.validity]}>
             password should contain at least 8 character
@@ -61,6 +62,7 @@ const LoginForm = ({navigation}) => {
         </>
       )}
       <TextInput
+        secureTextEntry={true}
         style={styles.input}
         onChangeText={(e) => {
           setData({
@@ -70,7 +72,6 @@ const LoginForm = ({navigation}) => {
         }}
         onKeyPress={({ nativeEvent }) => {
           if (nativeEvent.key === "Backspace") {
-            console.warn(data.password?.length, data.password);
             if (data.password?.length - 2 < 7) {
               setError(
                 <>
@@ -102,11 +103,9 @@ const LoginForm = ({navigation}) => {
         onPress={() => {
           if (isObjEmpty(data)) {
             setError(null);
-          } else if (isValidEmail(data.email) || data.password >= 8) {
-            console.warn("Send data to DB", data);
-            navigation.navigate('Home')
+          } else if (isValidEmail(data.email) || data.password >= 7) {
+            UserLogin();
           }
-          console.warn(data);
         }}
         style={styles.btn}
       >
