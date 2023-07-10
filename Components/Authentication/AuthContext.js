@@ -13,6 +13,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const LoadToken = async () => {
+      const time = await SecureStore.getItemAsync("signin-at");
+      const duration = (Date.now() - parseInt(time)) / 1000;
+      if (duration >= 36000) {
+        await SecureStore.deleteItemAsync("user-token");
+      }
       const token = await SecureStore.getItemAsync("user-token");
       if (token) {
         setAuthState({
@@ -40,6 +45,7 @@ export const AuthProvider = ({ children }) => {
           authenticate: true,
         });
         await SecureStore.setItemAsync("user-token", i.token);
+        await SecureStore.setItemAsync("signin-at", i.time);
       })
       .catch((error) => console.error(error));
   };
