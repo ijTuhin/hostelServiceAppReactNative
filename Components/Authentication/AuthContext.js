@@ -1,6 +1,7 @@
 import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
-
+import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 const AuthContext = createContext();
 export const useAuth = () => {
   return useContext(AuthContext);
@@ -20,43 +21,47 @@ export const AuthProvider = ({ children }) => {
       }
       const token = await SecureStore.getItemAsync("user-token");
       if (token) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         setAuthState({
           token: token,
           authenticate: true,
         });
       }
+      console.log("AuthContext-line-34:", time, token);
     };
-    LoadToken();
+    return () => LoadToken();
   }, []);
-
-  const UserLogin = (email, password) => {
-    fetch(`http://192.168.0.107:3001/user/login`, {
-      method: "POST",
-      headers: {
-        // Authorization: "Bearer admin-access",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => response.json())
-      .then(async (i) => {
-        setAuthState({
-          token: i.token,
-          authenticate: true,
-        });
-        await SecureStore.setItemAsync("user-token", i.token);
-        await SecureStore.setItemAsync("signin-at", i.time);
-      })
-      .catch((error) => console.error(error));
+  const UserLogin = async (email, password) => {
+    try {
+      const result = await axios.post(`http://192.168.0.107:3001/user/login`, {
+        email,
+        password,
+      });
+      setAuthState({
+        token: result.data.token,
+        authenticate: true,
+      });
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${result.data.token}`;
+      await SecureStore.setItemAsync("user-token", result.data.token);
+      await SecureStore.setItemAsync("signin-at", result.data.time);
+      return result;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
   };
   const UserLogOut = async () => {
     await SecureStore.deleteItemAsync("user-token");
+    await SecureStore.deleteItemAsync("signin-at");
+    axios.defaults.headers.common["Authorization"] = ``;
     setAuthState({
       token: null,
       authenticate: false,
     });
   };
-
   const authInfo = {
     UserLogin,
     UserLogOut,

@@ -38,10 +38,11 @@ function Protected() {
 }
 function AppLayOut() {
   const { authState } = useAuth();
+  console.log("App.js-Line 41:",authState.token);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        {authState?.authenticate ? (
+        {authState?.token ? (
           <Stack.Screen
             name="Protected"
             options={{ headerShown: false }}

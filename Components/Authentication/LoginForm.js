@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { TextInput } from "react-native";
 import { useAuth } from "./AuthContext";
+import axios from "axios";
 
 const LoginForm = ({ navigation }) => {
   const { UserLogin } = useAuth();
@@ -9,6 +10,9 @@ const LoginForm = ({ navigation }) => {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const [data, setData] = useState({});
   const [error, setError] = useState(<></>);
+  const Login = async () => {
+    await UserLogin(data.email, data.password);
+  };
   function isValidEmail(email) {
     return emailValidity.test(email);
   }
@@ -17,6 +21,15 @@ const LoginForm = ({ navigation }) => {
       obj.email === "" || obj.password === "" || JSON.stringify(obj) === "{}"
     );
   }
+
+  useEffect(() => {
+    const testCall = async () => {
+      const result = await axios.get(`http://192.168.0.107:3001/user/my-data`);
+      console.log("Test Call:", result);
+    };
+    testCall();
+  }, []);
+
   return (
     <View>
       {isObjEmpty(data) && error === null && (
@@ -104,7 +117,7 @@ const LoginForm = ({ navigation }) => {
           if (isObjEmpty(data)) {
             setError(null);
           } else if (isValidEmail(data.email) || data.password >= 7) {
-            UserLogin();
+            Login();
           }
         }}
         style={styles.btn}
