@@ -8,21 +8,23 @@ import Attendances from "./Attendances/Attendances";
 import AllMessages from "./Message/AllMessages";
 import Issues from "./Message/Issues";
 import Notices from "./Message/Notices";
+import { useAuth } from "../Authentication/AuthContext";
 
 const HistoryPage = () => {
+  const { data } = useAuth();
   const [selectedTab, setSelectedTab] = useState(0);
   const HistoryOutletItems = () => {
     switch (selectedTab) {
       case 0:
-        return <Orders />;
+        return <Orders data={data.orders} />;
       case 1:
-        return <Payments />;
+        return <Payments item={data.payments} />;
       case 2:
-        return <Attendances />;
+        return <Attendances data={data.attendance} />;
       case 3:
-        return <AllMessages />;
+        return <AllMessages notice={data.notice} message={data.message} />;
       default:
-        return <Orders />;
+        return <Orders data={data.orders} />;
     }
   };
   return (
@@ -31,7 +33,6 @@ const HistoryPage = () => {
             History DashBoard NavBar
     ====================================== */}
       <View style={styles.top}>
-        {/* <Text style={styles.topText}>Hostel Service</Text> */}
         <View style={styles.navBar}>
           <TouchableRipple
             style={[

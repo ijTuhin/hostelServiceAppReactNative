@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-const Room = () => {
+const Room = ({ item }) => {
   return (
     <View style={styles.body}>
       <View
@@ -9,12 +9,12 @@ const Room = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent:"center",
-          width:108,
-          height:108,
-          borderWidth:1,
-          borderRadius:1000,
-          borderColor:"#fff",
+          justifyContent: "center",
+          width: 108,
+          height: 108,
+          borderWidth: 1,
+          borderRadius: 1000,
+          borderColor: "#fff",
         }}
       >
         <Text
@@ -26,9 +26,11 @@ const Room = () => {
             textAlign: "center",
           }}
         >
-          401
+          {item.room}
         </Text>
-        <Text style={{ color: "#fff", fontSize:10 }}>Total member: 06</Text>
+        <Text style={{ color: "#fff", fontSize: 10 }}>
+          Total member: {item.member.length}
+        </Text>
       </View>
     </View>
   );

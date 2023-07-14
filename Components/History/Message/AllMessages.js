@@ -4,16 +4,16 @@ import { TouchableRipple } from "react-native-paper";
 import Notices from "./Notices";
 import Issues from "./Issues";
 
-const AllMessages = () => {
+const AllMessages = ({ notice, message }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const OutletItems = () => {
     switch (selectedTab) {
       case 0:
-        return <Notices />;
+        return <Notices data={notice} />;
       case 1:
-        return <Issues />;
+        return <Issues data={message} />;
       default:
-        return <Notices />;
+        return <Notices data={notice} />;
     }
   };
   return (
@@ -32,7 +32,7 @@ const AllMessages = () => {
           <Text
             style={[
               {
-                fontSize: 17
+                fontSize: 17,
               },
               !selectedTab && { color: "#275754" },
             ]}

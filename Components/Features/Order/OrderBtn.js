@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
-import { coupon, meal } from "../../Hooks/Conditions";
+import { meal } from "../../Hooks/Conditions";
 
-const OrderBtn = () => {
+const OrderBtn = ({ coupon }) => {
   const [tap, setTap] = useState(false);
   return (
     <View style={[styles.bottom]}>

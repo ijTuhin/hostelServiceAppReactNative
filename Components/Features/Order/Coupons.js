@@ -1,9 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 import { Octicons, FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
-import { coupon } from "../../Hooks/Conditions";
 
-const Coupons = () => {
+const Coupons = ({ coupon }) => {
   return (
     <View style={{ display: "flex", alignItems: "center" }}>
       <View
@@ -27,16 +26,8 @@ const Coupons = () => {
         >
           {coupon}
         </Text>
-        <Octicons
-          name="dot-fill"
-          size={4}
-          color="#ddd"
-        />
-        <FontAwesome5
-          name="coins"
-          size={16}
-          color="#F59E0B"
-        />
+        <Octicons name="dot-fill" size={4} color="#ddd" />
+        <FontAwesome5 name="coins" size={16} color="#F59E0B" />
       </View>
     </View>
   );

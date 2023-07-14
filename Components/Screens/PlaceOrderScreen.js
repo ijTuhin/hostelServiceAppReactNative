@@ -3,13 +3,15 @@ import React from "react";
 import Coupons from "../Features/Order/Coupons";
 import Meals from "../Features/Order/Meals";
 import OrderBtn from "../Features/Order/OrderBtn";
+import { useAuth } from "../Authentication/AuthContext";
 
-const PlaceOrderScreen = ({navigation}) => {
+const PlaceOrderScreen = ({ navigation }) => {
+  const { data } = useAuth();
   return (
     <ScrollView contentContainerStyle={styles.body}>
-      <Meals />
-      <Coupons />
-      <OrderBtn />
+      <Meals coupon={data.coupon} />
+      <Coupons coupon={data.coupon} />
+      <OrderBtn coupon={data.coupon} />
     </ScrollView>
   );
 };

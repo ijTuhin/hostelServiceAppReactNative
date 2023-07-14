@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "./Components/Screens/LoginScreen";
@@ -38,7 +38,6 @@ function Protected() {
 }
 function AppLayOut() {
   const { authState } = useAuth();
-  console.log("App.js-Line 41:",authState.token);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">

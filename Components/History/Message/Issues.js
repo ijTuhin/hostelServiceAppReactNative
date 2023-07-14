@@ -1,18 +1,8 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const Issues = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch(`http://192.168.0.107:3001/meal/data?date=6/21/2023`)
-      .then((response) => response.json())
-      .then((item) => {
-        setData(item);
-        // console.warn(data);
-      })
-      // .catch((e) => console.error(e));
-  }, []);
+const Issues = ({data}) => {
   return (
     <ScrollView contentContainerStyle={{marginTop:64}}>
       {data &&

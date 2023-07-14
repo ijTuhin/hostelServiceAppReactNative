@@ -1,12 +1,12 @@
 import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 const AuthContext = createContext();
 export const useAuth = () => {
   return useContext(AuthContext);
 };
 export const AuthProvider = ({ children }) => {
+  const [data, setData] = useState({});
   const [authState, setAuthState] = useState({
     token: null,
     authenticate: null,
@@ -66,6 +66,8 @@ export const AuthProvider = ({ children }) => {
     UserLogin,
     UserLogOut,
     authState,
+    data,
+    setData,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

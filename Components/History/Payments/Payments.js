@@ -1,21 +1,11 @@
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
 import Data from "./Data";
 
-const Payments = () => {
-  const [url, setUrl] = useState(`http://192.168.0.107:3001/payment/`);
-  const [data, setData] = useState(null);
+const Payments = ({ item }) => {
+  const [data, setData] = useState(item);
   const [selectedTab, setSelectedTab] = useState(0);
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((item) => {
-        setData(item);
-        // console.log(item);
-      })
-      // .catch((error) => console.error(error));
-  }, [url]);
   return (
     <SafeAreaView
       style={{
@@ -23,9 +13,10 @@ const Payments = () => {
       }}
     >
       <View style={styles.nav}>
-        <TouchableRipple style={{borderRadius: 9999}}
+        <TouchableRipple
+          style={{ borderRadius: 9999 }}
           onPress={() => {
-            setUrl(`http://192.168.0.107:3001/payment/`)
+            setData(item);
             setSelectedTab(0);
           }}
           rippleColor="rgba(0, 0, 0, .02)"
@@ -39,9 +30,10 @@ const Payments = () => {
             All
           </Text>
         </TouchableRipple>
-        <TouchableRipple style={{borderRadius: 9999}}
+        <TouchableRipple
+          style={{ borderRadius: 9999 }}
           onPress={() => {
-            setUrl(`http://192.168.0.107:3001/payment/meal`)
+            setData(item.filter((i) => i.item === "meal"));
             setSelectedTab(1);
           }}
           rippleColor="rgba(0, 0, 0, .02)"
@@ -55,9 +47,10 @@ const Payments = () => {
             Meals Only
           </Text>
         </TouchableRipple>
-        <TouchableRipple style={{borderRadius: 9999}}
+        <TouchableRipple
+          style={{ borderRadius: 9999 }}
           onPress={() => {
-            setUrl(`http://192.168.0.107:3001/payment/rent`)
+            setData(item.filter((i) => i.item === "rent"));
             setSelectedTab(2);
           }}
           rippleColor="rgba(0, 0, 0, .02)"
@@ -89,14 +82,14 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   active: {
-    borderWidth:1,
+    borderWidth: 1,
     borderColor: "rgb(156, 163, 175)",
-    color: "#334155"
+    color: "#334155",
   },
   notActive: {
-    borderWidth:1,
+    borderWidth: 1,
     borderColor: "#CBD5E1",
-    color: "#CBD5E1"
+    color: "#CBD5E1",
   },
 });
 

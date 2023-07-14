@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
-import { coupon, meal } from "../../Hooks/Conditions";
+import { meal } from "../../Hooks/Conditions";
 
-const Meals = () => {
+const Meals = ({ coupon }) => {
   let item = meal;
   if (!coupon) item = 0;
   return (

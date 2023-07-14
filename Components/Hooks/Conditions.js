@@ -25,11 +25,12 @@ if (
 }
 /* ====================================================== */
 /* ===============[ Set Payment Condition ]================= */
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-const payMonth = months[new Date().getMonth()+1];
+const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+const month = months[new Date().getMonth()] + '-' + new Date().getFullYear();
+const nextMonth = months[new Date().getMonth()+1] + '-' + new Date().getFullYear();
+const payMonth = fullMonths[new Date().getMonth()+1];
 let twoDays = 1;
-let currentMonthPay = 0;
-let currentDayPay = 0;
 /* ====================================================== */
 
-export { meal, coupon, twoDays, currentMonthPay, currentDayPay, payMonth };
+export { meal, coupon, twoDays, payMonth, nextMonth, month };

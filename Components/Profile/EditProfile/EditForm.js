@@ -1,14 +1,16 @@
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import React from "react";
+import { useAuth } from "../../Authentication/AuthContext";
 
 const EditForm = () => {
+  const { data } = useAuth();
   const stored = {
-    address: "address",
-    thana: "thana",
-    district: "district",
-    phone: "phone",
+    address: data.address,
+    thana: data.thana,
+    district: data.district,
+    phone: data.phone,
   };
-  const [data, setData] = React.useState(stored);
+  const [item, setItem] = React.useState(stored);
   const [error, setError] = React.useState(<></>);
   return (
     <View style={styles.body}>
@@ -21,63 +23,63 @@ const EditForm = () => {
       >
         [To change Academic data, please contact Warden.]
       </Text>
-      <View style={{marginBottom:8}}>
+      <View style={{ marginBottom: 8 }}>
         <Text style={{ fontSize: 16, marginBottom: 4 }}>Phone</Text>
         <TextInput
           style={styles.input}
           onChangeText={(e) => {
-            setData({
-              ...data,
+            setItem({
+              ...item,
               phone: e,
             });
-            console.warn(data);
+            console.warn(item);
           }}
           onBlur={() => {
-            if (data.phone.length === 0)
-              setData({
-                ...data,
+            if (item.phone.length === 0)
+              setItem({
+                ...item,
                 phone: stored.phone,
               });
-            console.warn(data.phone.length);
+            console.warn(item.phone.length);
           }}
           placeholder={stored.phone}
           keyboardType="numeric"
         />
       </View>
-      <View style={{marginBottom:8}}>
+      <View style={{ marginBottom: 8 }}>
         <Text style={{ fontSize: 16, marginBottom: 4 }}>Address</Text>
         <TextInput
           style={styles.input}
           onChangeText={(e) => {
-            setData({
-              ...data,
+            setItem({
+              ...item,
               address: e.target.value,
             });
           }}
           onBlur={() => {
-            if (data.address.length === 0)
-              setData({
-                ...data,
+            if (item.address.length === 0)
+              setItem({
+                ...item,
                 address: stored.address,
               });
           }}
           placeholder={stored.address}
         />
       </View>
-      <View style={{marginBottom:8}}>
+      <View style={{ marginBottom: 8 }}>
         <Text style={{ fontSize: 16, marginBottom: 4 }}>District</Text>
         <TextInput
           style={styles.input}
           onChangeText={(e) => {
-            setData({
-              ...data,
+            setItem({
+              ...item,
               district: e.target.value,
             });
           }}
           onBlur={() => {
-            if (data.district.length === 0)
-              setData({
-                ...data,
+            if (item.district.length === 0)
+              setItem({
+                ...item,
                 district: stored.district,
               });
           }}
@@ -89,15 +91,15 @@ const EditForm = () => {
         <TextInput
           style={styles.input}
           onChangeText={(e) => {
-            setData({
-              ...data,
+            setItem({
+              ...item,
               thana: e.target.value,
             });
           }}
           onBlur={() => {
-            if (data.thana.length === 0)
-              setData({
-                ...data,
+            if (item.thana.length === 0)
+              setItem({
+                ...item,
                 thana: stored.thana,
               });
           }}
@@ -114,7 +116,7 @@ const EditForm = () => {
           marginVertical: 16,
         }}
         onPress={() => {
-          if (JSON.stringify(stored) === JSON.stringify(data)) {
+          if (JSON.stringify(stored) === JSON.stringify(item)) {
             setError(
               <>
                 <Text style={styles.error}>No changes made!!!</Text>
@@ -122,8 +124,7 @@ const EditForm = () => {
             );
             console.log("No changes made");
           } else {
-            // stored = data; for changing data in UI without using useState
-            console.log(data);
+            console.log(item);
             setError(<></>);
           }
         }}
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
   body: {
     marginTop: 40,
     paddingVertical: 24,
-    paddingHorizontal:40
+    paddingHorizontal: 40,
   },
   input: {
     borderWidth: 1,
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: "100%",
     backgroundColor: "rgb(254, 242, 242)",
-    opacity:0.75
+    opacity: 0.75,
   },
 });
 export default EditForm;

@@ -1,18 +1,8 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const Attendances = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch(`http://192.168.0.107:3001/meal/data?date=6/21/2023`)
-      .then((response) => response.json())
-      .then((item) => {
-        setData(item);
-        console.log(item);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+const Attendances = ({data}) => {
   return (
     <ScrollView contentContainerStyle={{margin:8}}>
       {data &&

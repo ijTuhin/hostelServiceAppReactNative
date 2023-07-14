@@ -1,18 +1,8 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { FontAwesome, FontAwesome5, Octicons } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const Notices = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch(`http://192.168.0.107:3001/notice/get`)
-      .then((response) => response.json())
-      .then((item) => {
-        setData(item);
-        console.log(item);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+const Notices = ({data}) => {
   return (
     <ScrollView contentContainerStyle={{ marginTop: 64 }}>
       {data &&
@@ -88,7 +78,6 @@ const styles = StyleSheet.create({
   },
   notice: {
     fontSize: 12,
-    // color:"rgb(100, 116, 139)",
     paddingRight: 12,
     textAlign: "justify",
   },

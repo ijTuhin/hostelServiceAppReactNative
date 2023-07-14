@@ -1,19 +1,9 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Octicons } from "@expo/vector-icons";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Card } from "react-native-paper";
 
-const Orders = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetch(`http://192.168.0.107:3001/meal/data?date=6/21/2023`)
-      .then((response) => response.json())
-      .then((item) => {
-        setData(item);
-        console.log(item);
-      })
-      .catch((error) => console.error(error));
-  }, []);
+const Orders = ({data}) => {
   return (
     <ScrollView contentContainerStyle={{ marginVertical: 4 }}>
       {data &&
@@ -72,7 +62,6 @@ const Orders = () => {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 16,
-    // marginTop: 8,
     paddingVertical: 12,
     display: "flex",
     flexDirection: "row",

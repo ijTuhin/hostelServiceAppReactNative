@@ -6,6 +6,7 @@ import SeatRent from "../Features/Payment/Seat/SeatRent";
 import { TouchableRipple } from "react-native-paper";
 
 const PaymentScreen = ({navigation}) => {
+  // const { setData, data } = useAuth();
   const [selectedTab, setSelectedTab] = useState(0);
   const OutletItems = () => {
     switch (selectedTab) {

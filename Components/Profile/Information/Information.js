@@ -1,32 +1,32 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
+import { useAuth } from "../../Authentication/AuthContext";
 
 const Information = () => {
+  const { data } = useAuth();
   return (
     <ScrollView contentContainerStyle={styles.body}>
       <View style={styles.user}>
         <FontAwesome name="user-circle-o" size={32} color="#fff" />
         <View>
-          <Text style={{ fontSize: 17.6, color: "#fff" }}>
-            User Name
-          </Text>
-          <Text style={{ fontSize: 11, color: "#ddd" }}>matricId@ugrad.iiuc.ac.bd</Text>
+          <Text style={{ fontSize: 17.6, color: "#fff" }}>{data.name}</Text>
+          <Text style={{ fontSize: 11, color: "#ddd" }}>{data.email}</Text>
         </View>
       </View>
       <View style={styles.data}>
         <Text style={styles.infoHead}>Academic Data</Text>
-        <Text style={styles.info}>Matric ID:</Text>
-        <Text style={styles.info}>Department:</Text>
-        <Text style={styles.info}>Semester Enrolled:</Text>
+        <Text style={styles.info}>Matric ID: {data.matric} </Text>
+        <Text style={styles.info}>Department: {data.dept} </Text>
+        <Text style={styles.info}>Semester Enrolled: {data.sem} </Text>
         <Text style={styles.info}>Last session:</Text>
       </View>
       <View style={styles.data}>
         <Text style={styles.infoHead}>Personal Info</Text>
-        <Text style={styles.info}>Phone number:</Text>
-        <Text style={styles.info}>Permanant Address:</Text>
-        <Text style={styles.info}>Thana:</Text>
-        <Text style={styles.info}>District:</Text>
+        <Text style={styles.info}>Phone number: {data.phone} </Text>
+        <Text style={styles.info}>Permanant Address: {data.address} </Text>
+        <Text style={styles.info}>Thana: {data.thana} </Text>
+        <Text style={styles.info}>District: {data.district} </Text>
       </View>
     </ScrollView>
   );

@@ -1,34 +1,39 @@
 import { View, Text, StyleSheet } from "react-native";
-import { Octicons, MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { coupon, currentDayPay, twoDays } from "../../../Hooks/Conditions";
+import { twoDays } from "../../../Hooks/Conditions";
 import CouponBox from "./CouponBox";
 import { TouchableRipple } from "react-native-paper";
 import PaymentBox from "./PaymentBox";
 import TaskDone from "../../TaskDone";
+import { useAuth } from "../../../Authentication/AuthContext";
 
 const MealBill = () => {
+  const { data } = useAuth();
+  const currentDayPay = data.payments.filter((i) => {
+    i.date === new Date().toLocaleDateString();
+  });
   let newCoupon;
   let total;
   const [selectedTab, setSelectedTab] = useState(null);
-  const [paymentTab, setPaymentTab] = useState(currentDayPay);
+  const [paymentTab, setPaymentTab] = useState(currentDayPay.length);
   const getCoupons = () => {
     switch (selectedTab) {
       case 0:
-        return [(newCoupon = 2), (total = coupon + newCoupon)];
+        return [(newCoupon = 2), (total = data.coupon + newCoupon)];
       case 1:
-        return [(newCoupon = 7), (total = coupon + newCoupon)];
+        return [(newCoupon = 7), (total = data.coupon + newCoupon)];
       case 2:
-        return [(newCoupon = 30), (total = coupon + newCoupon)];
+        return [(newCoupon = 30), (total = data.coupon + newCoupon)];
       default:
-        return [(newCoupon = 0), (total = coupon + newCoupon)];
+        return [(newCoupon = 0), (total = data.coupon + newCoupon)];
     }
   };
   return (
     <View style={{ backgroundColor: "#F1F5F9" }}>
       <View style={styles.packageBox}>
         {!paymentTab ? (
-          <CouponBox coupon={coupon} />
+          <CouponBox coupon={data.coupon} />
         ) : (
           <CouponBox coupon={getCoupons()[1]} />
         )}
@@ -145,7 +150,7 @@ const MealBill = () => {
           {selectedTab !== null && (
             <View style={styles.paymentBox}>
               <PaymentBox
-                coupon={coupon}
+                coupon={data.coupon}
                 change={setPaymentTab}
                 total={getCoupons()[1]}
                 added={getCoupons()[0]}

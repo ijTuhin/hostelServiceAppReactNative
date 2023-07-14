@@ -2,14 +2,13 @@ import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Card, TouchableRipple } from "react-native-paper";
-import { roomMate } from "../../Hooks/PassData";
 
-const Members = () => {
+const Members = ({item}) => {
   const [display, setDisplay] = useState(null);
   return (
     <>
-      {roomMate?.map((i, index) => (
-        <Card
+      {item.map((i, index) => (
+        <Card key={index}
           style={{
             marginVertical: 4,
             backgroundColor: "#fff",
