@@ -111,6 +111,26 @@ export const AuthProvider = ({ children }) => {
       };
     }
   };
+  const postEditProfileRequest = async (data) => {
+    try {
+      const result = await axios.post(
+        `http://192.168.0.107:3001/admin/edit-request`,
+        data
+      );
+      if (result) {
+        setAuthState({
+          ...authState,
+          refresh: "edit-request",
+        });
+      }
+      console.log("AuthContext- User Issue Post: ", result);
+      return result;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
+  };
   const UserLogin = async (email, password) => {
     try {
       const result = await axios.post(`http://192.168.0.107:3001/user/login`, {
@@ -149,6 +169,7 @@ export const AuthProvider = ({ children }) => {
     paySeatRent,
     placeMealOrder,
     postUserProblem,
+    postEditProfileRequest,
     setData,
     data,
     authState,

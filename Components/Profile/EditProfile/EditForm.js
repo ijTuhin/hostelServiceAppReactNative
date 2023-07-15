@@ -3,7 +3,7 @@ import React from "react";
 import { useAuth } from "../../Authentication/AuthContext";
 
 const EditForm = () => {
-  const { data } = useAuth();
+  const { data, postEditProfileRequest } = useAuth();
   const stored = {
     address: data.address,
     thana: data.thana,
@@ -12,6 +12,24 @@ const EditForm = () => {
   };
   const [item, setItem] = React.useState(stored);
   const [error, setError] = React.useState(<></>);
+  const uploadData = () => {
+    postEditProfileRequest(item);
+    setError(
+      <>
+        <Text
+          style={[
+            {
+              color: "#4ade80",
+              backgroundColor: "#dcfce7",
+            },
+            styles.warn,
+          ]}
+        >
+          Request for Personal Info has been sent.
+        </Text>
+      </>
+    );
+  };
   return (
     <View style={styles.body}>
       <Text
@@ -53,7 +71,7 @@ const EditForm = () => {
           onChangeText={(e) => {
             setItem({
               ...item,
-              address: e.target.value,
+              address: e,
             });
           }}
           onBlur={() => {
@@ -73,7 +91,7 @@ const EditForm = () => {
           onChangeText={(e) => {
             setItem({
               ...item,
-              district: e.target.value,
+              district: e,
             });
           }}
           onBlur={() => {
@@ -93,7 +111,7 @@ const EditForm = () => {
           onChangeText={(e) => {
             setItem({
               ...item,
-              thana: e.target.value,
+              thana: e,
             });
           }}
           onBlur={() => {
@@ -119,13 +137,23 @@ const EditForm = () => {
           if (JSON.stringify(stored) === JSON.stringify(item)) {
             setError(
               <>
-                <Text style={styles.error}>No changes made!!!</Text>
+                <Text
+                  style={[
+                    {
+                      color: "rgb(239, 68, 68)",
+                      backgroundColor: "rgb(254, 242, 242)",
+                    },
+                    styles.warn,
+                  ]}
+                >
+                  No changes made!!!
+                </Text>
               </>
             );
             console.log("No changes made");
           } else {
             console.log(item);
-            setError(<></>);
+            uploadData();
           }
         }}
       >
@@ -147,14 +175,12 @@ const styles = StyleSheet.create({
     padding: 12,
     color: "rgb(100, 116, 139)",
   },
-  error: {
-    color: "rgb(239, 68, 68)",
+  warn: {
     marginTop: 16,
     paddingVertical: 16,
     fontSize: 16,
     textAlign: "center",
     width: "100%",
-    backgroundColor: "rgb(254, 242, 242)",
     opacity: 0.75,
   },
 });

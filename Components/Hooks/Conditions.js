@@ -1,6 +1,8 @@
 /* ===============================================
                 Fetch User Data 
 ================================================ */
+const emailValidity =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 /* ===============[ Set Meal Condition ]================= */
 const date = new Date();
@@ -40,4 +42,4 @@ const payMonth = fullMonths[new Date().getMonth()+1];
 let twoDays = 1;
 /* ====================================================== */
 
-export { meal, day, today, twoDays, payMonth, nextMonth, month };
+export { meal, day, today, twoDays, payMonth, nextMonth, month, emailValidity };

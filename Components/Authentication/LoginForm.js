@@ -1,13 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { TextInput } from "react-native";
 import { useAuth } from "./AuthContext";
-import axios from "axios";
+import { emailValidity } from "../Hooks/Conditions";
 
-const LoginForm = ({ navigation }) => {
+const LoginForm = () => {
   const { UserLogin } = useAuth();
-  const emailValidity =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const [data, setData] = useState({});
   const [error, setError] = useState(<></>);
   const Login = async () => {
@@ -21,14 +19,6 @@ const LoginForm = ({ navigation }) => {
       obj.email === "" || obj.password === "" || JSON.stringify(obj) === "{}"
     );
   }
-
-  useEffect(() => {
-    const testCall = async () => {
-      const result = await axios.get(`http://192.168.0.107:3001/user/my-data`);
-      console.log("Test Call:", result);
-    };
-    testCall();
-  }, []);
 
   return (
     <View>
