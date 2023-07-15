@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { twoDays } from "../../../Hooks/Conditions";
+import { today } from "../../../Hooks/Conditions";
 import CouponBox from "./CouponBox";
 import { TouchableRipple } from "react-native-paper";
 import PaymentBox from "./PaymentBox";
@@ -11,7 +11,10 @@ import { useAuth } from "../../../Authentication/AuthContext";
 const MealBill = () => {
   const { data } = useAuth();
   const currentDayPay = data.payments.filter((i) => {
-    i.date === new Date().toLocaleDateString();
+    i.date === today;
+  });
+  const twoDays = data.payments.filter((i) => {
+    i.package === 2;
   });
   let newCoupon;
   let total;
@@ -58,7 +61,7 @@ const MealBill = () => {
               <Text style={[styles.menu, selectedTab === 0 && styles.active]}>
                 {" "}
                 2 days
-                {twoDays !== 0 && (
+                {twoDays.length !== 0 && (
                   <Text
                     style={{
                       marginBottom: 16,
@@ -144,7 +147,7 @@ const MealBill = () => {
                 Payment Section
 =============================================== */}
       {paymentTab ? (
-        <TaskDone text={"Payment Done"} />
+        paymentTab === 2 && <TaskDone text={"Payment Done"} />
       ) : (
         <>
           {selectedTab !== null && (

@@ -1,8 +1,21 @@
 import { Text, StyleSheet } from "react-native";
 import React from "react";
 import { TouchableRipple } from "react-native-paper";
+import { useAuth } from "../../../Authentication/AuthContext";
 
-const PaymentBtn = ({change}) => {
+const PaymentBtn = ({ change, item }) => {
+  const {data, payMealBill} = useAuth();
+  const mealPayment = () => {
+    const value = {
+      package: item,
+      trxID: "TxrGhKmliZs",
+      phone: data.phone,
+    };
+    payMealBill(value)
+    change(2);
+    console.log("Payment for meal", value);
+    // package, (item,bill,user,date,month,user), trxID, phone
+  };
   return (
     <TouchableRipple
       style={{
@@ -10,13 +23,11 @@ const PaymentBtn = ({change}) => {
         marginTop: 20,
       }}
       onPress={() => {
-        change(1);
+        mealPayment();
       }}
       rippleColor="rgba(0, 0, 0, .32)"
     >
-      <Text style={[styles.menu]}>
-        Confirm Payment
-      </Text>
+      <Text style={[styles.menu]}>Confirm Payment</Text>
     </TouchableRipple>
   );
 };
@@ -30,7 +41,7 @@ const styles = StyleSheet.create({
     opacity: 0.85,
     color: "white",
     // boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)"
-  }
+  },
 });
 
 export default PaymentBtn;

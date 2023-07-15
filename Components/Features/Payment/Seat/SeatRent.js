@@ -8,9 +8,10 @@ import { useAuth } from "../../../Authentication/AuthContext";
 const SeatRent = () => {
   const { data } = useAuth();
   const currentMonthPay = data.payments.filter((i) => {
-    i.month === nextMonth;
+    return i.month === nextMonth;
   });
   const [payment, setPayment] = useState(currentMonthPay.length);
+  console.log(payment, currentMonthPay)
   return (
     <View
       style={{
@@ -21,7 +22,7 @@ const SeatRent = () => {
       {payment ? (
         <TaskDone text={"Payment Done"} />
       ) : (
-        <PayRent paid={setPayment} />
+        <PayRent paid={setPayment} phone={data.phone} />
       )}
     </View>
   );

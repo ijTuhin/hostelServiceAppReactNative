@@ -12,7 +12,7 @@ const Issues = ({data}) => {
               <View>
                 <View style={styles.head}>
                   <Text style={{ fontSize: 17, fontWeight: 600 }}>
-                    Topic Name
+                    {i.topic}
                   </Text>
                   <MaterialCommunityIcons
                     style={{ marginTop: -5 }}
@@ -22,17 +22,17 @@ const Issues = ({data}) => {
                   />
                 </View>
                 <View style={styles.time}>
-                  <Text  style={styles.secondaryText}>Date</Text>
+                  <Text  style={styles.secondaryText}>{i.date}</Text>
                   <Octicons name="dot-fill" size={8} color="#94A3B8" />
                   <Text  style={styles.secondaryText}>Time</Text>
                 </View>
               </View>
               <View style={styles.info}>
-                <Text style={{ fontSize: 14 }}>To: warden</Text>
+                <Text style={{ fontSize: 14 }}>To: {i.to}</Text>
               </View>
             </View>
             <Text style={styles.notice}>
-              Issues jhldoy;s jhlwioeyt djlh;idsogpa djg;aoiey
+              {i.note}
             </Text>
           </View>
         ))}

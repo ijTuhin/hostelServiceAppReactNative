@@ -1,25 +1,36 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { TouchableRipple } from "react-native-paper";
-import { payMonth } from "../../../Hooks/Conditions";
+import { nextMonth, payMonth } from "../../../Hooks/Conditions";
+import { useAuth } from "../../../Authentication/AuthContext";
 
-const PayRent = ({ paid }) => {
+const PayRent = ({ paid, phone }) => {
+  const { data, paySeatRent } = useAuth();
+  const rentPayment = () => {
+    const value = {
+      trxID: "TxrGhKmliZs",
+      phone: phone,
+    };
+    paySeatRent(value);
+    paid(1);
+    console.log("Payment for seat rent");
+  };
   return (
     <View style={styles.box}>
       <Text style={{ fontSize: 12 }}>Bill Month</Text>
-      <Text
-        style={{ fontSize: 20.4, fontWeight: 700, color: "#374151" }}
-      >
-        {payMonth}
+      <Text style={{ fontSize: 20.4, fontWeight: 700, color: "#374151" }}>
+        {nextMonth}
       </Text>
-      <Text style={{ fontSize: 11.6, color: "#EF4444", fontWeight: 500 }}>not paid</Text>
+      <Text style={{ fontSize: 11.6, color: "#EF4444", fontWeight: 500 }}>
+        not paid
+      </Text>
       <TouchableRipple
         style={{
           marginHorizontal: 24,
           marginVertical: 16,
         }}
         onPress={() => {
-          paid(1);
+          rentPayment();
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >

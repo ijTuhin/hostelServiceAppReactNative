@@ -3,7 +3,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import PaymentBtn from "./PaymentBtn";
 
-const PaymentBox = ({ added, total, coupon, change }) => {
+const PaymentBox = ({ added, total, coupon, change, phone }) => {
   return (
     <View style={styles.paymentBox}>
       <View style={[styles.packageText]}>
@@ -54,7 +54,7 @@ const PaymentBox = ({ added, total, coupon, change }) => {
           />
         </Text>
       </View>
-      <PaymentBtn change={change} />
+      <PaymentBtn item={added} phone={phone} change={change} />
     </View>
   );
 };

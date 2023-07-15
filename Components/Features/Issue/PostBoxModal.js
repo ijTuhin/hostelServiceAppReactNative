@@ -1,8 +1,15 @@
 import { Text, StyleSheet, TextInput } from "react-native";
 import React from "react";
 import { Modal, Portal } from "react-native-paper";
+import { useAuth } from "../../Authentication/AuthContext";
 
 const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
+  const { postUserProblem } = useAuth();
+  const postIssue = () => {
+    postUserProblem(data);
+    setVisible(false);
+    console.log("Issue have been posted", data);
+  };
   return (
     <Portal>
       <Modal
@@ -18,10 +25,10 @@ const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
         <Text style={{ fontSize: 24, fontWeight: 600 }}>{data?.topic}</Text>
         <TextInput
           style={styles.input}
-          onChange={(e) => {
+          onChangeText={(e) => {
             set({
               ...data,
-              note: e.target.value,
+              note: e,
             });
           }}
           editable
@@ -29,13 +36,12 @@ const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
           numberOfLines={4}
           maxLength={200}
           placeholder="Add Note (max. 200 character)"
-          keyboardType="numeric"
+          // keyboardType="numeric"
         />
         <Text
           style={styles.postBtn}
           onPress={() => {
-            console.log(data);
-            setVisible(false);
+            postIssue();
           }}
         >
           Post

@@ -32,12 +32,12 @@ const issues = [
   },
   {
     topic: "Meal bill not added",
-    to: "warden",
+    to: "accountant",
     icon: <MaterialCommunityIcons name="food-off" size={40} color="#0F766E" />,
   },
   {
     topic: "Seat rent not added",
-    to: "warden",
+    to: "accountant",
     icon: <MaterialIcons name="no-meeting-room" size={40} color="#0F766E" />,
   },
   {

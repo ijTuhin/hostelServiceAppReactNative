@@ -33,7 +33,7 @@ const Data = ({ data }) => {
                     </>
                   )}
                 </View>
-                <Text style={styles.secondary}>Trans ID: ShCKyfoaJKhf</Text>
+                <Text style={styles.secondary}>Trans ID: {i.trxID}</Text>
               </View>
             </View>
           </Card>

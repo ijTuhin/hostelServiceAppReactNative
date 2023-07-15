@@ -3,7 +3,13 @@
 ================================================ */
 
 /* ===============[ Set Meal Condition ]================= */
-let coupon = 7;
+const date = new Date();
+// let time = date.toTimeString().split(":")[0];
+// time = parseInt(time);
+const today = date.toLocaleDateString();
+date.setDate(date.getDate() + 1);
+const tomorrow = date.toLocaleDateString();
+let day = today;
 let time = parseInt(new Date().toTimeString().split(":")[0]);
 let meal;
 if (
@@ -22,15 +28,16 @@ if (
   meal = "Dinner";
 } else if (time > 19 || time <= 23) {
   meal = "Breakfast";
+  day = tomorrow;
 }
 /* ====================================================== */
 /* ===============[ Set Payment Condition ]================= */
 const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 const month = months[new Date().getMonth()] + '-' + new Date().getFullYear();
-const nextMonth = months[new Date().getMonth()+1] + '-' + new Date().getFullYear();
+const nextMonth = months[new Date().getMonth()] + '-' + new Date().getFullYear();
 const payMonth = fullMonths[new Date().getMonth()+1];
 let twoDays = 1;
 /* ====================================================== */
 
-export { meal, coupon, twoDays, payMonth, nextMonth, month };
+export { meal, day, today, twoDays, payMonth, nextMonth, month };

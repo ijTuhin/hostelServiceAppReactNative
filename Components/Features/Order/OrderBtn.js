@@ -1,18 +1,29 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
-import { meal } from "../../Hooks/Conditions";
+import { day, meal } from "../../Hooks/Conditions";
+import { useAuth } from "../../Authentication/AuthContext";
 
-const OrderBtn = ({ coupon }) => {
+const OrderBtn = ({ coupon, set, done }) => {
+  const { data, placeMealOrder } = useAuth();
   const [tap, setTap] = useState(false);
+  const placeOrder = () => {
+    placeMealOrder(meal);
+    setTap(true);
+    set(coupon - 1);
+    console.log("Order PLaced");
+    // meal, date, user = just go with the link
+  };
   return (
     <View style={[styles.bottom]}>
       {coupon ? (
-        meal ? (
+        done ? (
+          <Text style={{ color: "#ddd", fontSize: 13.6 }}>Order Placed.</Text>
+        ) : meal ? (
           <TouchableRipple
             style={[styles.tap, tap && styles.tapRing]}
             onLongPress={() => {
-              setTap(true);
+              placeOrder();
             }}
             rippleColor="rgba(13 ,148, 136, .32)"
           >

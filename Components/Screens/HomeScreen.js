@@ -8,7 +8,7 @@ import axios from "axios";
 import { useAuth } from "../Authentication/AuthContext";
 
 const HomeScreen = ({ navigation }) => {
-  const { setData, data } = useAuth();
+  const { setData, authState, data } = useAuth();
   const [selectedTab, setSelectedTab] = useState(0);
   console.log("||| HomeScreen line-13:", data.name);
   useEffect(() => {
@@ -18,7 +18,7 @@ const HomeScreen = ({ navigation }) => {
       setData(result.data);
     };
     testCall();
-  }, []);
+  }, [authState.refresh]);
   const PrimaryOutletItems = () => {
     switch (selectedTab) {
       case 0:

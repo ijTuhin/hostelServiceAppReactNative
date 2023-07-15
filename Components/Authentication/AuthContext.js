@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [authState, setAuthState] = useState({
     token: null,
     authenticate: null,
+    refresh: "",
   });
 
   useEffect(() => {
@@ -31,6 +32,85 @@ export const AuthProvider = ({ children }) => {
     };
     return () => LoadToken();
   }, []);
+  const paySeatRent = async (value) => {
+    try {
+      const result = await axios.post(
+        `http://192.168.0.107:3001/payment/seat-rent`,
+        value
+      );
+      if (result) {
+        setAuthState({
+          ...authState,
+          refresh: "seat-rent",
+        });
+      }
+      console.log("AuthContext-Pay seat rent: ", result);
+      return result;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
+  };
+  const payMealBill = async (value) => {
+    try {
+      const result = await axios.post(
+        `http://192.168.0.107:3001/payment/meal-package`,
+        value
+      );
+      if (result) {
+        setAuthState({
+          ...authState,
+          refresh: "meal-bill",
+        });
+      }
+      console.log("AuthContext-Pay meal bill: ", result);
+      return result;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
+  };
+  const placeMealOrder = async (meal) => {
+    try {
+      const result = await axios.post(`http://192.168.0.107:3001/meal`, {
+        meal,
+      });
+      if (result) {
+        setAuthState({
+          ...authState,
+          refresh: "place-order",
+        });
+      }
+      console.log("AuthContext-Place meal order: ", result);
+      return result;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
+  };
+  const postUserProblem = async (data) => {
+    try {
+      const result = await axios.post(
+        `http://192.168.0.107:3001/message`,
+        data
+      );
+      if (result) {
+        setAuthState({
+          ...authState,
+          refresh: "post-issues",
+        });
+      }
+      console.log("AuthContext- User Issue Post: ", result);
+      return result;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
+  };
   const UserLogin = async (email, password) => {
     try {
       const result = await axios.post(`http://192.168.0.107:3001/user/login`, {
@@ -65,9 +145,13 @@ export const AuthProvider = ({ children }) => {
   const authInfo = {
     UserLogin,
     UserLogOut,
-    authState,
-    data,
+    payMealBill,
+    paySeatRent,
+    placeMealOrder,
+    postUserProblem,
     setData,
+    data,
+    authState,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
