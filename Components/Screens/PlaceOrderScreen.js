@@ -9,13 +9,11 @@ import { day, meal } from "../Hooks/Conditions";
 const PlaceOrderScreen = ({ navigation }) => {
   let a = new Date().toLocaleDateString()
   const { data } = useAuth();
-  const [coupon, setCoupon] = useState(data.coupon);
+  const [coupon, setCoupon] = useState(data.user.coupon);
   const done = data.orders.filter((i) => {
-    // if(i.date === day && i.meal === meal)
-    // console.log("filter", i.date, a, i.meal, meal)
-    return i.date === day && i.meal === meal;
+    if(i.date === day && i.meal === meal)
+    return i;
   });
-  console.log(done.length)
   return (
     <ScrollView contentContainerStyle={styles.body}>
       <Meals coupon={coupon} />

@@ -8,7 +8,7 @@ const Orders = ({data}) => {
     <ScrollView contentContainerStyle={{ marginVertical: 4 }}>
       {data &&
         data.map((i) => (
-          <Card
+          <Card key={i._id}
             style={{
               marginVertical: 4,
               backgroundColor: "#fff",
@@ -16,7 +16,7 @@ const Orders = ({data}) => {
               borderRadius: 2.4,
             }}
           >
-            <View key={i._id} style={styles.container}>
+            <View style={styles.container}>
               <View>
                 <View style={styles.status}>
                   <Text>

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import Room from "../Profile/RoomInfo/Room";
 import Members from "../Profile/RoomInfo/Members";
@@ -6,10 +6,9 @@ import { useAuth } from "../Authentication/AuthContext";
 
 const RoomInfoScreen = () => {
   const { data } = useAuth();
-  console.log("Room Info", data.name);
   return (
     <ScrollView contentContainerStyle={styles.body}>
-      <Room item={data.room} />
+      <Room room={data.room.room} total={data.room.member.length} />
       <Members item={data.room.member} />
     </ScrollView>
   );

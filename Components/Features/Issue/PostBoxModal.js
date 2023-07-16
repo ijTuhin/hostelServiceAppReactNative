@@ -8,7 +8,6 @@ const PostBoxModal = ({ visible, setVisible, hideModal, set, data }) => {
   const postIssue = () => {
     postUserProblem(data);
     setVisible(false);
-    console.log("Issue have been posted", data);
   };
   return (
     <Portal>

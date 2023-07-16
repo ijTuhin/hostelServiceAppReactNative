@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
-const Room = ({ item }) => {
+const Room = ({ room, total }) => {
   return (
     <View style={styles.body}>
       <View
@@ -26,10 +26,10 @@ const Room = ({ item }) => {
             textAlign: "center",
           }}
         >
-          {item.room}
+          {room}
         </Text>
         <Text style={{ color: "#fff", fontSize: 10 }}>
-          Total member: {item.member.length}
+          Total member: {total}
         </Text>
       </View>
     </View>

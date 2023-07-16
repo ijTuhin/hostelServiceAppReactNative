@@ -2,38 +2,38 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
 import React from "react";
 
-const Issues = ({data}) => {
+const Issues = ({ data }) => {
   return (
-    <ScrollView contentContainerStyle={{marginTop:64}}>
+    <ScrollView contentContainerStyle={{ marginVertical: 52 }}>
       {data &&
         data.map((i) => (
           <View key={i._id} style={styles.container}>
             <View style={styles.top}>
               <View>
                 <View style={styles.head}>
-                  <Text style={{ fontSize: 17, fontWeight: 600 }}>
+                  <Text style={{ fontSize: 16, fontWeight: 600 }}>
                     {i.topic}
                   </Text>
-                  <MaterialCommunityIcons
-                    style={{ marginTop: -5 }}
-                    name="check-all"
-                    size={20}
-                    color="lightgreen"
-                  />
+                  {i.solved && (
+                    <MaterialCommunityIcons
+                      style={{ marginTop: -5 }}
+                      name="check-all"
+                      size={20}
+                      color="lightgreen"
+                    />
+                  )}
                 </View>
                 <View style={styles.time}>
-                  <Text  style={styles.secondaryText}>{i.date}</Text>
+                  <Text style={styles.secondaryText}>{i.date}</Text>
                   <Octicons name="dot-fill" size={8} color="#94A3B8" />
-                  <Text  style={styles.secondaryText}>Time</Text>
+                  <Text style={styles.secondaryText}>Time</Text>
                 </View>
               </View>
               <View style={styles.info}>
-                <Text style={{ fontSize: 14 }}>To: {i.to}</Text>
+                <Text style={{ fontSize: 12 }}>To: {i.to}</Text>
               </View>
             </View>
-            <Text style={styles.notice}>
-              {i.note}
-            </Text>
+            <Text style={styles.notice}>{i.note}</Text>
           </View>
         ))}
     </ScrollView>
@@ -71,14 +71,14 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     gap: 8,
   },
-  secondaryText:{
+  secondaryText: {
     fontSize: 10,
-    color:"rgb(100, 116, 139)"
+    color: "rgb(100, 116, 139)",
   },
-  notice:{
+  notice: {
     fontSize: 12,
-    color:"rgb(100, 116, 139)"
-  }
+    color: "rgb(100, 116, 139)",
+  },
 });
 
 export default Issues;

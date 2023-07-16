@@ -5,10 +5,10 @@ import { useAuth } from "../../Authentication/AuthContext";
 const EditForm = () => {
   const { data, postEditProfileRequest } = useAuth();
   const stored = {
-    address: data.address,
-    thana: data.thana,
-    district: data.district,
-    phone: data.phone,
+    address: data.user.address,
+    thana: data.user.thana,
+    district: data.user.district,
+    phone: data.user.phone,
   };
   const [item, setItem] = React.useState(stored);
   const [error, setError] = React.useState(<></>);
@@ -50,7 +50,6 @@ const EditForm = () => {
               ...item,
               phone: e,
             });
-            console.warn(item);
           }}
           onBlur={() => {
             if (item.phone.length === 0)
@@ -58,7 +57,6 @@ const EditForm = () => {
                 ...item,
                 phone: stored.phone,
               });
-            console.warn(item.phone.length);
           }}
           placeholder={stored.phone}
           keyboardType="numeric"
@@ -150,9 +148,7 @@ const EditForm = () => {
                 </Text>
               </>
             );
-            console.log("No changes made");
           } else {
-            console.log(item);
             uploadData();
           }
         }}

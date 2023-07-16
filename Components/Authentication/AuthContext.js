@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
           refresh: "meal-bill",
         });
       }
-      console.log("AuthContext-Pay meal bill: ", result);
+      console.log("AuthContext-Pay meal bill: ", result, " ", value);
       return result;
     } catch (e) {
       return {
@@ -123,7 +123,7 @@ export const AuthProvider = ({ children }) => {
           refresh: "edit-request",
         });
       }
-      console.log("AuthContext- User Issue Post: ", result);
+      console.log("AuthContext- User Info Edit Request: ", result, data);
       return result;
     } catch (e) {
       return {

@@ -25,7 +25,7 @@ const Notices = ({data}) => {
                     columnGap: 2.5,
                   }}
                 >
-                  <Text style={{ fontSize: 11 }}>From</Text>
+                  <Text style={{ fontSize: 10 }}>From: {i.sender.role}</Text>
                   <Octicons
                     name="dot-fill"
                     style={{ marginBottom: 1.5 }}
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
+    marginBottom: 6
   },
   notice: {
     fontSize: 12,

@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { today } from "../../../Hooks/Conditions";
+import { month, today } from "../../../Hooks/Conditions";
 import CouponBox from "./CouponBox";
 import { TouchableRipple } from "react-native-paper";
 import PaymentBox from "./PaymentBox";
@@ -11,10 +11,10 @@ import { useAuth } from "../../../Authentication/AuthContext";
 const MealBill = () => {
   const { data } = useAuth();
   const currentDayPay = data.payments.filter((i) => {
-    i.date === today;
+    if (i.date === today) return i;
   });
   const twoDays = data.payments.filter((i) => {
-    i.package === 2;
+    if (i.package === 2 && i.month === month) return i;
   });
   let newCoupon;
   let total;
@@ -23,20 +23,20 @@ const MealBill = () => {
   const getCoupons = () => {
     switch (selectedTab) {
       case 0:
-        return [(newCoupon = 2), (total = data.coupon + newCoupon)];
+        return [(newCoupon = 3 * 2), (total = data.user.coupon + newCoupon)];
       case 1:
-        return [(newCoupon = 7), (total = data.coupon + newCoupon)];
+        return [(newCoupon = 3 * 7), (total = data.user.coupon + newCoupon)];
       case 2:
-        return [(newCoupon = 30), (total = data.coupon + newCoupon)];
+        return [(newCoupon = 3 * 30), (total = data.user.coupon + newCoupon)];
       default:
-        return [(newCoupon = 0), (total = data.coupon + newCoupon)];
+        return [(newCoupon = 3 * 0), (total = data.user.coupon + newCoupon)];
     }
   };
   return (
     <View style={{ backgroundColor: "#F1F5F9" }}>
       <View style={styles.packageBox}>
         {!paymentTab ? (
-          <CouponBox coupon={data.coupon} />
+          <CouponBox coupon={data.user.coupon} />
         ) : (
           <CouponBox coupon={getCoupons()[1]} />
         )}
@@ -46,7 +46,7 @@ const MealBill = () => {
         <View style={{ width: 160, marginTop: 4 }}>
           <TouchableRipple
             onPress={() => {
-              setSelectedTab(0);
+              if (twoDays.length < 3) setSelectedTab(0);
             }}
             rippleColor="rgba(0, 0, 0, .32)"
           >
@@ -61,7 +61,7 @@ const MealBill = () => {
               <Text style={[styles.menu, selectedTab === 0 && styles.active]}>
                 {" "}
                 2 days
-                {twoDays.length !== 0 && (
+                {twoDays.length >= 3 && (
                   <Text
                     style={{
                       marginBottom: 16,
@@ -153,7 +153,7 @@ const MealBill = () => {
           {selectedTab !== null && (
             <View style={styles.paymentBox}>
               <PaymentBox
-                coupon={data.coupon}
+                coupon={data.user.coupon}
                 change={setPaymentTab}
                 total={getCoupons()[1]}
                 added={getCoupons()[0]}

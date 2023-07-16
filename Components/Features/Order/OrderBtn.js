@@ -5,14 +5,12 @@ import { day, meal } from "../../Hooks/Conditions";
 import { useAuth } from "../../Authentication/AuthContext";
 
 const OrderBtn = ({ coupon, set, done }) => {
-  const { data, placeMealOrder } = useAuth();
+  const { placeMealOrder } = useAuth();
   const [tap, setTap] = useState(false);
   const placeOrder = () => {
     placeMealOrder(meal);
     setTap(true);
     set(coupon - 1);
-    console.log("Order PLaced");
-    // meal, date, user = just go with the link
   };
   return (
     <View style={[styles.bottom]}>
@@ -35,7 +33,7 @@ const OrderBtn = ({ coupon, set, done }) => {
                 },
               ]}
             >
-              {tap ? "Order Placed" : "Tap to continue"}
+              {tap ? "Order Placed" : `Tap to continue ${meal}`}
             </Text>
           </TouchableRipple>
         ) : (

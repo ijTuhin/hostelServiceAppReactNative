@@ -7,14 +7,12 @@ const PaymentBtn = ({ change, item }) => {
   const {data, payMealBill} = useAuth();
   const mealPayment = () => {
     const value = {
-      package: item,
+      package: item/3,
       trxID: "TxrGhKmliZs",
-      phone: data.phone,
+      phone: data.user.phone,
     };
     payMealBill(value)
     change(2);
-    console.log("Payment for meal", value);
-    // package, (item,bill,user,date,month,user), trxID, phone
   };
   return (
     <TouchableRipple

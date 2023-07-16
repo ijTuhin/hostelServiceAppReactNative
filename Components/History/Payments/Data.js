@@ -4,15 +4,24 @@ import React from "react";
 import { Card } from "react-native-paper";
 
 const Data = ({ data }) => {
-  const item = data;
   return (
-    <ScrollView contentContainerStyle={{
-      marginTop: 8,
-    }}>
-      {item &&
-        item.map((i) => (
-          <Card style={{marginVertical:4, backgroundColor:"#fff", marginHorizontal:16, borderRadius: 4}}>
-            <View key={i._id} style={styles.container}>
+    <ScrollView
+      contentContainerStyle={{
+        marginTop: 8,
+      }}
+    >
+      {data &&
+        data.map((i) => (
+          <Card
+            key={i._id}
+            style={{
+              marginVertical: 4,
+              backgroundColor: "#fff",
+              marginHorizontal: 16,
+              borderRadius: 4,
+            }}
+          >
+            <View style={styles.container}>
               <View style={styles.left}>
                 <Text style={styles.title}>{i.item}</Text>
                 <Text style={styles.secondary}>Phone: +880131693724</Text>
@@ -26,10 +35,24 @@ const Data = ({ data }) => {
                       <Text>
                         <Octicons name="dot-fill" size={6} color="#ddd" />
                       </Text>
-                      <Text style={styles.coupon}>
-                        {i.package}
-                        <FontAwesome5 name="coins" size={18} color="#FCD34D" />
-                      </Text>
+                      <View style={styles.coupon}>
+                        <Text
+                          style={{
+                            fontSize: 12,
+                            color: "#F59E0B",
+                            fontWeight: 500,
+                          }}
+                        >
+                          {i.package * 3}
+                        </Text>
+                        <Text>
+                          <FontAwesome5
+                            name="coins"
+                            size={12}
+                            color="#FCD34D"
+                          />
+                        </Text>
+                      </View>
                     </>
                   )}
                 </View>
@@ -43,7 +66,7 @@ const Data = ({ data }) => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 8,
+    marginHorizontal: 2,
     // marginTop: 8,
     padding: 12,
     display: "flex",
@@ -70,15 +93,15 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
-    gap: 8,
+    gap: 3.6,
   },
   title: {
-    fontSize: 18.4,
+    fontSize: 16,
     fontWeight: 500,
     textTransform: "capitalize",
   },
   bill: {
-    fontSize: 17,
+    fontSize: 12,
     color: "red",
     fontWeight: 500,
   },
@@ -87,14 +110,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
-    fontSize: 16,
-    color: "#F59E0B",
-    fontWeight: 500,
   },
-  secondary:{
+  secondary: {
     fontSize: 12,
-    color:"rgb(100, 116, 139)"
-  }
+    color: "rgb(100, 116, 139)",
+  },
 });
 
 export default Data;

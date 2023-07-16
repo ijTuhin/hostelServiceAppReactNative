@@ -10,11 +10,11 @@ import { useAuth } from "../Authentication/AuthContext";
 const HomeScreen = ({ navigation }) => {
   const { setData, authState, data } = useAuth();
   const [selectedTab, setSelectedTab] = useState(0);
-  console.log("||| HomeScreen line-13:", data.name);
+  console.log("||| HomeScreen line-13:", data?.user?.name);
   useEffect(() => {
     const testCall = async () => {
       const result = await axios.get(`http://192.168.0.107:3001/user/my-data`);
-      console.log("Test Call:", result.data.name);
+      console.log("Test Call:", result.data.user.name);
       setData(result.data);
     };
     testCall();

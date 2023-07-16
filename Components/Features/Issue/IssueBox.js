@@ -44,7 +44,6 @@ const IssueBox = () => {
               >
                 <TouchableRipple
                   onPress={() => {
-                    console.log("sfsf");
                     setData({
                       topic: i.topic,
                       to: i.to,
