@@ -12,6 +12,7 @@ import Information from "./Components/Profile/Information/Information";
 import RoomInfoScreen from "./Components/Screens/RoomInfoScreen";
 import IssuesScreen from "./Components/Screens/IssuesScreen";
 import { AuthProvider, useAuth } from "./Components/Authentication/AuthContext";
+import QRcodeReader from "./Components/Scanner/QRcodeReader";
 const Stack = createNativeStackNavigator();
 const ProtectedStack = createNativeStackNavigator();
 function Protected() {
@@ -60,9 +61,10 @@ function AppLayOut() {
 }
 export default function App() {
   return (
-    <AuthProvider>
-      <AppLayOut />
-    </AuthProvider>
+    <QRcodeReader/>
+    // <AuthProvider>
+    //   <AppLayOut />
+    // </AuthProvider>
   );
 }
 
