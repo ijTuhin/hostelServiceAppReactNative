@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }) => {
   console.log("||| HomeScreen line-13:", data?.user?.name);
   useEffect(() => {
     const testCall = async () => {
-      const result = await axios.get(`http://192.168.0.107:3001/user/my-data`);
+      const result = await axios.get(`http://192.168.0.109:3001/user/my-data`);
       console.log("Test Call:", result.data.user.name);
       setData(result.data);
     };
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     display: "flex",
     position: "relative",
     width: "100%",
-    marginTop: 33.6,
+    marginTop: 28,
   },
   navBar: {
     width: "100%",

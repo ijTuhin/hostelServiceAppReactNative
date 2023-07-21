@@ -47,6 +47,7 @@ const IssueBox = () => {
                     setData({
                       topic: i.topic,
                       to: i.to,
+                      no: i.no,
                     });
                     setVisible(true);
                   }}
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   topic: {
     fontSize: 14,
     textAlign: "center",
-    paddingHorizontal:32
+    paddingHorizontal: 32,
   },
 });
 

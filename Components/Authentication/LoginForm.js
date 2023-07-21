@@ -8,8 +8,8 @@ const LoginForm = () => {
   const { UserLogin } = useAuth();
   const [data, setData] = useState({});
   const [error, setError] = useState(<></>);
-  const Login = async () => {
-    await UserLogin(data.email, data.password);
+  const Login =  () => {
+    UserLogin(data.email, data.password);
   };
   function isValidEmail(email) {
     return emailValidity.test(email);
@@ -107,6 +107,7 @@ const LoginForm = () => {
           if (isObjEmpty(data)) {
             setError(null);
           } else if (isValidEmail(data.email) || data.password >= 7) {
+            console.log("Login clicked--- line 110 = login form")
             Login();
           }
         }}

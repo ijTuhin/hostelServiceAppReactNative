@@ -1,6 +1,7 @@
 import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+// import { today } from "../Hooks/Conditions";
 const AuthContext = createContext();
 export const useAuth = () => {
   return useContext(AuthContext);
@@ -35,7 +36,7 @@ export const AuthProvider = ({ children }) => {
   const paySeatRent = async (value) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.107:3001/payment/seat-rent`,
+        `http://192.168.0.109:3001/payment/seat-rent`,
         value
       );
       if (result) {
@@ -55,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   const payMealBill = async (value) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.107:3001/payment/meal-package`,
+        `http://192.168.0.109:3001/payment/meal-package`,
         value
       );
       if (result) {
@@ -74,7 +75,7 @@ export const AuthProvider = ({ children }) => {
   };
   const placeMealOrder = async (meal) => {
     try {
-      const result = await axios.post(`http://192.168.0.107:3001/meal`, {
+      const result = await axios.post(`http://192.168.0.109:3001/meal`, {
         meal,
       });
       if (result) {
@@ -91,10 +92,50 @@ export const AuthProvider = ({ children }) => {
       };
     }
   };
+  const confirmMealReceive = async () => {
+    try {
+      let mealId = data.orders[0];
+      if (!mealId.status) mealId = mealId._id;
+      console.log("Meal Confirmed")
+      // const result = await axios.put(`http://192.168.0.109:3001/meal/${mealId}`);
+      // if (result) {
+      //   setAuthState({
+      //     ...authState,
+      //     refresh: "confirm-meal",
+      //   });
+      // }
+      // console.log("AuthContext-Confirmed meal receive: ", result, mealId);
+      // return result;
+      return mealId;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
+  };
+  const markAttendance = async () => {
+    try {
+      const result = await axios.post(`http://192.168.0.109:3001/attendance`, {
+        date: today,
+      });
+      if (result) {
+        setAuthState({
+          ...authState,
+          refresh: "attendance-mark",
+        });
+      }
+      console.log("AuthContext-Confirmed meal receive: ", result, today);
+      return result;
+    } catch (e) {
+      return {
+        msg: e.response.data.msg,
+      };
+    }
+  };
   const postUserProblem = async (data) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.107:3001/message`,
+        `http://192.168.0.109:3001/message`,
         data
       );
       if (result) {
@@ -114,7 +155,7 @@ export const AuthProvider = ({ children }) => {
   const postEditProfileRequest = async (data) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.107:3001/admin/edit-request`,
+        `http://192.168.0.109:3001/admin/edit-request`,
         data
       );
       if (result) {
@@ -133,10 +174,11 @@ export const AuthProvider = ({ children }) => {
   };
   const UserLogin = async (email, password) => {
     try {
-      const result = await axios.post(`http://192.168.0.107:3001/user/login`, {
+      const result = await axios.post(`http://192.168.0.109:3001/user/login`, {
         email,
         password,
       });
+      console.log("try")
       setAuthState({
         token: result.data.token,
         authenticate: true,
@@ -148,8 +190,9 @@ export const AuthProvider = ({ children }) => {
       await SecureStore.setItemAsync("signin-at", result.data.time);
       return result;
     } catch (e) {
+      console.log("catch")
       return {
-        msg: e.response.data.msg,
+        msg: e
       };
     }
   };
@@ -170,6 +213,8 @@ export const AuthProvider = ({ children }) => {
     placeMealOrder,
     postUserProblem,
     postEditProfileRequest,
+    confirmMealReceive,
+    markAttendance,
     setData,
     data,
     authState,

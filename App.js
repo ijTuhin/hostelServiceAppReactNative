@@ -34,6 +34,7 @@ function Protected() {
       <ProtectedStack.Screen name="History" component={EditProfileScreen} />
       <ProtectedStack.Screen name="Room Info" component={RoomInfoScreen} />
       <ProtectedStack.Screen name="Information" component={Information} />
+      <ProtectedStack.Screen name="Scan QR Code" component={QRcodeReader} />
     </ProtectedStack.Navigator>
   );
 }
@@ -61,10 +62,10 @@ function AppLayOut() {
 }
 export default function App() {
   return (
-    <QRcodeReader/>
-    // <AuthProvider>
-    //   <AppLayOut />
-    // </AuthProvider>
+    // <QRcodeReader/>
+    <AuthProvider>
+      <AppLayOut />
+    </AuthProvider>
   );
 }
 

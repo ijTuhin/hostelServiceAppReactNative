@@ -12,25 +12,47 @@ const today = date.toLocaleDateString();
 date.setDate(date.getDate() + 1);
 const tomorrow = date.toLocaleDateString();
 let day = today;
-let time = parseInt(new Date().toTimeString().split(":")[0]);
+let time = {
+  h:parseInt(new Date().toTimeString().split(":")[0]),
+  m:parseInt(new Date().toTimeString().split(":")[1]),
+  s:parseInt(new Date().toTimeString().split(":")[2]),
+};
 let meal;
 if (
-  time < 5 ||
-  time === 10 ||
-  time === 11 ||
-  time === 12 ||
-  time === 13 ||
-  time === 18 ||
-  time === 19
+  time.h < 5 ||
+  time.h === 10 ||
+  time.h === 11 ||
+  time.h === 12 ||
+  time.h === 13 ||
+  time.h === 18 ||
+  time.h === 19
 ) {
   meal = 0;
-} else if (time > 4 && time < 10) {
+} else if (time.h > 4 && time.h < 10) {
   meal = "Lunch";
-} else if (time > 13 && time < 18) {
+} else if (time.h > 13 && time.h < 18) {
   meal = "Dinner";
-} else if (time > 19 || time <= 23) {
+} else if (time.h > 19 || time.h <= 23) {
   meal = "Breakfast";
   day = tomorrow;
+}
+let checkMealTime;
+if (
+  time.h < 5 ||
+  time.h === 10 ||
+  time.h === 11 ||
+  time.h === 12 ||
+  time.h === 13 ||
+  time.h === 18 ||
+  time.h === 19
+) {
+  checkMealTime = 0;
+} else if (time.h > 4 && time.h < 12) {
+  checkMealTime = "Breakfast";
+} else if (time.h > 12 && time.h < 17) {
+  checkMealTime = "Lunch";
+} else if (time.h > 19 || time.h <= 23) {
+  checkMealTime = "Dinner";
 }
 /* ====================================================== */
 /* ===============[ Set Payment Condition ]================= */
@@ -42,4 +64,4 @@ const payMonth = fullMonths[new Date().getMonth()+1];
 let twoDays = 1;
 /* ====================================================== */
 
-export { meal, day, today, twoDays, payMonth, nextMonth, month, emailValidity };
+export { meal, day, today, twoDays, payMonth, nextMonth, month, emailValidity, time, checkMealTime };

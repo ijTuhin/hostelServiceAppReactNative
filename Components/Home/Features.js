@@ -2,10 +2,28 @@ import React from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import { Card } from "react-native-paper";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
-const Features = ({navigation}) => {
+import { useAuth } from "../Authentication/AuthContext";
+import { checkMealTime, today } from "../Hooks/Conditions";
+const Features = ({ navigation }) => {
+  // const { confirmMealReceive, markAttendance } = useAuth();
+  const { data } = useAuth();
+  function check(i) {
+    if (i === "A") {
+      return data.attendance[0].date !== today;
+    } else if (i === "M") {
+      if (data.orders[0].date === today || data.orders[1].date === today)
+        return (
+          data.orders[0].meal !== checkMealTime ||
+          data.orders[1].meal !== checkMealTime
+        );
+    }
+  }
   return (
     <View style={styles.container}>
-      <TouchableHighlight onPress={()=> navigation.navigate('Place Order')} style={styles.btnBox}>
+      <TouchableHighlight
+        onPress={() => navigation.navigate("Place Order")}
+        style={styles.btnBox}
+      >
         <Card
           style={{
             backgroundColor: "#fff",
@@ -32,7 +50,17 @@ const Features = ({navigation}) => {
           </View>
         </Card>
       </TouchableHighlight>
-      <TouchableHighlight style={styles.btnBox}>
+      <TouchableHighlight
+        onPress={() =>
+          navigation.navigate("Scan QR Code", {
+            type: "A",
+            text: "Your Attendance has been marked.",
+            operate: check("A"),
+            title: "Mark Attendance",
+          })
+        }
+        style={styles.btnBox}
+      >
         <Card
           style={{
             backgroundColor: "#fff",
@@ -63,7 +91,10 @@ const Features = ({navigation}) => {
           </View>
         </Card>
       </TouchableHighlight>
-      <TouchableHighlight  onPress={()=> navigation.navigate('Make Payment')} style={styles.btnBox}>
+      <TouchableHighlight
+        onPress={() => navigation.navigate("Make Payment")}
+        style={styles.btnBox}
+      >
         <Card
           style={{
             backgroundColor: "#fff",
@@ -94,7 +125,17 @@ const Features = ({navigation}) => {
           </View>
         </Card>
       </TouchableHighlight>
-      <TouchableHighlight style={styles.btnBox}>
+      <TouchableHighlight
+        onPress={() =>
+          navigation.navigate("Scan QR Code", {
+            type: "M",
+            text: "Sorry, time expired!!",
+            operate: check("M"),
+            title: "Confirm Meal",
+          })
+        }
+        style={styles.btnBox}
+      >
         <Card
           style={{
             backgroundColor: "#fff",
@@ -125,7 +166,10 @@ const Features = ({navigation}) => {
           </View>
         </Card>
       </TouchableHighlight>
-      <TouchableHighlight onPress={()=> navigation.navigate('Post Issues')} style={styles.btnBox}>
+      <TouchableHighlight
+        onPress={() => navigation.navigate("Post Issues")}
+        style={styles.btnBox}
+      >
         <Card
           style={{
             backgroundColor: "#fff",
