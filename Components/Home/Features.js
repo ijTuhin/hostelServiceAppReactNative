@@ -11,11 +11,11 @@ const Features = ({ navigation }) => {
     if (i === "A") {
       return data.attendance[0].date !== today;
     } else if (i === "M") {
-      if (data.orders[0].date === today || data.orders[1].date === today)
-        return (
-          data.orders[0].meal !== checkMealTime ||
-          data.orders[1].meal !== checkMealTime
-        );
+      return (
+        (data.orders[0].date === today &&
+          data.orders[0].meal === checkMealTime) ||
+        (data.orders[1].date === today && data.orders[1].meal === checkMealTime)
+      );
     }
   }
   return (

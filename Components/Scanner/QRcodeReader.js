@@ -5,7 +5,7 @@ import { useAuth } from "../Authentication/AuthContext";
 import ScanSuccess from "./ScanSuccess";
 import { checkMealTime } from "../Hooks/Conditions";
 const QRcodeReader = ({ route, navigation }) => {
-  const { confirmMealReceive, markAttendance } = useAuth();
+  const { confirmMealReceive, markAttendance, data } = useAuth();
   const { title, operate, type, text } = route.params;
   const [time, setTime] = useState({
     h: parseInt(new Date().getHours()),
@@ -16,6 +16,17 @@ const QRcodeReader = ({ route, navigation }) => {
   const [error, setError] = useState(false);
   const [scanned, setScanned] = useState(false);
   useEffect(() => {
+    if (
+      (type === "M" &&
+        data.orders[0].meal === checkMealTime &&
+        data.orders[0].status) ||
+      (type === "M" &&
+        data.orders[1].meal === checkMealTime &&
+        data.orders[1].status)
+    ) {
+      setScanned(true);
+      setError(true);
+    }
     const interval = setInterval(() => {
       setTime({
         h: parseInt(new Date().getHours()),
@@ -53,7 +64,7 @@ const QRcodeReader = ({ route, navigation }) => {
         console.log("1. Got it - ", data, scanTime.item);
         if (scanTime.item === type && type === "A") {
           console.log(data, "Cond-1 Attendance Marked");
-          // markAttendance();
+          markAttendance();
         } else if (scanTime.item === checkMealTime[0] && type === "M") {
           // confirmMealReceive();
           console.log(data, "Cond-1 Confirmed meal");
@@ -63,7 +74,7 @@ const QRcodeReader = ({ route, navigation }) => {
         console.log("2. Got it - ", data, scanTime.item);
         if (scanTime.item === type && type === "A") {
           console.log(data, "Cond-2 Attendance Marked");
-          // markAttendance();
+          markAttendance();
         } else if (scanTime.item === checkMealTime[0] && type === "M") {
           // confirmMealReceive();
           console.log(data, "Cond-2 Confirmed meal");

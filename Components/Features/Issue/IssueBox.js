@@ -33,6 +33,7 @@ const IssueBox = () => {
             />
             {issues.map((i, index) => (
               <Card
+                key={index}
                 style={{
                   backgroundColor: "#fff",
                   paddingVertical: 32,
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    marginVertical: 48,
+    marginVertical: 32,
     width: "100%",
     justifyContent: "center",
   },
