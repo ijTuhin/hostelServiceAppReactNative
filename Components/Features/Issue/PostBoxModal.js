@@ -53,14 +53,14 @@ const styles = StyleSheet.create({
   input: {
     height: 140,
     borderWidth: 1,
-    borderColor: "#0F766E",
+    borderColor: "#164e63",
     marginVertical: 16,
     padding: 16,
   },
   postBtn: {
     borderWidth: 1,
-    borderColor: "#0F766E",
-    backgroundColor: "#0F766E",
+    borderColor: "#164e63",
+    backgroundColor: "#164e63",
     width: "100%",
     paddingVertical: 8,
     color: "#fff",

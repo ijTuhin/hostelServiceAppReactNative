@@ -127,7 +127,7 @@ const EditForm = () => {
         style={{
           textAlign: "center",
           fontWeight: 700,
-          color: "#0F766E",
+          color: "#164e63",
           fontSize: 14,
           marginVertical: 16,
         }}

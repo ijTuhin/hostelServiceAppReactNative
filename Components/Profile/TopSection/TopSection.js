@@ -44,7 +44,7 @@ const TopSection = ({ navigation }) => {
 const styles = StyleSheet.create({
   body: {
     width: "100%",
-    backgroundColor: "#0F766E",
+    backgroundColor: "#164e63",
     padding: 24,
   },
   user: {

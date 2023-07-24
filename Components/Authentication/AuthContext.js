@@ -99,7 +99,9 @@ export const AuthProvider = ({ children }) => {
         mealId = mealId._id;
       else if (data.orders[1].meal === checkMealTime && !data.orders[1].status)
         mealId = mealId._id;
-      const result = await axios.put(`http://192.168.0.109:3001/meal/${mealId}`);
+      const result = await axios.put(
+        `http://192.168.0.109:3001/meal/${mealId}`
+      );
       if (result) {
         setAuthState({
           ...authState,
@@ -175,7 +177,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const UserLogin = async (email, password) => {
+    console.log(email, password);
     try {
+      console.log("User Login", email, password);
       const result = await axios.post(`http://192.168.0.109:3001/user/login`, {
         email,
         password,

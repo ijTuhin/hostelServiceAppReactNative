@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   user: {
     width: "100%",
-    backgroundColor: "#0F766E",
+    backgroundColor: "#164e63",
     padding: 24,
     display: "flex",
     flexDirection: "row",

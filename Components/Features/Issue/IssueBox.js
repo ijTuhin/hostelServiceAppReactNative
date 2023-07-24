@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     position: "absolute",
     top: -40,
-    backgroundColor: "#0F766E",
+    backgroundColor: "#164e63",
   },
   issues: {
     display: "flex",

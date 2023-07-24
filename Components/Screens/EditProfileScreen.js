@@ -8,7 +8,7 @@ const EditProfileScreen = () => {
     <ScrollView contentContainerStyle={styles.body}>
       <View style={styles.top}>
         <Text style={styles.icon}>
-          <FontAwesome5 name="user-edit" size={36} color="#0F766E" />
+          <FontAwesome5 name="user-edit" size={36} color="#164e63" />
         </Text>
       </View>
       <EditForm />
@@ -27,13 +27,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: 96,
-    backgroundColor: "#0F766E",
+    backgroundColor: "#164e63",
   },
   icon: {
     width: 104,
     height: 104,
     borderWidth: 12,
-    borderColor: "#0F766E",
+    borderColor: "#164e63",
     borderRadius: 1000,
     textAlign:"center",
     textAlignVertical:"center",

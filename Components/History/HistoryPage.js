@@ -47,7 +47,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <MaterialCommunityIcons name="food" size={32} color="#0f766e" />
+              <MaterialCommunityIcons name="food" size={32} color="#164e63" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
@@ -63,7 +63,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <FontAwesome5 name="money-check-alt" size={28} color="#0f766e" />
+              <FontAwesome5 name="money-check-alt" size={28} color="#164e63" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
@@ -79,7 +79,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <FontAwesome5 name="clipboard-list" size={28} color="#0f766e" />
+              <FontAwesome5 name="clipboard-list" size={28} color="#164e63" />
             </Text>
           </TouchableRipple>
           <TouchableRipple
@@ -95,7 +95,7 @@ const HistoryPage = () => {
             }}
           >
             <Text>
-              <MaterialCommunityIcons name="email" size={34} color="#0f766e" />
+              <MaterialCommunityIcons name="email" size={34} color="#164e63" />
             </Text>
           </TouchableRipple>
         </View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   topText: {
     color: "#fff",
-    backgroundColor: "#0f766e",
+    backgroundColor: "#164e63",
     fontSize: 28,
     fontWeight: 700,
     fontStyle: "italic",
