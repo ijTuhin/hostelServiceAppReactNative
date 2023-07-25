@@ -1,9 +1,8 @@
 import "react-native-gesture-handler";
 import { StyleSheet } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "./Components/Screens/LoginScreen";
-import HomeScreen from "./Components/Screens/HomeScreen";
 import PlaceOrderScreen from "./Components/Screens/PlaceOrderScreen";
 import PaymentScreen from "./Components/Screens/PaymentScreen";
 import ProfileScreen from "./Components/Screens/ProfileScreen";
@@ -18,13 +17,19 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import HistoryPage from "./Components/History/HistoryPage";
 import Home from "./Components/Home/Home";
 import Orders from "./Components/History/Orders/Orders";
 import Payments from "./Components/History/Payments/Payments";
 import Attendances from "./Components/History/Attendances/Attendances";
 import Notices from "./Components/History/Message/Notices";
 import Issues from "./Components/History/Message/Issues";
+const TopTabTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#ddd'
+  },
+};
 const Stack = createNativeStackNavigator();
 const ProtectedStack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
@@ -32,7 +37,7 @@ const TopTab = createMaterialTopTabNavigator();
 function HistoryScreen() {
   return (
     <TopTab.Navigator
-      sceneContainerStyle={{ backgroundColor: "#ddd" }}
+      sceneContainerStyle={{ backgroundColor: "#fff" }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -127,13 +132,7 @@ function HomePage() {
               />
             );
           } else if (route.name === "Browse History") {
-            iconName = focused ? (
-              <MaterialCommunityIcons
-                name="history"
-                size={size}
-                color={color}
-              />
-            ) : (
+            iconName = (
               <MaterialCommunityIcons
                 name="history"
                 size={size}

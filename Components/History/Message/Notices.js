@@ -1,12 +1,15 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { FontAwesome, FontAwesome5, Octicons } from "@expo/vector-icons";
 import React from "react";
+import { useAuth } from "../../Authentication/AuthContext";
 
-const Notices = ({data}) => {
+const Notices = () => {
+  const { data } = useAuth();
+  const value = data.notice;
   return (
     <ScrollView contentContainerStyle={{ marginTop: 64 }}>
-      {data &&
-        data.map((i) => (
+      {value &&
+        value.map((i) => (
           <View key={i._id} style={styles.container}>
             <View style={styles.top}>
               <FontAwesome
@@ -75,7 +78,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    marginBottom: 6
+    marginBottom: 6,
   },
   notice: {
     fontSize: 12,

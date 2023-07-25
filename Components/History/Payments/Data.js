@@ -7,60 +7,62 @@ const Data = ({ data }) => {
   return (
     <ScrollView
       contentContainerStyle={{
-        marginTop: 8,
+        marginTop: 1.6,
       }}
     >
-      {data &&
-        data.map((i) => (
-          <Card
-            key={i._id}
-            style={{
-              marginVertical: 4,
-              backgroundColor: "#fff",
-              marginHorizontal: 16,
-              borderRadius: 4,
-            }}
-          >
-            <View style={styles.container}>
-              <View style={styles.left}>
-                <Text style={styles.title}>{i.item}</Text>
-                <Text style={styles.secondary}>Phone: +880131693724</Text>
-                <Text style={styles.secondary}>{i.date}</Text>
-              </View>
-              <View style={styles.right}>
-                <View style={styles.rightTop}>
-                  <Text style={styles.bill}>{i.bill}/-</Text>
-                  {i.package && (
-                    <>
-                      <Text>
-                        <Octicons name="dot-fill" size={6} color="#ddd" />
-                      </Text>
-                      <View style={styles.coupon}>
-                        <Text
-                          style={{
-                            fontSize: 12,
-                            color: "#F59E0B",
-                            fontWeight: 500,
-                          }}
-                        >
-                          {i.package * 3}
-                        </Text>
-                        <Text>
-                          <FontAwesome5
-                            name="coins"
-                            size={12}
-                            color="#FCD34D"
-                          />
-                        </Text>
-                      </View>
-                    </>
-                  )}
+      <View style={{marginBottom:24}}>
+        {data &&
+          data.map((i) => (
+            <Card
+              key={i._id}
+              style={{
+                marginBottom: 8,
+                backgroundColor: "#fff",
+                marginHorizontal: 16,
+                borderRadius: 4,
+              }}
+            >
+              <View style={styles.container}>
+                <View style={styles.left}>
+                  <Text style={styles.title}>{i.item}</Text>
+                  <Text style={styles.secondary}>Phone: +880131693724</Text>
+                  <Text style={styles.secondary}>{i.date}</Text>
                 </View>
-                <Text style={styles.secondary}>Trans ID: {i.trxID}</Text>
+                <View style={styles.right}>
+                  <View style={styles.rightTop}>
+                    <Text style={styles.bill}>{i.bill}/-</Text>
+                    {i.package && (
+                      <>
+                        <Text>
+                          <Octicons name="dot-fill" size={6} color="#ddd" />
+                        </Text>
+                        <View style={styles.coupon}>
+                          <Text
+                            style={{
+                              fontSize: 12,
+                              color: "#F59E0B",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {i.package * 3}
+                          </Text>
+                          <Text>
+                            <FontAwesome5
+                              name="coins"
+                              size={12}
+                              color="#FCD34D"
+                            />
+                          </Text>
+                        </View>
+                      </>
+                    )}
+                  </View>
+                  <Text style={styles.secondary}>Trans ID: {i.trxID}</Text>
+                </View>
               </View>
-            </View>
-          </Card>
-        ))}
+            </Card>
+          ))}
+      </View>
     </ScrollView>
   );
 };

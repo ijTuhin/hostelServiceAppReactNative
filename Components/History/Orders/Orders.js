@@ -2,13 +2,17 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Octicons } from "@expo/vector-icons";
 import React from "react";
 import { Card } from "react-native-paper";
+import { useAuth } from "../../Authentication/AuthContext";
 
-const Orders = ({data}) => {
+const Orders = () => {
+  const { data } = useAuth();
+  const value = data.orders;
   return (
     <ScrollView contentContainerStyle={{ marginVertical: 4 }}>
-      {data &&
-        data.map((i) => (
-          <Card key={i._id}
+      {value &&
+        value.map((i) => (
+          <Card
+            key={i._id}
             style={{
               marginVertical: 4,
               backgroundColor: "#fff",

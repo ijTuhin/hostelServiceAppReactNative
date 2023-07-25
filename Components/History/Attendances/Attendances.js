@@ -1,12 +1,15 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import React from "react";
+import { useAuth } from "../../Authentication/AuthContext";
 
-const Attendances = ({data}) => {
+const Attendances = () => {
+  const { data } = useAuth();
+  const value = data.attendance;
   return (
-    <ScrollView contentContainerStyle={{margin:8}}>
-      {data &&
-        data.map((i) => (
+    <ScrollView contentContainerStyle={{ margin: 0, backgroundColor:"#fff" }}>
+      {value &&
+        value.map((i) => (
           <View key={i._id} style={styles.container}>
             <Ionicons
               name="md-checkmark-done-sharp"
@@ -15,7 +18,12 @@ const Attendances = ({data}) => {
             />
             <View style={styles.info}>
               <Text style={styles.time}>{i.time}</Text>
-              <Octicons style={{marginBottom:1.6}} name="dot-fill" size={4} color="#D1D5DB" />
+              <Octicons
+                style={{ marginBottom: 1.6 }}
+                name="dot-fill"
+                size={4}
+                color="#D1D5DB"
+              />
               <Text style={styles.date}>{i.date}</Text>
             </View>
           </View>
@@ -33,8 +41,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
-    borderBottomColor:"rgb(226, 232, 240)",
-    borderBottomWidth: 1
+    borderBottomColor: "rgb(226, 232, 240)",
+    borderBottomWidth: 1,
   },
   info: {
     display: "flex",

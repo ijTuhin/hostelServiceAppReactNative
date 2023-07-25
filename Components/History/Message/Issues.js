@@ -1,12 +1,15 @@
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
 import React from "react";
+import { useAuth } from "../../Authentication/AuthContext";
 
-const Issues = ({ data }) => {
+const Issues = () => {
+  const { data } = useAuth();
+  const value = data.message;
   return (
     <ScrollView contentContainerStyle={{ marginVertical: 52 }}>
-      {data &&
-        data.map((i) => (
+      {value &&
+        value.map((i) => (
           <View key={i._id} style={styles.container}>
             <View style={styles.top}>
               <View>

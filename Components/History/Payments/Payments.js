@@ -2,9 +2,12 @@ import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import React, { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
 import Data from "./Data";
+import { useAuth } from "../../Authentication/AuthContext";
 
-const Payments = ({ item }) => {
-  const [data, setData] = useState(item);
+const Payments = () => {
+  const { data } = useAuth();
+  // const value = data.orders
+  const [value, setValue] = useState(data.payments);
   const [selectedTab, setSelectedTab] = useState(0);
   return (
     <SafeAreaView
@@ -16,7 +19,7 @@ const Payments = ({ item }) => {
         <TouchableRipple
           style={{ borderRadius: 9999 }}
           onPress={() => {
-            setData(item);
+            setValue(data.payments);
             setSelectedTab(0);
           }}
           rippleColor="rgba(0, 0, 0, .02)"
@@ -33,7 +36,7 @@ const Payments = ({ item }) => {
         <TouchableRipple
           style={{ borderRadius: 9999 }}
           onPress={() => {
-            setData(item.filter((i) => i.item === "meal"));
+            setValue(data.payments.filter((i) => i.item === "meal"));
             setSelectedTab(1);
           }}
           rippleColor="rgba(0, 0, 0, .02)"
@@ -50,7 +53,7 @@ const Payments = ({ item }) => {
         <TouchableRipple
           style={{ borderRadius: 9999 }}
           onPress={() => {
-            setData(item.filter((i) => i.item === "rent"));
+            setValue(data.payments.filter((i) => i.item === "rent"));
             setSelectedTab(2);
           }}
           rippleColor="rgba(0, 0, 0, .02)"
@@ -65,7 +68,7 @@ const Payments = ({ item }) => {
           </Text>
         </TouchableRipple>
       </View>
-      <Data data={data} />
+      <Data data={value} />
     </SafeAreaView>
   );
 };
@@ -74,7 +77,9 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
-    marginTop: 16,
+    paddingVertical: 16,
+    backgroundColor:"#334155",
+    marginBottom:4
   },
   menu: {
     borderRadius: 9999,
@@ -83,13 +88,14 @@ const styles = StyleSheet.create({
   },
   active: {
     borderWidth: 1,
-    borderColor: "rgb(156, 163, 175)",
+    borderColor: "white",
     color: "#334155",
+    backgroundColor:"white"
   },
   notActive: {
     borderWidth: 1,
-    borderColor: "#CBD5E1",
-    color: "#CBD5E1",
+    borderColor: "#d1d5db",
+    color: "#d1d5db",
   },
 });
 
