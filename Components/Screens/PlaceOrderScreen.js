@@ -25,7 +25,7 @@ const PlaceOrderScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: "#275754",
+    backgroundColor: "#042f2e",
     display: "flex",
     position: "relative",
   },

@@ -26,7 +26,7 @@ const Header = ({ navigation }) => {
 };
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#134e4a",
+    backgroundColor: "#334155",
     paddingVertical: 20,
     paddingHorizontal: 20,
     display: "flex",

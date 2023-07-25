@@ -1,7 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
-import axios from "axios";
 import { useAuth } from "../../Authentication/AuthContext";
 
 const TopSection = ({ navigation }) => {
@@ -10,7 +9,7 @@ const TopSection = ({ navigation }) => {
     <View>
       <View style={styles.body}>
         <View style={styles.user}>
-          <FontAwesome name="user-circle-o" size={32} color="#fff" />
+          <FontAwesome name="user-circle-o" size={32} color="#d1d5db" />
           <View>
             <Text style={{ fontSize: 16, color: "#fff" }}>
               {data.user.name}
@@ -29,10 +28,11 @@ const TopSection = ({ navigation }) => {
       </View>
       <Text
         style={{
-          backgroundColor: "rgb(245, 245, 244)",
-          padding: 16,
-          fontSize: 16,
+          backgroundColor: "#083344",
+          padding: 8,
+          fontSize: 12,
           textAlign: "center",
+          color:"#9ca3af"
         }}
       >
         Member Since:

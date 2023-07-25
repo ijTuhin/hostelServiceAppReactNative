@@ -5,7 +5,7 @@ import Header from "./Header";
 import { useAuth } from "../Authentication/AuthContext";
 import axios from "axios";
 
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const { setData, authState, data } = useAuth();
   const [selectedTab, setSelectedTab] = useState(0);
   console.log("||| HomeScreen line-13:", data?.user?.name);
@@ -19,7 +19,9 @@ const Home = ({navigation}) => {
   }, [authState.refresh]);
   return (
     <>
-      <View style={{marginTop:28}}>
+      <View
+        style={{ marginTop: 28, backgroundColor: "#0f172a", height: "100%" }}
+      >
         <Header navigation={navigation} />
         <Features navigation={navigation} />
       </View>

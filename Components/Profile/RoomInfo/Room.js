@@ -14,21 +14,21 @@ const Room = ({ room, total }) => {
           height: 108,
           borderWidth: 1,
           borderRadius: 1000,
-          borderColor: "#fff",
+          borderColor: "#94a3b8",
         }}
       >
         <Text
           style={{
             fontSize: 24,
             fontWeight: 700,
-            color: "#fff",
+            color: "#cbd5e1",
             textAlignVertical: "center",
             textAlign: "center",
           }}
         >
           {room}
         </Text>
-        <Text style={{ color: "#fff", fontSize: 10 }}>
+        <Text style={{ color: "#94a3b8", fontSize: 10 }}>
           Total member: {total}
         </Text>
       </View>

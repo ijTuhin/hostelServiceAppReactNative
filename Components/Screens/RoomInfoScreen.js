@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 28,
     paddingVertical: 16,
-    backgroundColor: "#134e4a",
+    backgroundColor: "#020617",
   },
 });
 export default RoomInfoScreen;

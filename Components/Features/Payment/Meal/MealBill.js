@@ -33,7 +33,7 @@ const MealBill = () => {
     }
   };
   return (
-    <View style={{ backgroundColor: "#F1F5F9" }}>
+    <View style={{ backgroundColor: "#F1F5F9", marginHorizontal:20 }}>
       <View style={styles.packageBox}>
         {!paymentTab ? (
           <CouponBox coupon={data.user.coupon} />

@@ -33,7 +33,7 @@ const OrderBtn = ({ coupon, set, done }) => {
                 },
               ]}
             >
-              {tap ? "Order Placed" : `Tap to continue ${meal}`}
+              {tap ? "Order Placed" : `Tap to continue`}
             </Text>
           </TouchableRipple>
         ) : (

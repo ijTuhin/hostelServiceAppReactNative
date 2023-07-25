@@ -3,7 +3,7 @@ import { EvilIcons } from "@expo/vector-icons";
 import React from "react";
 import { TouchableRipple } from "react-native-paper";
 
-const LinkSection = ({navigation}) => {
+const LinkSection = ({ navigation }) => {
   return (
     <View
       style={{
@@ -14,9 +14,11 @@ const LinkSection = ({navigation}) => {
         style={{
           marginBottom: 8,
           borderRadius: 4.8,
+          // backgroundColor:"#fff"
+          borderWidth: 1,
         }}
         onPress={() => {
-          navigation.navigate('History')
+          navigation.navigate("Browse History");
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -33,9 +35,11 @@ const LinkSection = ({navigation}) => {
         style={{
           marginBottom: 8,
           borderRadius: 4.8,
+          // backgroundColor:"#fff"
+          borderWidth: 1,
         }}
         onPress={() => {
-          navigation.navigate('Information')
+          navigation.navigate("Information");
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -52,9 +56,11 @@ const LinkSection = ({navigation}) => {
         style={{
           marginBottom: 8,
           borderRadius: 4.8,
+          // backgroundColor:"#fff"
+          borderWidth: 1,
         }}
         onPress={() => {
-          navigation.navigate('Room Info')
+          navigation.navigate("Room Info");
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -71,9 +77,11 @@ const LinkSection = ({navigation}) => {
         style={{
           marginBottom: 8,
           borderRadius: 4.8,
+          // backgroundColor:"#fff"
+          borderWidth: 1,
         }}
         onPress={() => {
-          navigation.navigate('Coupons')
+          navigation.navigate("Make Payment", { screen: "Meal Bill" });
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >
@@ -90,9 +98,11 @@ const LinkSection = ({navigation}) => {
         style={{
           marginBottom: 8,
           borderRadius: 4.8,
+          // backgroundColor:"#fff"
+          borderWidth: 1,
         }}
         onPress={() => {
-          navigation.navigate('Seat Rent')
+          navigation.navigate("Make Payment", { screen: "Seat Rent" });
         }}
         rippleColor="rgba(0, 0, 0, .32)"
       >

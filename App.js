@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "./Components/Screens/LoginScreen";
 import PlaceOrderScreen from "./Components/Screens/PlaceOrderScreen";
-import PaymentScreen from "./Components/Screens/PaymentScreen";
 import ProfileScreen from "./Components/Screens/ProfileScreen";
 import EditProfileScreen from "./Components/Screens/EditProfileScreen";
 import Information from "./Components/Profile/Information/Information";
@@ -23,17 +22,85 @@ import Payments from "./Components/History/Payments/Payments";
 import Attendances from "./Components/History/Attendances/Attendances";
 import Notices from "./Components/History/Message/Notices";
 import Issues from "./Components/History/Message/Issues";
+import MealBill from "./Components/Features/Payment/Meal/MealBill";
+import SeatRent from "./Components/Features/Payment/Seat/SeatRent";
+import { Text } from "react-native";
 const TopTabTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: '#ddd'
+    background: "#e2e8f0",
   },
 };
 const Stack = createNativeStackNavigator();
 const ProtectedStack = createNativeStackNavigator();
 const BottomTab = createBottomTabNavigator();
 const TopTab = createMaterialTopTabNavigator();
+const PaymentTab = createMaterialTopTabNavigator();
+function PaymentScreen() {
+  return (
+    <PaymentTab.Navigator
+      sceneContainerStyle={{ backgroundColor: "#042f2e" }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+          if (route.name === "Meal Bill") {
+            iconName = focused ? (
+              <MaterialCommunityIcons name="home" size={size} color={color} />
+            ) : (
+              <MaterialCommunityIcons
+                name="home-outline"
+                size={size}
+                color={color}
+              />
+            );
+          } else if (route.name === "Seat Rent") {
+            iconName = (
+              <MaterialCommunityIcons
+                name="history"
+                size={size}
+                color={color}
+              />
+            );
+          }
+          return null;
+        },
+        tabBarStyle: {
+          backgroundColor: "#fff",
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+        },
+        tabBarActiveTintColor: "#083344",
+        tabBarInactiveTintColor: "gray",
+        tabBarLabel: () => {
+          let title;
+          if (route.name === "Meal Bill") {
+            title = <Text style={{ borderWidth: 0 }}>Meal</Text>;
+          } else if (route.name === "Seat Rent") {
+            title = <Text>Seat</Text>;
+          }
+          return title;
+        },
+        tabBarContentContainerStyle: {
+          display: "flex",
+          justifyContent: "center",
+          alignContent: "center",
+          marginTop: -16,
+          paddingTop: -8,
+          paddingBottom: 8,
+        },
+      })}
+    >
+      <PaymentTab.Screen
+        name="Meal Bill"
+        options={{ headerShown: false }}
+        component={MealBill}
+      />
+      <PaymentTab.Screen name="Seat Rent" component={SeatRent} />
+    </PaymentTab.Navigator>
+  );
+}
 function HistoryScreen() {
   return (
     <TopTab.Navigator
@@ -95,7 +162,7 @@ function HistoryScreen() {
           alignContent: "center",
           paddingTop: 4,
         },
-        tabBarActiveTintColor: "#083344",
+        tabBarActiveTintColor: "#0369a1",
         tabBarInactiveTintColor: "gray",
         tabBarLabel: () => {
           return null;
@@ -114,10 +181,10 @@ function HistoryScreen() {
     </TopTab.Navigator>
   );
 }
-function HomePage() {
+function HomeScreen() {
   return (
     <BottomTab.Navigator
-      sceneContainerStyle={{ backgroundColor: "#ddd" }}
+      sceneContainerStyle={{ backgroundColor: "#fff" }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
@@ -140,16 +207,17 @@ function HomePage() {
               />
             );
           }
-          // You can return any component that you like here!
           return iconName;
         },
         tabBarStyle: {
-          backgroundColor: "#083344",
+          backgroundColor: "#0f172a",
           paddingBottom: 8,
           paddingTop: 8,
+          borderTopWidth: 0,
         },
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "gray",
+        headerTitleAlign: "center",
       })}
     >
       <BottomTab.Screen
@@ -157,20 +225,41 @@ function HomePage() {
         options={{ headerShown: false }}
         component={Home}
       />
-      <BottomTab.Screen name="Browse History" component={HistoryScreen} />
+      <BottomTab.Screen options={{
+      headerStyle: {
+        backgroundColor: "#1e293b",
+      },
+      headerTintColor: "#d1d5db",
+    }} name="Browse History" component={HistoryScreen} />
     </BottomTab.Navigator>
   );
 }
 function Protected() {
   return (
-    <ProtectedStack.Navigator>
+    <ProtectedStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#155e75",
+        },
+        headerTintColor: "#fff",
+      }}
+    >
       <ProtectedStack.Screen
-        name="HomePage"
+        name="HomeScreen"
         options={{ headerShown: false }}
-        component={HomePage}
+        component={HomeScreen}
       />
       <ProtectedStack.Screen name="Place Order" component={PlaceOrderScreen} />
-      <ProtectedStack.Screen name="Make Payment" component={PaymentScreen} />
+      <ProtectedStack.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: "#083344",
+          },
+          headerTintColor: "#fff",
+        }}
+        name="Make Payment"
+        component={PaymentScreen}
+      />
       <ProtectedStack.Screen name="Post Issues" component={IssuesScreen} />
       <ProtectedStack.Screen name="Profile" component={ProfileScreen} />
       <ProtectedStack.Screen
@@ -179,7 +268,16 @@ function Protected() {
       />
       <ProtectedStack.Screen name="History" component={EditProfileScreen} />
       <ProtectedStack.Screen name="Room Info" component={RoomInfoScreen} />
-      <ProtectedStack.Screen name="Information" component={Information} />
+      <ProtectedStack.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: "#fff",
+          },
+          headerTintColor: "#000",
+        }}
+        name="Information"
+        component={Information}
+      />
       <ProtectedStack.Screen name="Scan QR Code" component={QRcodeReader} />
     </ProtectedStack.Navigator>
   );

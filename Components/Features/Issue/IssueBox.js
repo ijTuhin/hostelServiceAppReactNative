@@ -52,7 +52,7 @@ const IssueBox = () => {
                     });
                     setVisible(true);
                   }}
-                  rippleColor="rgba(0, 0, 0, .32)"
+                  // rippleColor="rgba(0, 0, 0, .32)"
                   key={index}
                   style={styles.issue}
                 >
@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    // boxShadow: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
     marginHorizontal: 16,
     backgroundColor: "#fff",
     marginBottom: 16,

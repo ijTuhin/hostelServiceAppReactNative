@@ -14,10 +14,7 @@ const SeatRent = () => {
   const [payment, setPayment] = useState(currentMonthPay.length);
   return (
     <View
-      style={{
-        padding: 32,
-        backgroundColor: "#fff",
-      }}
+      
     >
       {payment ? (
         <TaskDone text={"Payment Done"} />

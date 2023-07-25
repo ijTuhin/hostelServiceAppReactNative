@@ -33,6 +33,7 @@ const Information = () => {
 };
 const styles = StyleSheet.create({
   body: {
+    // marginTop: 28,
     flex: 1,
     backgroundColor: "rgb(241, 245, 249)",
   },

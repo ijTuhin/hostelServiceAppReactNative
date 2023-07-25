@@ -7,38 +7,40 @@ const Issues = () => {
   const { data } = useAuth();
   const value = data.message;
   return (
-    <ScrollView contentContainerStyle={{ marginVertical: 52 }}>
-      {value &&
-        value.map((i) => (
-          <View key={i._id} style={styles.container}>
-            <View style={styles.top}>
-              <View>
-                <View style={styles.head}>
-                  <Text style={{ fontSize: 16, fontWeight: 600 }}>
-                    {i.topic}
-                  </Text>
-                  {i.solved && (
-                    <MaterialCommunityIcons
-                      style={{ marginTop: -5 }}
-                      name="check-all"
-                      size={20}
-                      color="lightgreen"
-                    />
-                  )}
+    <ScrollView contentContainerStyle={{ marginVertical: 0 }}>
+      <View style={{ marginVertical: 16 }}>
+        {value &&
+          value.map((i) => (
+            <View key={i._id} style={styles.container}>
+              <View style={styles.top}>
+                <View>
+                  <View style={styles.head}>
+                    <Text style={{ fontSize: 16, fontWeight: 600 }}>
+                      {i.topic}
+                    </Text>
+                    {i.solved && (
+                      <MaterialCommunityIcons
+                        style={{ marginTop: -5 }}
+                        name="check-all"
+                        size={20}
+                        color="lightgreen"
+                      />
+                    )}
+                  </View>
+                  <View style={styles.time}>
+                    <Text style={styles.secondaryText}>{i.date}</Text>
+                    <Octicons name="dot-fill" size={8} color="#94A3B8" />
+                    <Text style={styles.secondaryText}>Time</Text>
+                  </View>
                 </View>
-                <View style={styles.time}>
-                  <Text style={styles.secondaryText}>{i.date}</Text>
-                  <Octicons name="dot-fill" size={8} color="#94A3B8" />
-                  <Text style={styles.secondaryText}>Time</Text>
+                <View style={styles.info}>
+                  <Text style={{ fontSize: 12 }}>To: {i.to}</Text>
                 </View>
               </View>
-              <View style={styles.info}>
-                <Text style={{ fontSize: 12 }}>To: {i.to}</Text>
-              </View>
+              <Text style={styles.notice}>{i.note}</Text>
             </View>
-            <Text style={styles.notice}>{i.note}</Text>
-          </View>
-        ))}
+          ))}
+      </View>
     </ScrollView>
   );
 };

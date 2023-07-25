@@ -14,7 +14,7 @@ const ProfileScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#0f172a",
     display: "flex",
     position: "relative",
   },

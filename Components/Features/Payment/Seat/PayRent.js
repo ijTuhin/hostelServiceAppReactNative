@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    padding: 32,
+    backgroundColor: "#fff",
+    marginHorizontal: 20,
   },
   menu: {
     borderRadius: 6.4,

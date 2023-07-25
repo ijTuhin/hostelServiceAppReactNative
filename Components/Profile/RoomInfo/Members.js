@@ -11,7 +11,7 @@ const Members = ({item}) => {
         <Card key={index}
           style={{
             marginVertical: 4,
-            backgroundColor: "#fff",
+            backgroundColor: "#083344",
             marginHorizontal: 16,
             borderRadius: 4,
           }}
@@ -26,7 +26,7 @@ const Members = ({item}) => {
                 style={{
                   fontSize: 16,
                   fontWeight: 700,
-                  color: "rgb(13, 148, 136)",
+                  color: "#cbd5e1",
                   textTransform: "capitalize",
                   paddingHorizontal: 8,
                 }}
@@ -40,7 +40,7 @@ const Members = ({item}) => {
                     borderRadius: 9999,
                     padding: 4,
                   }}
-                  rippleColor="rgba(45, 212, 191, .32)"
+                  rippleColor="rgba(0,0,0, .32)"
                   onPress={() => {
                     setDisplay(null);
                   }}
@@ -48,7 +48,7 @@ const Members = ({item}) => {
                   <MaterialCommunityIcons
                     name="minus"
                     size={32}
-                    color="rgb(13, 148, 136)"
+                    color="#cbd5e1"
                   />
                 </TouchableRipple>
               ) : (
@@ -57,7 +57,7 @@ const Members = ({item}) => {
                     borderRadius: 9999,
                     padding: 4,
                   }}
-                  rippleColor="rgba(45, 212, 191, .15)"
+                  rippleColor="rgba(0,0,0, .15)"
                   onPress={() => {
                     setDisplay(index);
                   }}
@@ -65,7 +65,7 @@ const Members = ({item}) => {
                   <MaterialCommunityIcons
                     name="gesture-tap-hold"
                     size={32}
-                    color="rgb(13, 148, 136)"
+                    color="#0891b2"
                   />
                 </TouchableRipple>
               )}
@@ -76,9 +76,9 @@ const Members = ({item}) => {
                 display === index ? { display: "flex" } : { display: "none" },
               ]}
             >
-              <Text style={{color:"rgb(75, 85, 99)"}}>Name: {i.name}</Text>
-              <Text style={{color:"rgb(75, 85, 99)"}}>Department: {i.dept}</Text>
-              <Text style={{color:"rgb(75, 85, 99)"}}>Semester Enrolled: {i.sem}</Text>
+              <Text style={{color:"#cbd5e1"}}>Name: {i.name}</Text>
+              <Text style={{color:"#cbd5e1"}}>Department: {i.dept}</Text>
+              <Text style={{color:"#cbd5e1"}}>Semester Enrolled: {i.sem}</Text>
             </View>
           </View>
         </Card>
@@ -99,7 +99,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: "rgb(226, 232, 240)",
     flexDirection: "column",
-    marginTop:8
+    marginTop:8,
+    color:"#cbd5e1"
   },
 });
 export default Members;
