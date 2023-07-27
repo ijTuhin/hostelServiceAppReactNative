@@ -3,7 +3,7 @@ import { FontAwesome, AntDesign } from "@expo/vector-icons";
 import React from "react";
 import { useAuth } from "../Authentication/AuthContext";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebaseConfig";
+import { auth } from "../../configFirebase";
 
 const Header = ({ navigation }) => {
   const { UserLogOut } = useAuth();
