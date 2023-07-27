@@ -9,12 +9,12 @@ const Features = ({ navigation }) => {
   const { data } = useAuth();
   function check(i) {
     if (i === "A") {
-      return data.attendance[0].date !== today;
+      return data?.attendance[0]?.date !== today;
     } else if (i === "M") {
       return (
-        (data.orders[0].date === today &&
-          data.orders[0].meal === checkMealTime) ||
-        (data.orders[1].date === today && data.orders[1].meal === checkMealTime)
+        (data?.orders[0]?.date === today &&
+          data?.orders[0]?.meal === checkMealTime) ||
+        (data?.orders[1]?.date === today && data?.orders[1]?.meal === checkMealTime)
       );
     }
   }

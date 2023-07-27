@@ -3,13 +3,29 @@ import React, { useState } from "react";
 import { TextInput } from "react-native";
 import { useAuth } from "./AuthContext";
 import { emailValidity } from "../Hooks/Conditions";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../configFirebase";
 
 const LoginForm = () => {
   const { UserLogin } = useAuth();
   const [data, setData] = useState({});
   const [error, setError] = useState(<></>);
-  const Login =  () => {
-    UserLogin(data.email, data.password);
+  // const auth = auth;
+  const Login = async () => {
+    // UserLogin(data.email, data.password);
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      ).then(() => {
+        console.log("Gotcha!!");
+        UserLogin(data.email, data.password);
+      });
+      console.log(user);
+    } catch (error) {
+      console.log("error line-26", error);
+    }
   };
   function isValidEmail(email) {
     return emailValidity.test(email);
@@ -107,7 +123,7 @@ const LoginForm = () => {
           if (isObjEmpty(data)) {
             setError(null);
           } else if (isValidEmail(data.email) || data.password >= 7) {
-            console.log("Login clicked--- line 110 = login form")
+            console.log("Login clicked--- line 110 = login form");
             Login();
           }
         }}

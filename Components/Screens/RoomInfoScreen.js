@@ -8,8 +8,8 @@ const RoomInfoScreen = () => {
   const { data } = useAuth();
   return (
     <ScrollView contentContainerStyle={styles.body}>
-      <Room room={data.room.room} total={data.room.member.length} />
-      <Members item={data.room.member} />
+      <Room room={data?.room?.room} total={data?.room?.member?.length} />
+      <Members item={data?.room?.member} />
     </ScrollView>
   );
 };

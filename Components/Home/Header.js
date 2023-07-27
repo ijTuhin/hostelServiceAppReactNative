@@ -2,9 +2,11 @@ import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 import { FontAwesome, AntDesign } from "@expo/vector-icons";
 import React from "react";
 import { useAuth } from "../Authentication/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
 
 const Header = ({ navigation }) => {
-  const {UserLogOut} = useAuth();
+  const { UserLogOut } = useAuth();
   return (
     <View style={styles.header}>
       <TouchableHighlight>
@@ -14,8 +16,11 @@ const Header = ({ navigation }) => {
       </TouchableHighlight>
       <Text style={styles.appTag}>Hostel Service App</Text>
       <Text
-        onPress={() => {
-          UserLogOut();
+        onPress={async () => {
+          signOut(auth).then(() => {
+            console.log("Nikal gaya!");
+            UserLogOut();
+          });
         }}
         style={styles.texts}
       >

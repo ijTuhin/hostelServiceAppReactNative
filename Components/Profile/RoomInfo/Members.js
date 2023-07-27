@@ -7,7 +7,7 @@ const Members = ({item}) => {
   const [display, setDisplay] = useState(null);
   return (
     <>
-      {item.map((i, index) => (
+      {item?.map((i, index) => (
         <Card key={index}
           style={{
             marginVertical: 4,

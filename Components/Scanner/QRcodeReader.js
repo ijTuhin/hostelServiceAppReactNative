@@ -12,17 +12,16 @@ const QRcodeReader = ({ route, navigation }) => {
     m: parseInt(new Date().getMinutes()),
     s: parseInt(new Date().getSeconds()),
   });
-  // const [hasPermission, setHasPermission] = useState(null);
   const [error, setError] = useState(false);
   const [scanned, setScanned] = useState(false);
   useEffect(() => {
     if (
       (type === "M" &&
-        data.orders[0].meal === checkMealTime &&
-        data.orders[0].status) ||
+        data?.orders[0]?.meal === checkMealTime &&
+        data?.orders[0]?.status) ||
       (type === "M" &&
-        data.orders[1].meal === checkMealTime &&
-        data.orders[1].status)
+        data?.orders[1]?.meal === checkMealTime &&
+        data?.orders[1]?.status)
     ) {
       setScanned(true);
       setError(true);
@@ -52,9 +51,9 @@ const QRcodeReader = ({ route, navigation }) => {
   /* =================== Verify qrCode ==================== */
   const verifyQRcode = (data) => {
     const scanTime = {
-      h: data.charCodeAt(0) - 35,
-      m: data.charCodeAt(10) - 35,
-      s: data.charCodeAt(6) - 35,
+      h: data?.charCodeAt(0) - 35,
+      m: data?.charCodeAt(10) - 35,
+      s: data?.charCodeAt(6) - 35,
       item: data[24],
     };
     console.log(data, scanTime);

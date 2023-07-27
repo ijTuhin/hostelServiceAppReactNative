@@ -25,6 +25,9 @@ import Issues from "./Components/History/Message/Issues";
 import MealBill from "./Components/Features/Payment/Meal/MealBill";
 import SeatRent from "./Components/Features/Payment/Seat/SeatRent";
 import { Text } from "react-native";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./configFirebase";
 const TopTabTheme = {
   ...DefaultTheme,
   colors: {
@@ -225,12 +228,16 @@ function HomeScreen() {
         options={{ headerShown: false }}
         component={Home}
       />
-      <BottomTab.Screen options={{
-      headerStyle: {
-        backgroundColor: "#1e293b",
-      },
-      headerTintColor: "#d1d5db",
-    }} name="Browse History" component={HistoryScreen} />
+      <BottomTab.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: "#1e293b",
+          },
+          headerTintColor: "#d1d5db",
+        }}
+        name="Browse History"
+        component={HistoryScreen}
+      />
     </BottomTab.Navigator>
   );
 }
@@ -284,10 +291,17 @@ function Protected() {
 }
 function AppLayOut() {
   const { authState } = useAuth();
+  const [authenticated, setAuthenticated] = useState(false);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      setAuthenticated(user);
+    });
+  }, []);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        {authState?.token ? (
+        {authState?.token && authenticated ? (
           <Stack.Screen
             name="Protected"
             options={{ headerShown: false }}
