@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
   return (
     <>
       <View
-        style={{ marginTop: 28, backgroundColor: "#0f172a", height: "100%" }}
+        style={{ paddingTop: 28, backgroundColor: "#0f172a", height: "100%" }}
       >
         <Header navigation={navigation} />
         <Features navigation={navigation} />

@@ -7,14 +7,13 @@ import { PaperProvider } from "react-native-paper";
 const IssuesScreen = () => {
   const [task, setTask] = useState(1);
   return (
-    <ScrollView contentContainerStyle={{ flex: 1, backgroundColor:"#e2e8f0" }}>
+    <ScrollView contentContainerStyle={{ flex: 1, backgroundColor:"#cbd5e1" }}>
       <PaperProvider>
         <View
           style={{
             paddingVertical: 28,
             backgroundColor: "#115e59",
             opacity: 0.75,
-            // width: "100%",
           }}
         >
           <Text></Text>

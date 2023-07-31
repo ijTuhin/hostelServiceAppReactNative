@@ -14,7 +14,7 @@ const IssueBox = () => {
       <Card
         style={{
           marginVertical: 4,
-          backgroundColor: "#fff",
+          backgroundColor: "#e2e8f0",
           marginHorizontal: 16,
           borderRadius: 4,
         }}
@@ -73,14 +73,15 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     width: "100%",
-    top: -16,
+    top: -30,
+    // backgroundColor:"#0f172a"
   },
   box: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     marginHorizontal: 16,
-    backgroundColor: "#fff",
+    backgroundColor: "#e2e8f0",
     marginBottom: 16,
   },
   topIcon: {

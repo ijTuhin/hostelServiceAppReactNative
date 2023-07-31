@@ -2,33 +2,43 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { useAuth } from "../../Authentication/AuthContext";
+import { StatusBar } from "expo-status-bar";
 
 const Information = () => {
   const { data } = useAuth();
   return (
-    <ScrollView contentContainerStyle={styles.body}>
-      <View style={styles.user}>
-        <FontAwesome name="user-circle-o" size={32} color="#fff" />
-        <View>
-          <Text style={{ fontSize: 17.6, color: "#fff" }}>{data.user.name}</Text>
-          <Text style={{ fontSize: 11, color: "#ddd" }}>{data.user.email}</Text>
+    <>
+      <ScrollView contentContainerStyle={styles.body}>
+        <View style={styles.user}>
+          <FontAwesome name="user-circle-o" size={32} color="#fff" />
+          <View>
+            <Text style={{ fontSize: 17.6, color: "#fff" }}>
+              {data.user.name}
+            </Text>
+            <Text style={{ fontSize: 11, color: "#ddd" }}>
+              {data.user.email}
+            </Text>
+          </View>
         </View>
-      </View>
-      <View style={styles.data}>
-        <Text style={styles.infoHead}>Academic Data</Text>
-        <Text style={styles.info}>Matric ID: {data.user.matric} </Text>
-        <Text style={styles.info}>Department: {data.user.dept} </Text>
-        <Text style={styles.info}>Semester Enrolled: {data.user.sem} </Text>
-        <Text style={styles.info}>Last session:</Text>
-      </View>
-      <View style={styles.data}>
-        <Text style={styles.infoHead}>Personal Info</Text>
-        <Text style={styles.info}>Phone number: {data.user.phone} </Text>
-        <Text style={styles.info}>Permanant Address: {data.user.address} </Text>
-        <Text style={styles.info}>Thana: {data.user.thana} </Text>
-        <Text style={styles.info}>District: {data.user.district} </Text>
-      </View>
-    </ScrollView>
+        <View style={styles.data}>
+          <Text style={styles.infoHead}>Academic Data</Text>
+          <Text style={styles.info}>Matric ID: {data.user.matric} </Text>
+          <Text style={styles.info}>Department: {data.user.dept} </Text>
+          <Text style={styles.info}>Semester Enrolled: {data.user.sem} </Text>
+          <Text style={styles.info}>Last session:</Text>
+        </View>
+        <View style={styles.data}>
+          <Text style={styles.infoHead}>Personal Info</Text>
+          <Text style={styles.info}>Phone number: {data.user.phone} </Text>
+          <Text style={styles.info}>
+            Permanant Address: {data.user.address}{" "}
+          </Text>
+          <Text style={styles.info}>Thana: {data.user.thana} </Text>
+          <Text style={styles.info}>District: {data.user.district} </Text>
+        </View>
+      </ScrollView>
+      <StatusBar style="dark" />
+    </>
   );
 };
 const styles = StyleSheet.create({

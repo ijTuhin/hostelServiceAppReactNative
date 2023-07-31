@@ -29,6 +29,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./configFirebase";
 import ForgotPassScreen from "./Components/Screens/ForgotPassScreen";
+import { StatusBar } from "expo-status-bar";
 const TopTabTheme = {
   ...DefaultTheme,
   colors: {
@@ -329,9 +330,12 @@ function AppLayOut() {
 export default function App() {
   return (
     // <QRcodeReader/>
-    <AuthProvider>
-      <AppLayOut />
-    </AuthProvider>
+    <>
+      <AuthProvider>
+        <AppLayOut />
+      </AuthProvider>
+      <StatusBar style="light" />
+    </>
   );
 }
 
