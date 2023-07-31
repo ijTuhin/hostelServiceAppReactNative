@@ -28,6 +28,7 @@ import { Text } from "react-native";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./configFirebase";
+import ForgotPassScreen from "./Components/Screens/ForgotPassScreen";
 const TopTabTheme = {
   ...DefaultTheme,
   colors: {
@@ -308,11 +309,18 @@ function AppLayOut() {
             component={Protected}
           />
         ) : (
-          <Stack.Screen
-            name="Login"
-            options={{ headerShown: false }}
-            component={LoginScreen}
-          />
+          <>
+            <Stack.Screen
+              name="Login"
+              options={{ headerShown: false }}
+              component={LoginScreen}
+            />
+            <Stack.Screen
+              name="Reset Password"
+              options={{ headerShown: false }}
+              component={ForgotPassScreen}
+            />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>

@@ -3,22 +3,21 @@ import React, { useState } from "react";
 import { TextInput } from "react-native";
 import { useAuth } from "./AuthContext";
 import { emailValidity } from "../Hooks/Conditions";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../../configFirebase";
 
-const LoginForm = ({ navigation }) => {
+const ResetForm = ({ navigation }) => {
   const { UserLogin } = useAuth();
   const [data, setData] = useState({});
   const [error, setError] = useState(<></>);
-  const Login = async () => {
+  const SendRequest = async () => {
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        data.email,
-        data.password
-      ).then(() => {
+      const user = await sendPasswordResetEmail(auth, data.email).then(() => {
         console.log("Gotcha!!");
-        UserLogin(data.email);
+        navigation.navigate("Login");
       });
       console.log(user);
     } catch (error) {
@@ -69,82 +68,36 @@ const LoginForm = ({ navigation }) => {
             setError(<></>);
           }
         }}
-        placeholderTextColor="#a1a1aa"
         placeholder="Email Address"
-      />
-      {data.password?.length < 7 && data.password?.length !== 0 && (
-        <>
-          <Text style={[styles.validity]}>
-            password should contain at least 8 character
-          </Text>
-        </>
-      )}
-      <TextInput
-        secureTextEntry={true}
-        style={styles.input}
-        onChangeText={(e) => {
-          setData({
-            ...data,
-            password: e,
-          });
-        }}
-        onKeyPress={({ nativeEvent }) => {
-          if (nativeEvent.key === "Backspace") {
-            if (data.password?.length - 2 < 7) {
-              setError(
-                <>
-                  <Text style={[styles.validity]}>
-                    password should contain at least 8 character
-                  </Text>
-                </>
-              );
-            } else {
-              setError(<></>);
-            }
-          } else {
-            if (data.password?.length < 7) {
-              setError(
-                <>
-                  <Text style={[styles.validity]}>
-                    password should contain at least 8 character
-                  </Text>
-                </>
-              );
-            } else {
-              setError(<></>);
-            }
-          }
-        }}
         placeholderTextColor="#a1a1aa"
-        placeholder="Password"
       />
-      <Text
-        onPress={() => {
-          console.log("Reset click");
-          navigation.navigate("Reset Password");
-        }}
-        style={{
-          marginVertical: 12,
-          marginHorizontal: 4,
-          fontSize: 12,
-          color: "#a1a1aa",
-          textDecorationLine: "underline",
-        }}
-      >
-        Forgot Password?
-      </Text>
       <Text
         onPress={() => {
           if (isObjEmpty(data)) {
             setError(null);
           } else if (isValidEmail(data.email) || data.password >= 7) {
-            console.log("Login clicked--- line 110 = login form");
-            Login();
+            SendRequest();
           }
         }}
         style={styles.btn}
       >
-        Sign-In
+        Send Request
+      </Text>
+
+      <Text
+        onPress={() => {
+          console.log("Go to Login");
+          navigation.navigate("Login");
+        }}
+        style={{
+          marginVertical: 20,
+          marginHorizontal: 4,
+          fontSize: 12,
+          color: "#a1a1aa",
+          textAlign: "center",
+        }}
+      >
+        Cancel
       </Text>
     </View>
   );
@@ -156,7 +109,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "rgb(209, 213, 219)",
     padding: 10,
     width: 306.4,
-    color: "#a1a1aa"
+    color: "#ddd",
   },
   btn: {
     height: 40,
@@ -167,8 +120,8 @@ const styles = StyleSheet.create({
     marginTop: 12,
     textAlign: "center",
     textAlignVertical: "center",
-    color: "#d4d4d8",
-    backgroundColor:"#0f766e"
+    color: "#ddd",
+    backgroundColor: "#164e63",
   },
   error: {
     marginBottom: 4,
@@ -176,14 +129,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     width: 306.4,
     backgroundColor: "rgb(254, 242, 242)",
-    color: "rgb(239, 68, 68)",
+    color: "#ef4444",
     textAlign: "center",
     opacity: 0.75,
   },
   validity: {
     marginTop: 4,
-    color: "rgb(239, 68, 68)",
+    color: "#65a30d",
     textAlign: "right",
   },
 });
-export default LoginForm;
+export default ResetForm;

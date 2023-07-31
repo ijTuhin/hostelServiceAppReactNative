@@ -176,13 +176,12 @@ export const AuthProvider = ({ children }) => {
       };
     }
   };
-  const UserLogin = async (email, password) => {
-    console.log(email, password);
+  const UserLogin = async (email) => {
+    console.log(email);
     try {
-      console.log("User Login", email, password);
+      console.log("User Login", email);
       const result = await axios.post(`http://192.168.0.109:3001/user/login`, {
         email,
-        password,
       });
       console.log("try");
       setAuthState({

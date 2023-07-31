@@ -3,12 +3,12 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import LoginForm from "../Authentication/LoginForm";
 
-const LoginScreen = ({navigation}) => {
+const LoginScreen = ({ navigation }) => {
   const logo = require("../../assets/IIUClogo.jpg");
   return (
     <ScrollView contentContainerStyle={styles.body}>
       <View style={styles.top}>
-        <Text style={{ fontSize: 32 }}>
+        <Text style={{ fontSize: 32, color: "#d4d4d8" }}>
           Welcome, Sign in to your Account
         </Text>
         <Text
@@ -16,6 +16,7 @@ const LoginScreen = ({navigation}) => {
             fontSize: 16,
             fontStyle: "italic",
             marginVertical: 4,
+            color: "#14b8a6",
           }}
         >
           Female Hostel Service
@@ -28,21 +29,21 @@ const LoginScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#020617",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 32,
     width: "100%",
-    marginTop:33.6
+    // marginTop: 33.6,
   },
   top: {
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "center",
-    marginBottom: 12
+    marginBottom: 12,
   },
 });
 export default LoginScreen;
