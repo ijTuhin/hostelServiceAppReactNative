@@ -329,7 +329,6 @@ function AppLayOut() {
 }
 export default function App() {
   return (
-    // <QRcodeReader/>
     <>
       <AuthProvider>
         <AppLayOut />

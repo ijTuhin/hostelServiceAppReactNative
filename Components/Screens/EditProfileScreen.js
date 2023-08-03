@@ -4,7 +4,7 @@ import React from "react";
 import EditForm from "../Profile/EditProfile/EditForm";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-const EditProfileScreen = () => {
+const EditProfileScreen = ({navigation}) => {
   return (
     <View style={styles.body}>
       <KeyboardAwareScrollView>
@@ -13,7 +13,7 @@ const EditProfileScreen = () => {
             <FontAwesome5 name="user-edit" size={36} color="#164e63" />
           </Text>
         </View>
-        <EditForm />
+        <EditForm navigation={navigation} />
       </KeyboardAwareScrollView>
     </View>
   );

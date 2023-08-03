@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TextInput } from "react-native";
 import React from "react";
 import { useAuth } from "../../Authentication/AuthContext";
 
-const EditForm = () => {
+const EditForm = ({navigation}) => {
   const { data, postEditProfileRequest } = useAuth();
   const stored = {
     address: data.user.address,
@@ -14,6 +14,7 @@ const EditForm = () => {
   const [error, setError] = React.useState(<></>);
   const uploadData = () => {
     postEditProfileRequest(item);
+    navigation.navigate("Profile");
     setError(
       <>
         <Text

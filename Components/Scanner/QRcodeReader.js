@@ -43,7 +43,6 @@ const QRcodeReader = ({ route, navigation }) => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     if (data) {
-      console.log(data);
       verifyQRcode(data);
     }
   };
@@ -56,27 +55,24 @@ const QRcodeReader = ({ route, navigation }) => {
       s: data?.charCodeAt(6) - 35,
       item: data[24],
     };
-    console.log(data, scanTime);
     if (scanTime.h === time.h) {
       if (scanTime.m === time.m) {
         setScanned(true);
-        console.log("1. Got it - ", data, scanTime.item);
         if (scanTime.item === type && type === "A") {
-          console.log(data, "Cond-1 Attendance Marked");
+          console.log("Cond-1 Attendance Marked");
           markAttendance();
         } else if (scanTime.item === checkMealTime[0] && type === "M") {
-          // confirmMealReceive();
-          console.log(data, "Cond-1 Confirmed meal");
+          confirmMealReceive();
+          console.log("Cond-1 Confirmed meal");
         } else setError(true);
       } else if (time.m + 1 === scanTime.m || scanTime.m + 1 === time.m) {
         setScanned(true);
-        console.log("2. Got it - ", data, scanTime.item);
         if (scanTime.item === type && type === "A") {
-          console.log(data, "Cond-2 Attendance Marked");
+          console.log("Cond-2 Attendance Marked");
           markAttendance();
         } else if (scanTime.item === checkMealTime[0] && type === "M") {
-          // confirmMealReceive();
-          console.log(data, "Cond-2 Confirmed meal");
+          confirmMealReceive();
+          console.log("Cond-2 Confirmed meal");
         } else setError(true);
       }
     } else {

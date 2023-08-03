@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import { TouchableRipple } from "react-native-paper";
-import { day, meal } from "../../Hooks/Conditions";
+import { meal } from "../../Hooks/Conditions";
 import { useAuth } from "../../Authentication/AuthContext";
 
 const OrderBtn = ({ coupon, set, done }) => {
   const { placeMealOrder } = useAuth();
   const [tap, setTap] = useState(false);
   const placeOrder = () => {
-    placeMealOrder(meal);
+    placeMealOrder();
     setTap(true);
     set(coupon - 1);
   };

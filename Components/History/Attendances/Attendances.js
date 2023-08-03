@@ -2,12 +2,13 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import React from "react";
 import { useAuth } from "../../Authentication/AuthContext";
+import { getTimeAndData } from "../../Hooks/Conditions";
 
 const Attendances = () => {
   const { data } = useAuth();
   const value = data.attendance;
   return (
-    <ScrollView contentContainerStyle={{ margin: 0, backgroundColor:"#fff" }}>
+    <ScrollView contentContainerStyle={{ margin: 0, backgroundColor: "#fff" }}>
       {value &&
         value.map((i) => (
           <View key={i._id} style={styles.container}>
@@ -17,14 +18,16 @@ const Attendances = () => {
               color="#14B8A6"
             />
             <View style={styles.info}>
-              <Text style={styles.time}>{i.time}</Text>
+              <Text style={styles.time}>
+                {getTimeAndData(i._id).toLocaleTimeString()}
+              </Text>
               <Octicons
                 style={{ marginBottom: 1.6 }}
                 name="dot-fill"
                 size={4}
                 color="#D1D5DB"
               />
-              <Text style={styles.date}>{i.date}</Text>
+              <Text style={styles.date}>{getTimeAndData(i._id).toLocaleDateString()}</Text>
             </View>
           </View>
         ))}

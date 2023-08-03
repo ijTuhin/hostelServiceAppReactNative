@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { Octicons, FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import { Card } from "react-native-paper";
+import { getTimeAndData } from "../../Hooks/Conditions";
 
 const Data = ({ data }) => {
   return (
@@ -26,7 +27,7 @@ const Data = ({ data }) => {
                 <View style={styles.left}>
                   <Text style={styles.title}>{i.item}</Text>
                   <Text style={styles.secondary}>Phone: +880131693724</Text>
-                  <Text style={styles.secondary}>{i.date}</Text>
+                  <Text style={styles.secondary}>{getTimeAndData(i._id).toLocaleDateString()}</Text>
                 </View>
                 <View style={styles.right}>
                   <View style={styles.rightTop}>

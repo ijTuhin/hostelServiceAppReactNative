@@ -16,9 +16,9 @@ const LoginForm = ({ navigation }) => {
         auth,
         data.email,
         data.password
-      ).then(() => {
-        console.log("Gotcha!!");
-        UserLogin(data.email);
+      ).then((user) => {
+        console.log("Gotcha!!", user._tokenResponse.email);
+        UserLogin(user._tokenResponse.email);
       });
       console.log(user);
     } catch (error) {

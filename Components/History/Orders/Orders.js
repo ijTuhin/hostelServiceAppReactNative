@@ -3,16 +3,17 @@ import { Octicons } from "@expo/vector-icons";
 import React from "react";
 import { Card } from "react-native-paper";
 import { useAuth } from "../../Authentication/AuthContext";
+import { getTimeAndData } from "../../Hooks/Conditions";
 
 const Orders = () => {
   const { data } = useAuth();
   const value = data.orders;
+  // console.log(value) 
   return (
     <ScrollView contentContainerStyle={{ marginVertical: 4 }}>
       {value &&
         value.map((i) => (
           <Card
-            key={i._id}
             style={{
               marginVertical: 4,
               backgroundColor: "#fff",
@@ -20,7 +21,7 @@ const Orders = () => {
               borderRadius: 2.4,
             }}
           >
-            <View style={styles.container}>
+            <View key={i._id} style={styles.container}>
               <View>
                 <View style={styles.status}>
                   <Text>
@@ -45,7 +46,7 @@ const Orders = () => {
                     color: "rgb(148, 163, 184)",
                   }}
                 >
-                  {i.date}
+                  {getTimeAndData(i._id).toLocaleDateString()}
                 </Text>
               </View>
               <View>
@@ -54,7 +55,7 @@ const Orders = () => {
                     fontSize: 10,
                   }}
                 >
-                  {i.time}
+                  {getTimeAndData(i._id).toLocaleTimeString()}
                 </Text>
               </View>
             </View>

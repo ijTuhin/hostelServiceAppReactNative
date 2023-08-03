@@ -1,7 +1,7 @@
 import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { checkMealTime, today } from "../Hooks/Conditions";
+import { checkMealTime, today, meal } from "../Hooks/Conditions";
 const AuthContext = createContext();
 export const useAuth = () => {
   return useContext(AuthContext);
@@ -32,11 +32,11 @@ export const AuthProvider = ({ children }) => {
       console.log("AuthContext-line-34:", time, token);
     };
     return () => LoadToken();
-  }, []);
+  }, [authState.refresh]);
   const paySeatRent = async (value) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.109:3001/payment/seat-rent`,
+        `http://192.168.0.200:3001/payment/seat-rent`,
         value
       );
       if (result) {
@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   const payMealBill = async (value) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.109:3001/payment/meal-package`,
+        `http://192.168.0.200:3001/payment/meal-package`,
         value
       );
       if (result) {
@@ -73,10 +73,10 @@ export const AuthProvider = ({ children }) => {
       };
     }
   };
-  const placeMealOrder = async (meal) => {
+  const placeMealOrder = async () => {
     try {
-      const result = await axios.post(`http://192.168.0.109:3001/meal`, {
-        meal,
+      const result = await axios.post(`http://192.168.0.200:3001/meal`, {
+        meal: meal,
       });
       if (result) {
         setAuthState({
@@ -84,7 +84,7 @@ export const AuthProvider = ({ children }) => {
           refresh: "place-order",
         });
       }
-      console.log("AuthContext-Place meal order: ", result);
+      console.log("AuthContext-Place meal order: ", result, meal);
       return result;
     } catch (e) {
       return {
@@ -96,11 +96,11 @@ export const AuthProvider = ({ children }) => {
     try {
       let mealId;
       if (data.orders[0].meal === checkMealTime && !data.orders[0].status)
-        mealId = mealId._id;
+        mealId = data.orders[0]._id;
       else if (data.orders[1].meal === checkMealTime && !data.orders[1].status)
-        mealId = mealId._id;
+        mealId = data.orders[1]._id;
       const result = await axios.put(
-        `http://192.168.0.109:3001/meal/${mealId}`
+        `http://192.168.0.200:3001/meal/${mealId}`
       );
       if (result) {
         setAuthState({
@@ -119,8 +119,8 @@ export const AuthProvider = ({ children }) => {
   };
   const markAttendance = async () => {
     try {
-      const result = await axios.post(`http://192.168.0.109:3001/attendance`, {
-        date: today,
+      const result = await axios.post(`http://192.168.0.200:3001/attendance`, {
+        date: new Date().getDate(),
       });
       if (result) {
         setAuthState({
@@ -139,7 +139,7 @@ export const AuthProvider = ({ children }) => {
   const postUserProblem = async (data) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.109:3001/message`,
+        `http://192.168.0.200:3001/message`,
         data
       );
       if (result) {
@@ -159,7 +159,7 @@ export const AuthProvider = ({ children }) => {
   const postEditProfileRequest = async (data) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.109:3001/admin/edit-request`,
+        `http://192.168.0.200:3001/admin/edit-request`,
         data
       );
       if (result) {
@@ -167,6 +167,7 @@ export const AuthProvider = ({ children }) => {
           ...authState,
           refresh: "edit-request",
         });
+        console.log("Edit request Done 171");
       }
       console.log("AuthContext- User Info Edit Request: ", result, data);
       return result;
@@ -180,7 +181,7 @@ export const AuthProvider = ({ children }) => {
     console.log(email);
     try {
       console.log("User Login", email);
-      const result = await axios.post(`http://192.168.0.109:3001/user/login`, {
+      const result = await axios.post(`http://192.168.0.200:3001/user/login`, {
         email,
       });
       console.log("try");

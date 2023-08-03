@@ -3,18 +3,18 @@ import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import { Card } from "react-native-paper";
 import { MaterialIcons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useAuth } from "../Authentication/AuthContext";
-import { checkMealTime, today } from "../Hooks/Conditions";
+import { checkMealTime } from "../Hooks/Conditions";
 const Features = ({ navigation }) => {
-  // const { confirmMealReceive, markAttendance } = useAuth();
   const { data } = useAuth();
   function check(i) {
     if (i === "A") {
-      return data?.attendance[0]?.date !== today;
+      return data?.attendance[0]?.date != new Date().getDate();
     } else if (i === "M") {
       return (
-        (data?.orders[0]?.date === today &&
-          data?.orders[0]?.meal === checkMealTime) ||
-        (data?.orders[1]?.date === today && data?.orders[1]?.meal === checkMealTime)
+        (data?.orders[0]?.date == new Date().getDate() &&
+          data?.orders[0]?.meal == checkMealTime) ||
+        (data?.orders[1]?.date == new Date().getDate() &&
+          data?.orders[1]?.meal == checkMealTime)
       );
     }
   }

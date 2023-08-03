@@ -8,7 +8,7 @@ import { useAuth } from "../../../Authentication/AuthContext";
 const SeatRent = () => {
   const { data } = useAuth();
   const currentMonthPay = data.payments.filter((i) => {
-    if(i.month === nextMonth)
+    if(i.month === nextMonth && i.item !==  "meal")
     return i;
   });
   const [payment, setPayment] = useState(currentMonthPay.length);

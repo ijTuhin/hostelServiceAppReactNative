@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
 import React from "react";
 import { useAuth } from "../../Authentication/AuthContext";
+import { getTimeAndData } from "../../Hooks/Conditions";
 
 const Issues = () => {
   const { data } = useAuth();
@@ -28,9 +29,13 @@ const Issues = () => {
                     )}
                   </View>
                   <View style={styles.time}>
-                    <Text style={styles.secondaryText}>{i.date}</Text>
+                    <Text style={styles.secondaryText}>
+                      {getTimeAndData(i._id).toLocaleDateString()}
+                    </Text>
                     <Octicons name="dot-fill" size={8} color="#94A3B8" />
-                    <Text style={styles.secondaryText}>Time</Text>
+                    <Text style={styles.secondaryText}>
+                      {getTimeAndData(i._id).toLocaleTimeString()}
+                    </Text>
                   </View>
                 </View>
                 <View style={styles.info}>
