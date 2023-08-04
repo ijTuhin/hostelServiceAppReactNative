@@ -1,20 +1,13 @@
 import { View, StyleSheet } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Features from "./Features";
 import Header from "./Header";
 import { useAuth } from "../Authentication/AuthContext";
-import axios from "axios";
 
 const Home = ({ navigation }) => {
-  const { setData, authState, data } = useAuth();
-  console.log("||| HomeScreen line-13:", data?.user?.name);
+  const { getAllUserData, authState } = useAuth();
   useEffect(() => {
-    const testCall = async () => {
-      const result = await axios.get(`http://192.168.0.200:3001/user/my-data`);
-      console.log("Orders:", result.data.orders[0]);
-      setData(result.data);
-    };
-    testCall();
+    getAllUserData();
   }, [authState.refresh]);
   return (
     <>

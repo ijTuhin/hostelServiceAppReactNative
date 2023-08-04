@@ -1,4 +1,10 @@
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  RefreshControl,
+} from "react-native";
 import { Octicons } from "@expo/vector-icons";
 import React from "react";
 import { Card } from "react-native-paper";
@@ -6,14 +12,26 @@ import { useAuth } from "../../Authentication/AuthContext";
 import { getTimeAndData } from "../../Hooks/Conditions";
 
 const Orders = () => {
-  const { data } = useAuth();
+  const [refreshing, setRefreshing] = React.useState(false);
+  const { getAllUserData, data } = useAuth();
   const value = data.orders;
-  // console.log(value) 
+  const getRefreshedData = () => {
+    setRefreshing(true);
+    getAllUserData();
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 3000);
+  };
   return (
-    <ScrollView contentContainerStyle={{ marginVertical: 4 }}>
+    <ScrollView
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={getRefreshedData} />
+      }
+      contentContainerStyle={{ marginVertical: 4 }}
+    >
       {value &&
         value.map((i) => (
-          <Card
+          <Card key={i._id} 
             style={{
               marginVertical: 4,
               backgroundColor: "#fff",
@@ -21,7 +39,7 @@ const Orders = () => {
               borderRadius: 2.4,
             }}
           >
-            <View key={i._id} style={styles.container}>
+            <View style={styles.container}>
               <View>
                 <View style={styles.status}>
                   <Text>
@@ -74,8 +92,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     borderWidth: 0,
     borderRadius: 2.4,
-    // boxShadow:
-    //   "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
   },
   info: {
     display: "flex",
