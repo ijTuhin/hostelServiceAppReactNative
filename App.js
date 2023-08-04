@@ -30,6 +30,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./configFirebase";
 import ForgotPassScreen from "./Components/Screens/ForgotPassScreen";
 import { StatusBar } from "expo-status-bar";
+import Loader from "./Components/Authentication/Loader";
 const TopTabTheme = {
   ...DefaultTheme,
   colors: {
@@ -292,7 +293,7 @@ function Protected() {
   );
 }
 function AppLayOut() {
-  const { authState } = useAuth();
+  const { authState, loading } = useAuth();
   const [authenticated, setAuthenticated] = useState(false);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -303,24 +304,34 @@ function AppLayOut() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        {authState?.token && authenticated ? (
+        {loading ? (
           <Stack.Screen
-            name="Protected"
+            name="Loader"
             options={{ headerShown: false }}
-            component={Protected}
+            component={Loader}
           />
         ) : (
           <>
-            <Stack.Screen
-              name="Login"
-              options={{ headerShown: false }}
-              component={LoginScreen}
-            />
-            <Stack.Screen
-              name="Reset Password"
-              options={{ headerShown: false }}
-              component={ForgotPassScreen}
-            />
+            {authState?.token && authenticated ? (
+              <Stack.Screen
+                name="Protected"
+                options={{ headerShown: false }}
+                component={Protected}
+              />
+            ) : (
+              <>
+                <Stack.Screen
+                  name="Login"
+                  options={{ headerShown: false }}
+                  component={LoginScreen}
+                />
+                <Stack.Screen
+                  name="Reset Password"
+                  options={{ headerShown: false }}
+                  component={ForgotPassScreen}
+                />
+              </>
+            )}
           </>
         )}
       </Stack.Navigator>

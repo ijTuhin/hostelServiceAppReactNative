@@ -8,6 +8,7 @@ export const useAuth = () => {
 };
 export const AuthProvider = ({ children }) => {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
   const [authState, setAuthState] = useState({
     token: null,
     authenticate: null,
@@ -189,6 +190,7 @@ export const AuthProvider = ({ children }) => {
         email,
       });
       console.log("try");
+      if (result?.data?.token) setLoading(false);
       setAuthState({
         token: result.data.token,
         authenticate: true,
@@ -214,6 +216,7 @@ export const AuthProvider = ({ children }) => {
       token: null,
       authenticate: false,
     });
+    if (authState?.token) setLoading(false);
   };
   const authInfo = {
     UserLogin,
@@ -227,6 +230,8 @@ export const AuthProvider = ({ children }) => {
     markAttendance,
     setData,
     getAllUserData,
+    setLoading,
+    loading,
     data,
     authState,
   };

@@ -6,7 +6,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../configFirebase";
 
 const Header = ({ navigation }) => {
-  const { UserLogOut } = useAuth();
+  const { UserLogOut, setLoading } = useAuth();
   return (
     <View style={styles.header}>
       <TouchableHighlight>
@@ -17,6 +17,7 @@ const Header = ({ navigation }) => {
       <Text style={styles.appTag}>Hostel Service App</Text>
       <Text
         onPress={async () => {
+          setLoading(true);
           signOut(auth).then(() => {
             console.log("Nikal gaya!");
             UserLogOut();

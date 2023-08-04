@@ -7,11 +7,12 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../configFirebase";
 
 const LoginForm = ({ navigation }) => {
-  const { UserLogin } = useAuth();
+  const { UserLogin, setLoading } = useAuth();
   const [data, setData] = useState({});
   const [error, setError] = useState(<></>);
   const Login = async () => {
     try {
+      setLoading(true);
       const user = await signInWithEmailAndPassword(
         auth,
         data.email,

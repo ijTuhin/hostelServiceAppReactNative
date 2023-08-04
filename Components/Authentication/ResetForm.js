@@ -10,13 +10,15 @@ import {
 import { auth } from "../../configFirebase";
 
 const ResetForm = ({ navigation }) => {
-  const { UserLogin } = useAuth();
+  const { UserLogin, setLoading } = useAuth();
   const [data, setData] = useState({});
   const [error, setError] = useState(<></>);
   const SendRequest = async () => {
     try {
+      setLoading(true);
       const user = await sendPasswordResetEmail(auth, data.email).then(() => {
         console.log("Gotcha!!");
+        setLoading(false);
         navigation.navigate("Login");
       });
       console.log(user);
