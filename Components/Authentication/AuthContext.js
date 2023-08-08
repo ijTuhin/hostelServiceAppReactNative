@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   }, [authState.refresh]);
   const getAllUserData = async () => {
     const result = await axios.get(`http://192.168.0.106:3001/user/my-data`);
-    console.log("User :", result?.data?.user?.name);
+    console.log("User :", result?.data?.payments);
     setData(result.data);
   };
   const getRefreshedData = () => {
@@ -50,7 +50,6 @@ export const AuthProvider = ({ children }) => {
   };
   const paySeatRent = async (value) => {
     try {
-      setLoading(true)
       const result = await axios
         .post(`http://192.168.0.106:3001/payment/seat-rent`, value)
         .then((item) => {
@@ -62,9 +61,6 @@ export const AuthProvider = ({ children }) => {
           ...authState,
           refresh: "seat-rent",
         });
-        setLoading(false)
-
-        return 5;
       }
       console.log("AuthContext-Pay seat rent: ", result);
       return result;

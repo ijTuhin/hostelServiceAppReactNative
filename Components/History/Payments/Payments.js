@@ -8,6 +8,7 @@ const Payments = () => {
   const { data } = useAuth();
   // const value = data.orders
   const [value, setValue] = useState(data.payments);
+  console.log(data.payments);
   const [selectedTab, setSelectedTab] = useState(0);
   return (
     <SafeAreaView
