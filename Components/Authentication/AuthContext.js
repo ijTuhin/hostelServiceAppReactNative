@@ -2,11 +2,13 @@ import * as SecureStore from "expo-secure-store";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { checkMealTime, today, meal } from "../Hooks/Conditions";
+import { Linking } from "react-native";
 const AuthContext = createContext();
 export const useAuth = () => {
   return useContext(AuthContext);
 };
 export const AuthProvider = ({ children }) => {
+  const [refreshing, setRefreshing] = useState(false);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [authState, setAuthState] = useState({
@@ -35,21 +37,34 @@ export const AuthProvider = ({ children }) => {
     return () => LoadToken();
   }, [authState.refresh]);
   const getAllUserData = async () => {
-    const result = await axios.get(`http://192.168.0.107:3001/user/my-data`);
+    const result = await axios.get(`http://192.168.0.106:3001/user/my-data`);
     console.log("User :", result?.data?.user?.name);
     setData(result.data);
   };
+  const getRefreshedData = () => {
+    setRefreshing(true);
+    getAllUserData();
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 3000);
+  };
   const paySeatRent = async (value) => {
     try {
-      const result = await axios.post(
-        `http://192.168.0.107:3001/payment/seat-rent`,
-        value
-      );
+      setLoading(true)
+      const result = await axios
+        .post(`http://192.168.0.106:3001/payment/seat-rent`, value)
+        .then((item) => {
+          console.log(item.data.url);
+          Linking.openURL(item.data.url);
+        });
       if (result) {
         setAuthState({
           ...authState,
           refresh: "seat-rent",
         });
+        setLoading(false)
+
+        return 5;
       }
       console.log("AuthContext-Pay seat rent: ", result);
       return result;
@@ -61,10 +76,12 @@ export const AuthProvider = ({ children }) => {
   };
   const payMealBill = async (value) => {
     try {
-      const result = await axios.post(
-        `http://192.168.0.107:3001/payment/meal-package`,
-        value
-      );
+      const result = await axios
+        .post(`http://192.168.0.106:3001/payment/meal-package`, value)
+        .then((item) => {
+          console.log(item.data.url);
+          Linking.openURL(item.data.url);
+        });
       if (result) {
         setAuthState({
           ...authState,
@@ -81,7 +98,7 @@ export const AuthProvider = ({ children }) => {
   };
   const placeMealOrder = async () => {
     try {
-      const result = await axios.post(`http://192.168.0.107:3001/meal`, {
+      const result = await axios.post(`http://192.168.0.106:3001/meal`, {
         meal: meal,
       });
       if (result) {
@@ -106,7 +123,7 @@ export const AuthProvider = ({ children }) => {
       else if (data.orders[1].meal === checkMealTime && !data.orders[1].status)
         mealId = data.orders[1]._id;
       const result = await axios.put(
-        `http://192.168.0.107:3001/meal/${mealId}`
+        `http://192.168.0.106:3001/meal/${mealId}`
       );
       if (result) {
         setAuthState({
@@ -124,7 +141,7 @@ export const AuthProvider = ({ children }) => {
   };
   const markAttendance = async () => {
     try {
-      const result = await axios.post(`http://192.168.0.107:3001/attendance`, {
+      const result = await axios.post(`http://192.168.0.106:3001/attendance`, {
         date: new Date().getDate(),
       });
       if (result) {
@@ -144,7 +161,7 @@ export const AuthProvider = ({ children }) => {
   const postUserProblem = async (data) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.107:3001/message`,
+        `http://192.168.0.106:3001/message`,
         data
       );
       if (result) {
@@ -164,7 +181,7 @@ export const AuthProvider = ({ children }) => {
   const postEditProfileRequest = async (data) => {
     try {
       const result = await axios.post(
-        `http://192.168.0.107:3001/admin/edit-request`,
+        `http://192.168.0.106:3001/admin/edit-request`,
         data
       );
       if (result) {
@@ -186,7 +203,7 @@ export const AuthProvider = ({ children }) => {
     console.log(email);
     try {
       console.log("User Login", email);
-      const result = await axios.post(`http://192.168.0.107:3001/user/login`, {
+      const result = await axios.post(`http://192.168.0.106:3001/user/login`, {
         email,
       });
       console.log("try");
@@ -231,6 +248,8 @@ export const AuthProvider = ({ children }) => {
     setData,
     getAllUserData,
     setLoading,
+    getRefreshedData,
+    refreshing,
     loading,
     data,
     authState,

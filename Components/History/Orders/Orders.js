@@ -12,16 +12,8 @@ import { useAuth } from "../../Authentication/AuthContext";
 import { getTimeAndData } from "../../Hooks/Conditions";
 
 const Orders = () => {
-  const [refreshing, setRefreshing] = React.useState(false);
-  const { getAllUserData, data } = useAuth();
+  const { getRefreshedData, refreshing, data } = useAuth();
   const value = data.orders;
-  const getRefreshedData = () => {
-    setRefreshing(true);
-    getAllUserData();
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 3000);
-  };
   return (
     <ScrollView
       refreshControl={

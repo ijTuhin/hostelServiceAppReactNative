@@ -8,11 +8,12 @@ const PayRent = ({ paid, phone }) => {
   const { paySeatRent } = useAuth();
   const rentPayment = () => {
     const value = {
-      trxID: "TxrGhKmliZs",
       phone: phone,
     };
     paySeatRent(value);
-    paid(1);
+    setTimeout(() => {
+      paid(1);
+    }, 2000);
   };
   return (
     <View style={styles.box}>

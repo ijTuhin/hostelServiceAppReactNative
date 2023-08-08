@@ -4,15 +4,16 @@ import { TouchableRipple } from "react-native-paper";
 import { useAuth } from "../../../Authentication/AuthContext";
 
 const PaymentBtn = ({ change, item }) => {
-  const {data, payMealBill} = useAuth();
+  const { data, payMealBill, loading } = useAuth();
   const mealPayment = () => {
     const value = {
-      package: item/3,
-      trxID: "TxrGhKmliZs",
+      package: item / 3,
       phone: data.user.phone,
     };
-    payMealBill(value)
-    change(2);
+    payMealBill(value);
+    setTimeout(() => {
+      change(2);
+    }, 2000);
   };
   return (
     <TouchableRipple

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { month, today } from "../../../Hooks/Conditions";
@@ -33,7 +33,7 @@ const MealBill = () => {
     }
   };
   return (
-    <View style={{ backgroundColor: "#F1F5F9", marginHorizontal:20 }}>
+    <ScrollView contentContainerStyle={{ backgroundColor: "#F1F5F9", marginHorizontal:20 }}>
       <View style={styles.packageBox}>
         {!paymentTab ? (
           <CouponBox coupon={data.user.coupon} />
@@ -163,7 +163,7 @@ const MealBill = () => {
           )}
         </>
       )}
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
